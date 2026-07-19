@@ -1,0 +1,19 @@
+{
+  "seed": 20260719,
+  "total_timesteps": 30000,
+  "n_steps": 256,
+  "batch_size": 64,
+  "n_epochs": 10,
+  "learning_rate": 0.0003,
+  "gamma": 1.0,
+  "gae_lambda": 0.95,
+  "entropy_coefficient": 0.01,
+  "max_candidates": 32,
+  "reward_scale": 100.0,
+  "workflow_count": 4,
+  "mean_interarrival_time": 1.5,
+  "runtime_cv": 0.2,
+  "evaluation_seed_start": 900000,
+  "evaluation_seed_count": 20,
+  "minimum_random_improvement": 0.1
+}

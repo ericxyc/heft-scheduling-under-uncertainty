@@ -1,0 +1,2917 @@
+{
+  "algorithm": "HEFT",
+  "edges": [
+    {
+      "child_internal_id": 55,
+      "child_source_id": "mViewer_ID0000019",
+      "modeled_communication_seconds": 0.0026208,
+      "parent_internal_id": 1,
+      "parent_source_id": "mAdd_ID0000018",
+      "shared_file_bytes": 262080
+    },
+    {
+      "child_internal_id": 58,
+      "child_source_id": "mViewer_ID0000058",
+      "modeled_communication_seconds": 0.0026208,
+      "parent_internal_id": 1,
+      "parent_source_id": "mAdd_ID0000018",
+      "shared_file_bytes": 262080
+    },
+    {
+      "child_internal_id": 56,
+      "child_source_id": "mViewer_ID0000038",
+      "modeled_communication_seconds": 0.0026208,
+      "parent_internal_id": 2,
+      "parent_source_id": "mAdd_ID0000037",
+      "shared_file_bytes": 262080
+    },
+    {
+      "child_internal_id": 58,
+      "child_source_id": "mViewer_ID0000058",
+      "modeled_communication_seconds": 0.0026208,
+      "parent_internal_id": 2,
+      "parent_source_id": "mAdd_ID0000037",
+      "shared_file_bytes": 262080
+    },
+    {
+      "child_internal_id": 57,
+      "child_source_id": "mViewer_ID0000057",
+      "modeled_communication_seconds": 0.0026208,
+      "parent_internal_id": 3,
+      "parent_source_id": "mAdd_ID0000056",
+      "shared_file_bytes": 262080
+    },
+    {
+      "child_internal_id": 58,
+      "child_source_id": "mViewer_ID0000058",
+      "modeled_communication_seconds": 0.0026208,
+      "parent_internal_id": 3,
+      "parent_source_id": "mAdd_ID0000056",
+      "shared_file_bytes": 262080
+    },
+    {
+      "child_internal_id": 1,
+      "child_source_id": "mAdd_ID0000018",
+      "modeled_communication_seconds": 0.0830016,
+      "parent_internal_id": 4,
+      "parent_source_id": "mBackground_ID0000013",
+      "shared_file_bytes": 8300160
+    },
+    {
+      "child_internal_id": 40,
+      "child_source_id": "mImgtbl_ID0000017",
+      "modeled_communication_seconds": 0.0415008,
+      "parent_internal_id": 4,
+      "parent_source_id": "mBackground_ID0000013",
+      "shared_file_bytes": 4150080
+    },
+    {
+      "child_internal_id": 1,
+      "child_source_id": "mAdd_ID0000018",
+      "modeled_communication_seconds": 0.0828288,
+      "parent_internal_id": 5,
+      "parent_source_id": "mBackground_ID0000014",
+      "shared_file_bytes": 8282880
+    },
+    {
+      "child_internal_id": 40,
+      "child_source_id": "mImgtbl_ID0000017",
+      "modeled_communication_seconds": 0.0414144,
+      "parent_internal_id": 5,
+      "parent_source_id": "mBackground_ID0000014",
+      "shared_file_bytes": 4141440
+    },
+    {
+      "child_internal_id": 1,
+      "child_source_id": "mAdd_ID0000018",
+      "modeled_communication_seconds": 0.0828288,
+      "parent_internal_id": 6,
+      "parent_source_id": "mBackground_ID0000015",
+      "shared_file_bytes": 8282880
+    },
+    {
+      "child_internal_id": 40,
+      "child_source_id": "mImgtbl_ID0000017",
+      "modeled_communication_seconds": 0.0414144,
+      "parent_internal_id": 6,
+      "parent_source_id": "mBackground_ID0000015",
+      "shared_file_bytes": 4141440
+    },
+    {
+      "child_internal_id": 1,
+      "child_source_id": "mAdd_ID0000018",
+      "modeled_communication_seconds": 0.0830016,
+      "parent_internal_id": 7,
+      "parent_source_id": "mBackground_ID0000016",
+      "shared_file_bytes": 8300160
+    },
+    {
+      "child_internal_id": 40,
+      "child_source_id": "mImgtbl_ID0000017",
+      "modeled_communication_seconds": 0.0415008,
+      "parent_internal_id": 7,
+      "parent_source_id": "mBackground_ID0000016",
+      "shared_file_bytes": 4150080
+    },
+    {
+      "child_internal_id": 2,
+      "child_source_id": "mAdd_ID0000037",
+      "modeled_communication_seconds": 0.0831744,
+      "parent_internal_id": 8,
+      "parent_source_id": "mBackground_ID0000032",
+      "shared_file_bytes": 8317440
+    },
+    {
+      "child_internal_id": 41,
+      "child_source_id": "mImgtbl_ID0000036",
+      "modeled_communication_seconds": 0.0415872,
+      "parent_internal_id": 8,
+      "parent_source_id": "mBackground_ID0000032",
+      "shared_file_bytes": 4158720
+    },
+    {
+      "child_internal_id": 2,
+      "child_source_id": "mAdd_ID0000037",
+      "modeled_communication_seconds": 0.0831744,
+      "parent_internal_id": 9,
+      "parent_source_id": "mBackground_ID0000033",
+      "shared_file_bytes": 8317440
+    },
+    {
+      "child_internal_id": 41,
+      "child_source_id": "mImgtbl_ID0000036",
+      "modeled_communication_seconds": 0.0415872,
+      "parent_internal_id": 9,
+      "parent_source_id": "mBackground_ID0000033",
+      "shared_file_bytes": 4158720
+    },
+    {
+      "child_internal_id": 2,
+      "child_source_id": "mAdd_ID0000037",
+      "modeled_communication_seconds": 0.0831744,
+      "parent_internal_id": 10,
+      "parent_source_id": "mBackground_ID0000034",
+      "shared_file_bytes": 8317440
+    },
+    {
+      "child_internal_id": 41,
+      "child_source_id": "mImgtbl_ID0000036",
+      "modeled_communication_seconds": 0.0415872,
+      "parent_internal_id": 10,
+      "parent_source_id": "mBackground_ID0000034",
+      "shared_file_bytes": 4158720
+    },
+    {
+      "child_internal_id": 2,
+      "child_source_id": "mAdd_ID0000037",
+      "modeled_communication_seconds": 0.0832896,
+      "parent_internal_id": 11,
+      "parent_source_id": "mBackground_ID0000035",
+      "shared_file_bytes": 8328960
+    },
+    {
+      "child_internal_id": 41,
+      "child_source_id": "mImgtbl_ID0000036",
+      "modeled_communication_seconds": 0.0416448,
+      "parent_internal_id": 11,
+      "parent_source_id": "mBackground_ID0000035",
+      "shared_file_bytes": 4164480
+    },
+    {
+      "child_internal_id": 3,
+      "child_source_id": "mAdd_ID0000056",
+      "modeled_communication_seconds": 0.0828288,
+      "parent_internal_id": 12,
+      "parent_source_id": "mBackground_ID0000051",
+      "shared_file_bytes": 8282880
+    },
+    {
+      "child_internal_id": 42,
+      "child_source_id": "mImgtbl_ID0000055",
+      "modeled_communication_seconds": 0.0414144,
+      "parent_internal_id": 12,
+      "parent_source_id": "mBackground_ID0000051",
+      "shared_file_bytes": 4141440
+    },
+    {
+      "child_internal_id": 3,
+      "child_source_id": "mAdd_ID0000056",
+      "modeled_communication_seconds": 0.0828288,
+      "parent_internal_id": 13,
+      "parent_source_id": "mBackground_ID0000052",
+      "shared_file_bytes": 8282880
+    },
+    {
+      "child_internal_id": 42,
+      "child_source_id": "mImgtbl_ID0000055",
+      "modeled_communication_seconds": 0.0414144,
+      "parent_internal_id": 13,
+      "parent_source_id": "mBackground_ID0000052",
+      "shared_file_bytes": 4141440
+    },
+    {
+      "child_internal_id": 3,
+      "child_source_id": "mAdd_ID0000056",
+      "modeled_communication_seconds": 0.082656,
+      "parent_internal_id": 14,
+      "parent_source_id": "mBackground_ID0000053",
+      "shared_file_bytes": 8265600
+    },
+    {
+      "child_internal_id": 42,
+      "child_source_id": "mImgtbl_ID0000055",
+      "modeled_communication_seconds": 0.041328,
+      "parent_internal_id": 14,
+      "parent_source_id": "mBackground_ID0000053",
+      "shared_file_bytes": 4132800
+    },
+    {
+      "child_internal_id": 3,
+      "child_source_id": "mAdd_ID0000056",
+      "modeled_communication_seconds": 0.0828288,
+      "parent_internal_id": 15,
+      "parent_source_id": "mBackground_ID0000054",
+      "shared_file_bytes": 8282880
+    },
+    {
+      "child_internal_id": 42,
+      "child_source_id": "mImgtbl_ID0000055",
+      "modeled_communication_seconds": 0.0414144,
+      "parent_internal_id": 15,
+      "parent_source_id": "mBackground_ID0000054",
+      "shared_file_bytes": 4141440
+    },
+    {
+      "child_internal_id": 4,
+      "child_source_id": "mBackground_ID0000013",
+      "modeled_communication_seconds": 2.76e-06,
+      "parent_internal_id": 16,
+      "parent_source_id": "mBgModel_ID0000012",
+      "shared_file_bytes": 276
+    },
+    {
+      "child_internal_id": 5,
+      "child_source_id": "mBackground_ID0000014",
+      "modeled_communication_seconds": 2.76e-06,
+      "parent_internal_id": 16,
+      "parent_source_id": "mBgModel_ID0000012",
+      "shared_file_bytes": 276
+    },
+    {
+      "child_internal_id": 6,
+      "child_source_id": "mBackground_ID0000015",
+      "modeled_communication_seconds": 2.76e-06,
+      "parent_internal_id": 16,
+      "parent_source_id": "mBgModel_ID0000012",
+      "shared_file_bytes": 276
+    },
+    {
+      "child_internal_id": 7,
+      "child_source_id": "mBackground_ID0000016",
+      "modeled_communication_seconds": 2.76e-06,
+      "parent_internal_id": 16,
+      "parent_source_id": "mBgModel_ID0000012",
+      "shared_file_bytes": 276
+    },
+    {
+      "child_internal_id": 8,
+      "child_source_id": "mBackground_ID0000032",
+      "modeled_communication_seconds": 2.76e-06,
+      "parent_internal_id": 17,
+      "parent_source_id": "mBgModel_ID0000031",
+      "shared_file_bytes": 276
+    },
+    {
+      "child_internal_id": 9,
+      "child_source_id": "mBackground_ID0000033",
+      "modeled_communication_seconds": 2.76e-06,
+      "parent_internal_id": 17,
+      "parent_source_id": "mBgModel_ID0000031",
+      "shared_file_bytes": 276
+    },
+    {
+      "child_internal_id": 10,
+      "child_source_id": "mBackground_ID0000034",
+      "modeled_communication_seconds": 2.76e-06,
+      "parent_internal_id": 17,
+      "parent_source_id": "mBgModel_ID0000031",
+      "shared_file_bytes": 276
+    },
+    {
+      "child_internal_id": 11,
+      "child_source_id": "mBackground_ID0000035",
+      "modeled_communication_seconds": 2.76e-06,
+      "parent_internal_id": 17,
+      "parent_source_id": "mBgModel_ID0000031",
+      "shared_file_bytes": 276
+    },
+    {
+      "child_internal_id": 12,
+      "child_source_id": "mBackground_ID0000051",
+      "modeled_communication_seconds": 2.76e-06,
+      "parent_internal_id": 18,
+      "parent_source_id": "mBgModel_ID0000050",
+      "shared_file_bytes": 276
+    },
+    {
+      "child_internal_id": 13,
+      "child_source_id": "mBackground_ID0000052",
+      "modeled_communication_seconds": 2.76e-06,
+      "parent_internal_id": 18,
+      "parent_source_id": "mBgModel_ID0000050",
+      "shared_file_bytes": 276
+    },
+    {
+      "child_internal_id": 14,
+      "child_source_id": "mBackground_ID0000053",
+      "modeled_communication_seconds": 2.76e-06,
+      "parent_internal_id": 18,
+      "parent_source_id": "mBgModel_ID0000050",
+      "shared_file_bytes": 276
+    },
+    {
+      "child_internal_id": 15,
+      "child_source_id": "mBackground_ID0000054",
+      "modeled_communication_seconds": 2.76e-06,
+      "parent_internal_id": 18,
+      "parent_source_id": "mBgModel_ID0000050",
+      "shared_file_bytes": 276
+    },
+    {
+      "child_internal_id": 16,
+      "child_source_id": "mBgModel_ID0000012",
+      "modeled_communication_seconds": 1.457e-05,
+      "parent_internal_id": 19,
+      "parent_source_id": "mConcatFit_ID0000011",
+      "shared_file_bytes": 1457
+    },
+    {
+      "child_internal_id": 17,
+      "child_source_id": "mBgModel_ID0000031",
+      "modeled_communication_seconds": 1.457e-05,
+      "parent_internal_id": 20,
+      "parent_source_id": "mConcatFit_ID0000030",
+      "shared_file_bytes": 1457
+    },
+    {
+      "child_internal_id": 18,
+      "child_source_id": "mBgModel_ID0000050",
+      "modeled_communication_seconds": 1.457e-05,
+      "parent_internal_id": 21,
+      "parent_source_id": "mConcatFit_ID0000049",
+      "shared_file_bytes": 1457
+    },
+    {
+      "child_internal_id": 19,
+      "child_source_id": "mConcatFit_ID0000011",
+      "modeled_communication_seconds": 2.59e-06,
+      "parent_internal_id": 22,
+      "parent_source_id": "mDiffFit_ID0000005",
+      "shared_file_bytes": 259
+    },
+    {
+      "child_internal_id": 19,
+      "child_source_id": "mConcatFit_ID0000011",
+      "modeled_communication_seconds": 2.61e-06,
+      "parent_internal_id": 23,
+      "parent_source_id": "mDiffFit_ID0000006",
+      "shared_file_bytes": 261
+    },
+    {
+      "child_internal_id": 19,
+      "child_source_id": "mConcatFit_ID0000011",
+      "modeled_communication_seconds": 2.67e-06,
+      "parent_internal_id": 24,
+      "parent_source_id": "mDiffFit_ID0000007",
+      "shared_file_bytes": 267
+    },
+    {
+      "child_internal_id": 19,
+      "child_source_id": "mConcatFit_ID0000011",
+      "modeled_communication_seconds": 2.64e-06,
+      "parent_internal_id": 25,
+      "parent_source_id": "mDiffFit_ID0000008",
+      "shared_file_bytes": 264
+    },
+    {
+      "child_internal_id": 19,
+      "child_source_id": "mConcatFit_ID0000011",
+      "modeled_communication_seconds": 2.59e-06,
+      "parent_internal_id": 26,
+      "parent_source_id": "mDiffFit_ID0000009",
+      "shared_file_bytes": 259
+    },
+    {
+      "child_internal_id": 19,
+      "child_source_id": "mConcatFit_ID0000011",
+      "modeled_communication_seconds": 2.6e-06,
+      "parent_internal_id": 27,
+      "parent_source_id": "mDiffFit_ID0000010",
+      "shared_file_bytes": 260
+    },
+    {
+      "child_internal_id": 20,
+      "child_source_id": "mConcatFit_ID0000030",
+      "modeled_communication_seconds": 2.62e-06,
+      "parent_internal_id": 28,
+      "parent_source_id": "mDiffFit_ID0000024",
+      "shared_file_bytes": 262
+    },
+    {
+      "child_internal_id": 20,
+      "child_source_id": "mConcatFit_ID0000030",
+      "modeled_communication_seconds": 2.63e-06,
+      "parent_internal_id": 29,
+      "parent_source_id": "mDiffFit_ID0000025",
+      "shared_file_bytes": 263
+    },
+    {
+      "child_internal_id": 20,
+      "child_source_id": "mConcatFit_ID0000030",
+      "modeled_communication_seconds": 2.59e-06,
+      "parent_internal_id": 30,
+      "parent_source_id": "mDiffFit_ID0000026",
+      "shared_file_bytes": 259
+    },
+    {
+      "child_internal_id": 20,
+      "child_source_id": "mConcatFit_ID0000030",
+      "modeled_communication_seconds": 2.61e-06,
+      "parent_internal_id": 31,
+      "parent_source_id": "mDiffFit_ID0000027",
+      "shared_file_bytes": 261
+    },
+    {
+      "child_internal_id": 20,
+      "child_source_id": "mConcatFit_ID0000030",
+      "modeled_communication_seconds": 2.66e-06,
+      "parent_internal_id": 32,
+      "parent_source_id": "mDiffFit_ID0000028",
+      "shared_file_bytes": 266
+    },
+    {
+      "child_internal_id": 20,
+      "child_source_id": "mConcatFit_ID0000030",
+      "modeled_communication_seconds": 2.57e-06,
+      "parent_internal_id": 33,
+      "parent_source_id": "mDiffFit_ID0000029",
+      "shared_file_bytes": 257
+    },
+    {
+      "child_internal_id": 21,
+      "child_source_id": "mConcatFit_ID0000049",
+      "modeled_communication_seconds": 2.6e-06,
+      "parent_internal_id": 34,
+      "parent_source_id": "mDiffFit_ID0000043",
+      "shared_file_bytes": 260
+    },
+    {
+      "child_internal_id": 21,
+      "child_source_id": "mConcatFit_ID0000049",
+      "modeled_communication_seconds": 2.62e-06,
+      "parent_internal_id": 35,
+      "parent_source_id": "mDiffFit_ID0000044",
+      "shared_file_bytes": 262
+    },
+    {
+      "child_internal_id": 21,
+      "child_source_id": "mConcatFit_ID0000049",
+      "modeled_communication_seconds": 2.65e-06,
+      "parent_internal_id": 36,
+      "parent_source_id": "mDiffFit_ID0000045",
+      "shared_file_bytes": 265
+    },
+    {
+      "child_internal_id": 21,
+      "child_source_id": "mConcatFit_ID0000049",
+      "modeled_communication_seconds": 2.63e-06,
+      "parent_internal_id": 37,
+      "parent_source_id": "mDiffFit_ID0000046",
+      "shared_file_bytes": 263
+    },
+    {
+      "child_internal_id": 21,
+      "child_source_id": "mConcatFit_ID0000049",
+      "modeled_communication_seconds": 2.63e-06,
+      "parent_internal_id": 38,
+      "parent_source_id": "mDiffFit_ID0000047",
+      "shared_file_bytes": 263
+    },
+    {
+      "child_internal_id": 21,
+      "child_source_id": "mConcatFit_ID0000049",
+      "modeled_communication_seconds": 2.62e-06,
+      "parent_internal_id": 39,
+      "parent_source_id": "mDiffFit_ID0000048",
+      "shared_file_bytes": 262
+    },
+    {
+      "child_internal_id": 1,
+      "child_source_id": "mAdd_ID0000018",
+      "modeled_communication_seconds": 2.636e-05,
+      "parent_internal_id": 40,
+      "parent_source_id": "mImgtbl_ID0000017",
+      "shared_file_bytes": 2636
+    },
+    {
+      "child_internal_id": 2,
+      "child_source_id": "mAdd_ID0000037",
+      "modeled_communication_seconds": 2.636e-05,
+      "parent_internal_id": 41,
+      "parent_source_id": "mImgtbl_ID0000036",
+      "shared_file_bytes": 2636
+    },
+    {
+      "child_internal_id": 3,
+      "child_source_id": "mAdd_ID0000056",
+      "modeled_communication_seconds": 2.636e-05,
+      "parent_internal_id": 42,
+      "parent_source_id": "mImgtbl_ID0000055",
+      "shared_file_bytes": 2636
+    },
+    {
+      "child_internal_id": 4,
+      "child_source_id": "mBackground_ID0000013",
+      "modeled_communication_seconds": 0.0830016,
+      "parent_internal_id": 43,
+      "parent_source_id": "mProject_ID0000001",
+      "shared_file_bytes": 8300160
+    },
+    {
+      "child_internal_id": 22,
+      "child_source_id": "mDiffFit_ID0000005",
+      "modeled_communication_seconds": 0.0830016,
+      "parent_internal_id": 43,
+      "parent_source_id": "mProject_ID0000001",
+      "shared_file_bytes": 8300160
+    },
+    {
+      "child_internal_id": 23,
+      "child_source_id": "mDiffFit_ID0000006",
+      "modeled_communication_seconds": 0.0830016,
+      "parent_internal_id": 43,
+      "parent_source_id": "mProject_ID0000001",
+      "shared_file_bytes": 8300160
+    },
+    {
+      "child_internal_id": 24,
+      "child_source_id": "mDiffFit_ID0000007",
+      "modeled_communication_seconds": 0.0830016,
+      "parent_internal_id": 43,
+      "parent_source_id": "mProject_ID0000001",
+      "shared_file_bytes": 8300160
+    },
+    {
+      "child_internal_id": 5,
+      "child_source_id": "mBackground_ID0000014",
+      "modeled_communication_seconds": 0.0828288,
+      "parent_internal_id": 44,
+      "parent_source_id": "mProject_ID0000002",
+      "shared_file_bytes": 8282880
+    },
+    {
+      "child_internal_id": 22,
+      "child_source_id": "mDiffFit_ID0000005",
+      "modeled_communication_seconds": 0.0828288,
+      "parent_internal_id": 44,
+      "parent_source_id": "mProject_ID0000002",
+      "shared_file_bytes": 8282880
+    },
+    {
+      "child_internal_id": 25,
+      "child_source_id": "mDiffFit_ID0000008",
+      "modeled_communication_seconds": 0.0828288,
+      "parent_internal_id": 44,
+      "parent_source_id": "mProject_ID0000002",
+      "shared_file_bytes": 8282880
+    },
+    {
+      "child_internal_id": 26,
+      "child_source_id": "mDiffFit_ID0000009",
+      "modeled_communication_seconds": 0.0828288,
+      "parent_internal_id": 44,
+      "parent_source_id": "mProject_ID0000002",
+      "shared_file_bytes": 8282880
+    },
+    {
+      "child_internal_id": 6,
+      "child_source_id": "mBackground_ID0000015",
+      "modeled_communication_seconds": 0.0828288,
+      "parent_internal_id": 45,
+      "parent_source_id": "mProject_ID0000003",
+      "shared_file_bytes": 8282880
+    },
+    {
+      "child_internal_id": 23,
+      "child_source_id": "mDiffFit_ID0000006",
+      "modeled_communication_seconds": 0.0828288,
+      "parent_internal_id": 45,
+      "parent_source_id": "mProject_ID0000003",
+      "shared_file_bytes": 8282880
+    },
+    {
+      "child_internal_id": 25,
+      "child_source_id": "mDiffFit_ID0000008",
+      "modeled_communication_seconds": 0.0828288,
+      "parent_internal_id": 45,
+      "parent_source_id": "mProject_ID0000003",
+      "shared_file_bytes": 8282880
+    },
+    {
+      "child_internal_id": 27,
+      "child_source_id": "mDiffFit_ID0000010",
+      "modeled_communication_seconds": 0.0828288,
+      "parent_internal_id": 45,
+      "parent_source_id": "mProject_ID0000003",
+      "shared_file_bytes": 8282880
+    },
+    {
+      "child_internal_id": 7,
+      "child_source_id": "mBackground_ID0000016",
+      "modeled_communication_seconds": 0.0830016,
+      "parent_internal_id": 46,
+      "parent_source_id": "mProject_ID0000004",
+      "shared_file_bytes": 8300160
+    },
+    {
+      "child_internal_id": 24,
+      "child_source_id": "mDiffFit_ID0000007",
+      "modeled_communication_seconds": 0.0830016,
+      "parent_internal_id": 46,
+      "parent_source_id": "mProject_ID0000004",
+      "shared_file_bytes": 8300160
+    },
+    {
+      "child_internal_id": 26,
+      "child_source_id": "mDiffFit_ID0000009",
+      "modeled_communication_seconds": 0.0830016,
+      "parent_internal_id": 46,
+      "parent_source_id": "mProject_ID0000004",
+      "shared_file_bytes": 8300160
+    },
+    {
+      "child_internal_id": 27,
+      "child_source_id": "mDiffFit_ID0000010",
+      "modeled_communication_seconds": 0.0830016,
+      "parent_internal_id": 46,
+      "parent_source_id": "mProject_ID0000004",
+      "shared_file_bytes": 8300160
+    },
+    {
+      "child_internal_id": 8,
+      "child_source_id": "mBackground_ID0000032",
+      "modeled_communication_seconds": 0.0831744,
+      "parent_internal_id": 47,
+      "parent_source_id": "mProject_ID0000020",
+      "shared_file_bytes": 8317440
+    },
+    {
+      "child_internal_id": 28,
+      "child_source_id": "mDiffFit_ID0000024",
+      "modeled_communication_seconds": 0.0831744,
+      "parent_internal_id": 47,
+      "parent_source_id": "mProject_ID0000020",
+      "shared_file_bytes": 8317440
+    },
+    {
+      "child_internal_id": 29,
+      "child_source_id": "mDiffFit_ID0000025",
+      "modeled_communication_seconds": 0.0831744,
+      "parent_internal_id": 47,
+      "parent_source_id": "mProject_ID0000020",
+      "shared_file_bytes": 8317440
+    },
+    {
+      "child_internal_id": 30,
+      "child_source_id": "mDiffFit_ID0000026",
+      "modeled_communication_seconds": 0.0831744,
+      "parent_internal_id": 47,
+      "parent_source_id": "mProject_ID0000020",
+      "shared_file_bytes": 8317440
+    },
+    {
+      "child_internal_id": 9,
+      "child_source_id": "mBackground_ID0000033",
+      "modeled_communication_seconds": 0.0831744,
+      "parent_internal_id": 48,
+      "parent_source_id": "mProject_ID0000021",
+      "shared_file_bytes": 8317440
+    },
+    {
+      "child_internal_id": 28,
+      "child_source_id": "mDiffFit_ID0000024",
+      "modeled_communication_seconds": 0.0831744,
+      "parent_internal_id": 48,
+      "parent_source_id": "mProject_ID0000021",
+      "shared_file_bytes": 8317440
+    },
+    {
+      "child_internal_id": 31,
+      "child_source_id": "mDiffFit_ID0000027",
+      "modeled_communication_seconds": 0.0831744,
+      "parent_internal_id": 48,
+      "parent_source_id": "mProject_ID0000021",
+      "shared_file_bytes": 8317440
+    },
+    {
+      "child_internal_id": 32,
+      "child_source_id": "mDiffFit_ID0000028",
+      "modeled_communication_seconds": 0.0831744,
+      "parent_internal_id": 48,
+      "parent_source_id": "mProject_ID0000021",
+      "shared_file_bytes": 8317440
+    },
+    {
+      "child_internal_id": 10,
+      "child_source_id": "mBackground_ID0000034",
+      "modeled_communication_seconds": 0.0831744,
+      "parent_internal_id": 49,
+      "parent_source_id": "mProject_ID0000022",
+      "shared_file_bytes": 8317440
+    },
+    {
+      "child_internal_id": 29,
+      "child_source_id": "mDiffFit_ID0000025",
+      "modeled_communication_seconds": 0.0831744,
+      "parent_internal_id": 49,
+      "parent_source_id": "mProject_ID0000022",
+      "shared_file_bytes": 8317440
+    },
+    {
+      "child_internal_id": 31,
+      "child_source_id": "mDiffFit_ID0000027",
+      "modeled_communication_seconds": 0.0831744,
+      "parent_internal_id": 49,
+      "parent_source_id": "mProject_ID0000022",
+      "shared_file_bytes": 8317440
+    },
+    {
+      "child_internal_id": 33,
+      "child_source_id": "mDiffFit_ID0000029",
+      "modeled_communication_seconds": 0.0831744,
+      "parent_internal_id": 49,
+      "parent_source_id": "mProject_ID0000022",
+      "shared_file_bytes": 8317440
+    },
+    {
+      "child_internal_id": 11,
+      "child_source_id": "mBackground_ID0000035",
+      "modeled_communication_seconds": 0.0832896,
+      "parent_internal_id": 50,
+      "parent_source_id": "mProject_ID0000023",
+      "shared_file_bytes": 8328960
+    },
+    {
+      "child_internal_id": 30,
+      "child_source_id": "mDiffFit_ID0000026",
+      "modeled_communication_seconds": 0.0832896,
+      "parent_internal_id": 50,
+      "parent_source_id": "mProject_ID0000023",
+      "shared_file_bytes": 8328960
+    },
+    {
+      "child_internal_id": 32,
+      "child_source_id": "mDiffFit_ID0000028",
+      "modeled_communication_seconds": 0.0832896,
+      "parent_internal_id": 50,
+      "parent_source_id": "mProject_ID0000023",
+      "shared_file_bytes": 8328960
+    },
+    {
+      "child_internal_id": 33,
+      "child_source_id": "mDiffFit_ID0000029",
+      "modeled_communication_seconds": 0.0832896,
+      "parent_internal_id": 50,
+      "parent_source_id": "mProject_ID0000023",
+      "shared_file_bytes": 8328960
+    },
+    {
+      "child_internal_id": 12,
+      "child_source_id": "mBackground_ID0000051",
+      "modeled_communication_seconds": 0.0828288,
+      "parent_internal_id": 51,
+      "parent_source_id": "mProject_ID0000039",
+      "shared_file_bytes": 8282880
+    },
+    {
+      "child_internal_id": 34,
+      "child_source_id": "mDiffFit_ID0000043",
+      "modeled_communication_seconds": 0.0828288,
+      "parent_internal_id": 51,
+      "parent_source_id": "mProject_ID0000039",
+      "shared_file_bytes": 8282880
+    },
+    {
+      "child_internal_id": 35,
+      "child_source_id": "mDiffFit_ID0000044",
+      "modeled_communication_seconds": 0.0828288,
+      "parent_internal_id": 51,
+      "parent_source_id": "mProject_ID0000039",
+      "shared_file_bytes": 8282880
+    },
+    {
+      "child_internal_id": 36,
+      "child_source_id": "mDiffFit_ID0000045",
+      "modeled_communication_seconds": 0.0828288,
+      "parent_internal_id": 51,
+      "parent_source_id": "mProject_ID0000039",
+      "shared_file_bytes": 8282880
+    },
+    {
+      "child_internal_id": 13,
+      "child_source_id": "mBackground_ID0000052",
+      "modeled_communication_seconds": 0.0828288,
+      "parent_internal_id": 52,
+      "parent_source_id": "mProject_ID0000040",
+      "shared_file_bytes": 8282880
+    },
+    {
+      "child_internal_id": 34,
+      "child_source_id": "mDiffFit_ID0000043",
+      "modeled_communication_seconds": 0.0828288,
+      "parent_internal_id": 52,
+      "parent_source_id": "mProject_ID0000040",
+      "shared_file_bytes": 8282880
+    },
+    {
+      "child_internal_id": 37,
+      "child_source_id": "mDiffFit_ID0000046",
+      "modeled_communication_seconds": 0.0828288,
+      "parent_internal_id": 52,
+      "parent_source_id": "mProject_ID0000040",
+      "shared_file_bytes": 8282880
+    },
+    {
+      "child_internal_id": 38,
+      "child_source_id": "mDiffFit_ID0000047",
+      "modeled_communication_seconds": 0.0828288,
+      "parent_internal_id": 52,
+      "parent_source_id": "mProject_ID0000040",
+      "shared_file_bytes": 8282880
+    },
+    {
+      "child_internal_id": 14,
+      "child_source_id": "mBackground_ID0000053",
+      "modeled_communication_seconds": 0.082656,
+      "parent_internal_id": 53,
+      "parent_source_id": "mProject_ID0000041",
+      "shared_file_bytes": 8265600
+    },
+    {
+      "child_internal_id": 35,
+      "child_source_id": "mDiffFit_ID0000044",
+      "modeled_communication_seconds": 0.082656,
+      "parent_internal_id": 53,
+      "parent_source_id": "mProject_ID0000041",
+      "shared_file_bytes": 8265600
+    },
+    {
+      "child_internal_id": 37,
+      "child_source_id": "mDiffFit_ID0000046",
+      "modeled_communication_seconds": 0.082656,
+      "parent_internal_id": 53,
+      "parent_source_id": "mProject_ID0000041",
+      "shared_file_bytes": 8265600
+    },
+    {
+      "child_internal_id": 39,
+      "child_source_id": "mDiffFit_ID0000048",
+      "modeled_communication_seconds": 0.082656,
+      "parent_internal_id": 53,
+      "parent_source_id": "mProject_ID0000041",
+      "shared_file_bytes": 8265600
+    },
+    {
+      "child_internal_id": 15,
+      "child_source_id": "mBackground_ID0000054",
+      "modeled_communication_seconds": 0.0828288,
+      "parent_internal_id": 54,
+      "parent_source_id": "mProject_ID0000042",
+      "shared_file_bytes": 8282880
+    },
+    {
+      "child_internal_id": 36,
+      "child_source_id": "mDiffFit_ID0000045",
+      "modeled_communication_seconds": 0.0828288,
+      "parent_internal_id": 54,
+      "parent_source_id": "mProject_ID0000042",
+      "shared_file_bytes": 8282880
+    },
+    {
+      "child_internal_id": 38,
+      "child_source_id": "mDiffFit_ID0000047",
+      "modeled_communication_seconds": 0.0828288,
+      "parent_internal_id": 54,
+      "parent_source_id": "mProject_ID0000042",
+      "shared_file_bytes": 8282880
+    },
+    {
+      "child_internal_id": 39,
+      "child_source_id": "mDiffFit_ID0000048",
+      "modeled_communication_seconds": 0.0828288,
+      "parent_internal_id": 54,
+      "parent_source_id": "mProject_ID0000042",
+      "shared_file_bytes": 8282880
+    }
+  ],
+  "interpretation": {
+    "observed_makespan_is_provenance_only": true,
+    "observed_trace_data": "DAG, task runtime, avgCPU, files, file sizes, and source machine metadata",
+    "simulated_assumptions": "worker compute/I-O speeds and inter-worker bandwidth",
+    "study_type": "trace-driven heterogeneous scheduling simulation"
+  },
+  "is_valid": true,
+  "metrics": {
+    "average_utilization": 0.9466616916342551,
+    "best_serial_runtime": 147.739375728125,
+    "cross_worker_communication_seconds": 2.993116270000002,
+    "cross_worker_data_bytes": 299311627,
+    "cross_worker_edge_count": 47,
+    "processor_busy_time": {
+      "Balanced": 63.294999999999995,
+      "Compute-Fast": 68.72874230687499,
+      "IO-Fast": 63.801248191250004
+    },
+    "processor_utilization": {
+      "Balanced": 0.9179464523844401,
+      "Compute-Fast": 0.996750220040134,
+      "IO-Fast": 0.9252884024781913
+    },
+    "serial_runtime_by_processor": {
+      "Balanced": 221.726,
+      "Compute-Fast": 147.739375728125,
+      "IO-Fast": 267.99687427187496
+    },
+    "simulated_speedup": 2.142615306534864
+  },
+  "model_config": {
+    "communication_formula": "shared_file_bytes / network_bandwidth_bytes_per_second",
+    "cpu_weight_source": "avgCPU / 100",
+    "default_cpu_weight": 0.5,
+    "model_name": "cpu-io-proxy-v1",
+    "network_bandwidth_bytes_per_second": 100000000.0,
+    "runtime_formula": "observed_runtime * (cpu_weight / compute_speed + (1 - cpu_weight) / io_speed)",
+    "workers": [
+      {
+        "compute_speed": 1.6,
+        "id": "Compute-Fast",
+        "io_speed": 0.8
+      },
+      {
+        "compute_speed": 1.0,
+        "id": "Balanced",
+        "io_speed": 1.0
+      },
+      {
+        "compute_speed": 0.8,
+        "id": "IO-Fast",
+        "io_speed": 1.6
+      }
+    ]
+  },
+  "modeled_makespan_in_seconds": 68.95282381187499,
+  "priority_order": [
+    {
+      "internal_id": 54,
+      "program": "mProject",
+      "source_id": "mProject_ID0000042",
+      "upward_rank": 20.62078227333333
+    },
+    {
+      "internal_id": 48,
+      "program": "mProject",
+      "source_id": "mProject_ID0000021",
+      "upward_rank": 20.616595416666666
+    },
+    {
+      "internal_id": 52,
+      "program": "mProject",
+      "source_id": "mProject_ID0000040",
+      "upward_rank": 20.52015725333333
+    },
+    {
+      "internal_id": 44,
+      "program": "mProject",
+      "source_id": "mProject_ID0000002",
+      "upward_rank": 20.10345506333333
+    },
+    {
+      "internal_id": 50,
+      "program": "mProject",
+      "source_id": "mProject_ID0000023",
+      "upward_rank": 20.013918949999997
+    },
+    {
+      "internal_id": 46,
+      "program": "mProject",
+      "source_id": "mProject_ID0000004",
+      "upward_rank": 19.612961226666663
+    },
+    {
+      "internal_id": 45,
+      "program": "mProject",
+      "source_id": "mProject_ID0000003",
+      "upward_rank": 18.971663396666663
+    },
+    {
+      "internal_id": 43,
+      "program": "mProject",
+      "source_id": "mProject_ID0000001",
+      "upward_rank": 18.532919559999996
+    },
+    {
+      "internal_id": 47,
+      "program": "mProject",
+      "source_id": "mProject_ID0000020",
+      "upward_rank": 18.445970386666666
+    },
+    {
+      "internal_id": 49,
+      "program": "mProject",
+      "source_id": "mProject_ID0000022",
+      "upward_rank": 18.319470386666666
+    },
+    {
+      "internal_id": 53,
+      "program": "mProject",
+      "source_id": "mProject_ID0000041",
+      "upward_rank": 17.616234453333334
+    },
+    {
+      "internal_id": 51,
+      "program": "mProject",
+      "source_id": "mProject_ID0000039",
+      "upward_rank": 17.27619894
+    },
+    {
+      "internal_id": 25,
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000008",
+      "upward_rank": 2.851126263333333
+    },
+    {
+      "internal_id": 32,
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000028",
+      "upward_rank": 2.70362935
+    },
+    {
+      "internal_id": 36,
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000045",
+      "upward_rank": 2.488703473333333
+    },
+    {
+      "internal_id": 37,
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000046",
+      "upward_rank": 2.4743284533333334
+    },
+    {
+      "internal_id": 24,
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000007",
+      "upward_rank": 2.434251293333334
+    },
+    {
+      "internal_id": 29,
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000025",
+      "upward_rank": 2.4113376533333333
+    },
+    {
+      "internal_id": 23,
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000006",
+      "upward_rank": 2.2013762333333338
+    },
+    {
+      "internal_id": 27,
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000010",
+      "upward_rank": 2.187959556666667
+    },
+    {
+      "internal_id": 26,
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000009",
+      "upward_rank": 2.1707095466666666
+    },
+    {
+      "internal_id": 22,
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000005",
+      "upward_rank": 2.155376213333333
+    },
+    {
+      "internal_id": 34,
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000043",
+      "upward_rank": 2.15137009
+    },
+    {
+      "internal_id": 35,
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000044",
+      "upward_rank": 2.1216617766666666
+    },
+    {
+      "internal_id": 38,
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000047",
+      "upward_rank": 2.1197451199999997
+    },
+    {
+      "internal_id": 39,
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000048",
+      "upward_rank": 2.106328443333333
+    },
+    {
+      "internal_id": 19,
+      "program": "mConcatFit",
+      "source_id": "mConcatFit_ID0000011",
+      "upward_rank": 2.067206956666667
+    },
+    {
+      "internal_id": 30,
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000026",
+      "upward_rank": 2.0270459466666666
+    },
+    {
+      "internal_id": 21,
+      "program": "mConcatFit",
+      "source_id": "mConcatFit_ID0000049",
+      "upward_rank": 2.0210341566666665
+    },
+    {
+      "internal_id": 33,
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000029",
+      "upward_rank": 1.9915875933333334
+    },
+    {
+      "internal_id": 31,
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000027",
+      "upward_rank": 1.9762543
+    },
+    {
+      "internal_id": 28,
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000024",
+      "upward_rank": 1.9743376433333335
+    },
+    {
+      "internal_id": 20,
+      "program": "mConcatFit",
+      "source_id": "mConcatFit_ID0000030",
+      "upward_rank": 1.8823350233333334
+    },
+    {
+      "internal_id": 16,
+      "program": "mBgModel",
+      "source_id": "mBgModel_ID0000012",
+      "upward_rank": 1.880317386666667
+    },
+    {
+      "internal_id": 18,
+      "program": "mBgModel",
+      "source_id": "mBgModel_ID0000050",
+      "upward_rank": 1.8360612533333334
+    },
+    {
+      "internal_id": 17,
+      "program": "mBgModel",
+      "source_id": "mBgModel_ID0000031",
+      "upward_rank": 1.70598712
+    },
+    {
+      "internal_id": 4,
+      "program": "mBackground",
+      "source_id": "mBackground_ID0000013",
+      "upward_rank": 1.1807312933333334
+    },
+    {
+      "internal_id": 14,
+      "program": "mBackground",
+      "source_id": "mBackground_ID0000053",
+      "upward_rank": 1.0693918266666667
+    },
+    {
+      "internal_id": 12,
+      "program": "mBackground",
+      "source_id": "mBackground_ID0000051",
+      "upward_rank": 1.0589365599999998
+    },
+    {
+      "internal_id": 15,
+      "program": "mBackground",
+      "source_id": "mBackground_ID0000054",
+      "upward_rank": 1.0493532266666665
+    },
+    {
+      "internal_id": 5,
+      "program": "mBackground",
+      "source_id": "mBackground_ID0000014",
+      "upward_rank": 0.9247698933333333
+    },
+    {
+      "internal_id": 8,
+      "program": "mBackground",
+      "source_id": "mBackground_ID0000032",
+      "upward_rank": 0.9086510266666668
+    },
+    {
+      "internal_id": 7,
+      "program": "mBackground",
+      "source_id": "mBackground_ID0000016",
+      "upward_rank": 0.8903562933333334
+    },
+    {
+      "internal_id": 6,
+      "program": "mBackground",
+      "source_id": "mBackground_ID0000015",
+      "upward_rank": 0.8749365600000001
+    },
+    {
+      "internal_id": 11,
+      "program": "mBackground",
+      "source_id": "mBackground_ID0000035",
+      "upward_rank": 0.8521669600000001
+    },
+    {
+      "internal_id": 9,
+      "program": "mBackground",
+      "source_id": "mBackground_ID0000033",
+      "upward_rank": 0.8482760266666667
+    },
+    {
+      "internal_id": 10,
+      "program": "mBackground",
+      "source_id": "mBackground_ID0000034",
+      "upward_rank": 0.8415676933333334
+    },
+    {
+      "internal_id": 13,
+      "program": "mBackground",
+      "source_id": "mBackground_ID0000052",
+      "upward_rank": 0.8011448933333333
+    },
+    {
+      "internal_id": 41,
+      "program": "mImgtbl",
+      "source_id": "mImgtbl_ID0000036",
+      "upward_rank": 0.5239804933333334
+    },
+    {
+      "internal_id": 40,
+      "program": "mImgtbl",
+      "source_id": "mImgtbl_ID0000017",
+      "upward_rank": 0.5220638266666667
+    },
+    {
+      "internal_id": 42,
+      "program": "mImgtbl",
+      "source_id": "mImgtbl_ID0000055",
+      "upward_rank": 0.5134388266666666
+    },
+    {
+      "internal_id": 3,
+      "program": "mAdd",
+      "source_id": "mAdd_ID0000056",
+      "upward_rank": 0.3619958
+    },
+    {
+      "internal_id": 2,
+      "program": "mAdd",
+      "source_id": "mAdd_ID0000037",
+      "upward_rank": 0.3610374666666667
+    },
+    {
+      "internal_id": 1,
+      "program": "mAdd",
+      "source_id": "mAdd_ID0000018",
+      "upward_rank": 0.36007913333333336
+    },
+    {
+      "internal_id": 58,
+      "program": "mViewer",
+      "source_id": "mViewer_ID0000058",
+      "upward_rank": 0.18304166666666669
+    },
+    {
+      "internal_id": 57,
+      "program": "mViewer",
+      "source_id": "mViewer_ID0000057",
+      "upward_rank": 0.09391666666666666
+    },
+    {
+      "internal_id": 55,
+      "program": "mViewer",
+      "source_id": "mViewer_ID0000019",
+      "upward_rank": 0.09008333333333333
+    },
+    {
+      "internal_id": 56,
+      "program": "mViewer",
+      "source_id": "mViewer_ID0000038",
+      "upward_rank": 0.09008333333333333
+    }
+  ],
+  "schedule": [
+    {
+      "avg_cpu": 100.0,
+      "cpu_weight": 1.0,
+      "duration": 0.18200000000000216,
+      "finish": 62.48341670562498,
+      "observed_runtime_in_seconds": 0.182,
+      "processor": "Balanced",
+      "program": "mAdd",
+      "source_id": "mAdd_ID0000018",
+      "source_name": "mAdd_ID0000018",
+      "start": 62.30141670562498,
+      "task": 1
+    },
+    {
+      "avg_cpu": 100.0,
+      "cpu_weight": 1.0,
+      "duration": 0.18299999999999983,
+      "finish": 62.30141670562498,
+      "observed_runtime_in_seconds": 0.183,
+      "processor": "Balanced",
+      "program": "mAdd",
+      "source_id": "mAdd_ID0000037",
+      "source_name": "mAdd_ID0000037",
+      "start": 62.11841670562498,
+      "task": 2
+    },
+    {
+      "avg_cpu": 89.6739,
+      "cpu_weight": 0.8967390000000001,
+      "duration": 0.12687501499999598,
+      "finish": 68.83344881187499,
+      "observed_runtime_in_seconds": 0.184,
+      "processor": "Compute-Fast",
+      "program": "mAdd",
+      "source_id": "mAdd_ID0000056",
+      "source_name": "mAdd_ID0000056",
+      "start": 68.70657379687499,
+      "task": 3
+    },
+    {
+      "avg_cpu": 50.3106,
+      "cpu_weight": 0.503106,
+      "duration": 0.6439999999999984,
+      "finish": 59.87341670562498,
+      "observed_runtime_in_seconds": 0.644,
+      "processor": "Balanced",
+      "program": "mBackground",
+      "source_id": "mBackground_ID0000013",
+      "source_name": "mBackground_ID0000013",
+      "start": 59.229416705624985,
+      "task": 4
+    },
+    {
+      "avg_cpu": 77.7188,
+      "cpu_weight": 0.777188,
+      "duration": 0.37700000000000244,
+      "finish": 57.26499999999999,
+      "observed_runtime_in_seconds": 0.377,
+      "processor": "Balanced",
+      "program": "mBackground",
+      "source_id": "mBackground_ID0000014",
+      "source_name": "mBackground_ID0000014",
+      "start": 56.88799999999999,
+      "task": 5
+    },
+    {
+      "avg_cpu": 91.3846,
+      "cpu_weight": 0.913846,
+      "duration": 0.32500000000000284,
+      "finish": 60.897416705624984,
+      "observed_runtime_in_seconds": 0.325,
+      "processor": "Balanced",
+      "program": "mBackground",
+      "source_id": "mBackground_ID0000015",
+      "source_name": "mBackground_ID0000015",
+      "start": 60.57241670562498,
+      "task": 6
+    },
+    {
+      "avg_cpu": 89.1496,
+      "cpu_weight": 0.8914960000000001,
+      "duration": 0.3410000000000011,
+      "finish": 60.57241670562498,
+      "observed_runtime_in_seconds": 0.341,
+      "processor": "Balanced",
+      "program": "mBackground",
+      "source_id": "mBackground_ID0000016",
+      "source_name": "mBackground_ID0000016",
+      "start": 60.23141670562498,
+      "task": 7
+    },
+    {
+      "avg_cpu": 84.9162,
+      "cpu_weight": 0.8491620000000001,
+      "duration": 0.357999999999997,
+      "finish": 60.23141670562498,
+      "observed_runtime_in_seconds": 0.358,
+      "processor": "Balanced",
+      "program": "mBackground",
+      "source_id": "mBackground_ID0000032",
+      "source_name": "mBackground_ID0000032",
+      "start": 59.87341670562498,
+      "task": 8
+    },
+    {
+      "avg_cpu": 100.0,
+      "cpu_weight": 1.0,
+      "duration": 0.2950000000000017,
+      "finish": 61.491416705624985,
+      "observed_runtime_in_seconds": 0.295,
+      "processor": "Balanced",
+      "program": "mBackground",
+      "source_id": "mBackground_ID0000033",
+      "source_name": "mBackground_ID0000033",
+      "start": 61.19641670562498,
+      "task": 9
+    },
+    {
+      "avg_cpu": 100.0,
+      "cpu_weight": 1.0,
+      "duration": 0.2879999999999967,
+      "finish": 61.77941670562498,
+      "observed_runtime_in_seconds": 0.288,
+      "processor": "Balanced",
+      "program": "mBackground",
+      "source_id": "mBackground_ID0000034",
+      "source_name": "mBackground_ID0000034",
+      "start": 61.491416705624985,
+      "task": 10
+    },
+    {
+      "avg_cpu": 100.0,
+      "cpu_weight": 1.0,
+      "duration": 0.2989999999999995,
+      "finish": 61.19641670562498,
+      "observed_runtime_in_seconds": 0.299,
+      "processor": "Balanced",
+      "program": "mBackground",
+      "source_id": "mBackground_ID0000035",
+      "source_name": "mBackground_ID0000035",
+      "start": 60.897416705624984,
+      "task": 11
+    },
+    {
+      "avg_cpu": 56.654,
+      "cpu_weight": 0.56654,
+      "duration": 0.5150000250000062,
+      "finish": 68.48407652875001,
+      "observed_runtime_in_seconds": 0.526,
+      "processor": "IO-Fast",
+      "program": "mBackground",
+      "source_id": "mBackground_ID0000051",
+      "source_name": "mBackground_ID0000051",
+      "start": 67.96907650375,
+      "task": 12
+    },
+    {
+      "avg_cpu": 100.0,
+      "cpu_weight": 1.0,
+      "duration": 0.16062499999999602,
+      "finish": 68.60719880812499,
+      "observed_runtime_in_seconds": 0.257,
+      "processor": "Compute-Fast",
+      "program": "mBackground",
+      "source_id": "mBackground_ID0000052",
+      "source_name": "mBackground_ID0000052",
+      "start": 68.446573808125,
+      "task": 13
+    },
+    {
+      "avg_cpu": 57.7281,
+      "cpu_weight": 0.5772809999999999,
+      "duration": 0.47750006437499337,
+      "finish": 68.446573808125,
+      "observed_runtime_in_seconds": 0.537,
+      "processor": "Compute-Fast",
+      "program": "mBackground",
+      "source_id": "mBackground_ID0000053",
+      "source_name": "mBackground_ID0000053",
+      "start": 67.96907374375,
+      "task": 14
+    },
+    {
+      "avg_cpu": 56.5891,
+      "cpu_weight": 0.565891,
+      "duration": 0.5160000000000053,
+      "finish": 68.48507650375001,
+      "observed_runtime_in_seconds": 0.516,
+      "processor": "Balanced",
+      "program": "mBackground",
+      "source_id": "mBackground_ID0000054",
+      "source_name": "mBackground_ID0000054",
+      "start": 67.96907650375,
+      "task": 15
+    },
+    {
+      "avg_cpu": 100.0,
+      "cpu_weight": 1.0,
+      "duration": 0.7299999999999969,
+      "finish": 56.88799999999999,
+      "observed_runtime_in_seconds": 0.73,
+      "processor": "Balanced",
+      "program": "mBgModel",
+      "source_id": "mBgModel_ID0000012",
+      "source_name": "mBgModel_ID0000012",
+      "start": 56.157999999999994,
+      "task": 16
+    },
+    {
+      "avg_cpu": 99.8798,
+      "cpu_weight": 0.9987980000000001,
+      "duration": 0.8320000000000007,
+      "finish": 59.229416705624985,
+      "observed_runtime_in_seconds": 0.832,
+      "processor": "Balanced",
+      "program": "mBgModel",
+      "source_id": "mBgModel_ID0000031",
+      "source_name": "mBgModel_ID0000031",
+      "start": 58.397416705624984,
+      "task": 17
+    },
+    {
+      "avg_cpu": 99.875,
+      "cpu_weight": 0.99875,
+      "duration": 0.5006249999999994,
+      "finish": 67.96907374375,
+      "observed_runtime_in_seconds": 0.8,
+      "processor": "Compute-Fast",
+      "program": "mBgModel",
+      "source_id": "mBgModel_ID0000050",
+      "source_name": "mBgModel_ID0000050",
+      "start": 67.46844874375,
+      "task": 18
+    },
+    {
+      "avg_cpu": 100.0,
+      "cpu_weight": 1.0,
+      "duration": 0.19500000000000028,
+      "finish": 55.910999999999994,
+      "observed_runtime_in_seconds": 0.195,
+      "processor": "Balanced",
+      "program": "mConcatFit",
+      "source_id": "mConcatFit_ID0000011",
+      "source_name": "mConcatFit_ID0000011",
+      "start": 55.715999999999994,
+      "task": 19
+    },
+    {
+      "avg_cpu": 100.0,
+      "cpu_weight": 1.0,
+      "duration": 0.1839999999999975,
+      "finish": 58.397416705624984,
+      "observed_runtime_in_seconds": 0.184,
+      "processor": "Balanced",
+      "program": "mConcatFit",
+      "source_id": "mConcatFit_ID0000030",
+      "source_name": "mConcatFit_ID0000030",
+      "start": 58.21341670562499,
+      "task": 20
+    },
+    {
+      "avg_cpu": 99.4819,
+      "cpu_weight": 0.994819,
+      "duration": 0.12124995812500572,
+      "finish": 67.46844874375,
+      "observed_runtime_in_seconds": 0.193,
+      "processor": "Compute-Fast",
+      "program": "mConcatFit",
+      "source_id": "mConcatFit_ID0000049",
+      "source_name": "mConcatFit_ID0000049",
+      "start": 67.347198785625,
+      "task": 21
+    },
+    {
+      "avg_cpu": 6.5217,
+      "cpu_weight": 0.065217,
+      "duration": 0.09199999999999875,
+      "finish": 55.61299999999999,
+      "observed_runtime_in_seconds": 0.092,
+      "processor": "Balanced",
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000005",
+      "source_name": "mDiffFit_ID0000005",
+      "start": 55.520999999999994,
+      "task": 22
+    },
+    {
+      "avg_cpu": 3.5714,
+      "cpu_weight": 0.035714,
+      "duration": 0.14000000000000057,
+      "finish": 55.287,
+      "observed_runtime_in_seconds": 0.14,
+      "processor": "Balanced",
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000006",
+      "source_name": "mDiffFit_ID0000006",
+      "start": 55.147,
+      "task": 23
+    },
+    {
+      "avg_cpu": 1.3055,
+      "cpu_weight": 0.013055,
+      "duration": 0.38300000000000267,
+      "finish": 55.147,
+      "observed_runtime_in_seconds": 0.383,
+      "processor": "Balanced",
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000007",
+      "source_name": "mDiffFit_ID0000007",
+      "start": 54.763999999999996,
+      "task": 24
+    },
+    {
+      "avg_cpu": 0.6112,
+      "cpu_weight": 0.006111999999999999,
+      "duration": 0.8179999999999978,
+      "finish": 53.907,
+      "observed_runtime_in_seconds": 0.818,
+      "processor": "Balanced",
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000008",
+      "source_name": "mDiffFit_ID0000008",
+      "start": 53.089,
+      "task": 25
+    },
+    {
+      "avg_cpu": 4.6296,
+      "cpu_weight": 0.046296,
+      "duration": 0.10799999999999699,
+      "finish": 55.520999999999994,
+      "observed_runtime_in_seconds": 0.108,
+      "processor": "Balanced",
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000009",
+      "source_name": "mDiffFit_ID0000009",
+      "start": 55.413,
+      "task": 26
+    },
+    {
+      "avg_cpu": 3.9683,
+      "cpu_weight": 0.039683,
+      "duration": 0.12599999999999767,
+      "finish": 55.413,
+      "observed_runtime_in_seconds": 0.126,
+      "processor": "Balanced",
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000010",
+      "source_name": "mDiffFit_ID0000010",
+      "start": 55.287,
+      "task": 27
+    },
+    {
+      "avg_cpu": 5.2083,
+      "cpu_weight": 0.052083000000000004,
+      "duration": 0.09599999999999653,
+      "finish": 56.157999999999994,
+      "observed_runtime_in_seconds": 0.096,
+      "processor": "Balanced",
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000024",
+      "source_name": "mDiffFit_ID0000024",
+      "start": 56.062,
+      "task": 28
+    },
+    {
+      "avg_cpu": 0.9058,
+      "cpu_weight": 0.009058,
+      "duration": 0.5519999999999996,
+      "finish": 58.00141670562499,
+      "observed_runtime_in_seconds": 0.552,
+      "processor": "Balanced",
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000025",
+      "source_name": "mDiffFit_ID0000025",
+      "start": 57.44941670562499,
+      "task": 29
+    },
+    {
+      "avg_cpu": 3.3113,
+      "cpu_weight": 0.033113000000000004,
+      "duration": 0.15100000000000335,
+      "finish": 56.062,
+      "observed_runtime_in_seconds": 0.151,
+      "processor": "Balanced",
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000026",
+      "source_name": "mDiffFit_ID0000026",
+      "start": 55.910999999999994,
+      "task": 30
+    },
+    {
+      "avg_cpu": 6.1224,
+      "cpu_weight": 0.061224,
+      "duration": 0.09799999999999898,
+      "finish": 58.21341670562499,
+      "observed_runtime_in_seconds": 0.098,
+      "processor": "Balanced",
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000027",
+      "source_name": "mDiffFit_ID0000027",
+      "start": 58.11541670562499,
+      "task": 31
+    },
+    {
+      "avg_cpu": 0.5834,
+      "cpu_weight": 0.005834000000000001,
+      "duration": 0.8569999999999993,
+      "finish": 54.763999999999996,
+      "observed_runtime_in_seconds": 0.857,
+      "processor": "Balanced",
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000028",
+      "source_name": "mDiffFit_ID0000028",
+      "start": 53.907,
+      "task": 32
+    },
+    {
+      "avg_cpu": 4.386,
+      "cpu_weight": 0.04386,
+      "duration": 0.11399999999999721,
+      "finish": 58.11541670562499,
+      "observed_runtime_in_seconds": 0.114,
+      "processor": "Balanced",
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000029",
+      "source_name": "mDiffFit_ID0000029",
+      "start": 58.00141670562499,
+      "task": 33
+    },
+    {
+      "avg_cpu": 3.6765,
+      "cpu_weight": 0.036765,
+      "duration": 0.16687497499999893,
+      "finish": 67.123117280625,
+      "observed_runtime_in_seconds": 0.136,
+      "processor": "Compute-Fast",
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000043",
+      "source_name": "mDiffFit_ID0000043",
+      "start": 66.956242305625,
+      "task": 34
+    },
+    {
+      "avg_cpu": 4.7619,
+      "cpu_weight": 0.047618999999999995,
+      "duration": 0.10500000000000398,
+      "finish": 67.144071105625,
+      "observed_runtime_in_seconds": 0.105,
+      "processor": "Balanced",
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000044",
+      "source_name": "mDiffFit_ID0000044",
+      "start": 67.039071105625,
+      "task": 35
+    },
+    {
+      "avg_cpu": 1.0246,
+      "cpu_weight": 0.010246,
+      "duration": 0.30812502999999936,
+      "finish": 67.347196135625,
+      "observed_runtime_in_seconds": 0.488,
+      "processor": "IO-Fast",
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000045",
+      "source_name": "mDiffFit_ID0000045",
+      "start": 67.039071105625,
+      "task": 36
+    },
+    {
+      "avg_cpu": 1.0571,
+      "cpu_weight": 0.010570999999999999,
+      "duration": 0.2987500518749968,
+      "finish": 62.97812313625,
+      "observed_runtime_in_seconds": 0.473,
+      "processor": "IO-Fast",
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000046",
+      "source_name": "mDiffFit_ID0000046",
+      "start": 62.679373084375,
+      "task": 37
+    },
+    {
+      "avg_cpu": 4.8544,
+      "cpu_weight": 0.048544000000000004,
+      "duration": 0.10300000000000153,
+      "finish": 55.715999999999994,
+      "observed_runtime_in_seconds": 0.103,
+      "processor": "Balanced",
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000047",
+      "source_name": "mDiffFit_ID0000047",
+      "start": 55.61299999999999,
+      "task": 38
+    },
+    {
+      "avg_cpu": 5.618,
+      "cpu_weight": 0.05618,
+      "duration": 0.08899999999999864,
+      "finish": 62.851029084375,
+      "observed_runtime_in_seconds": 0.089,
+      "processor": "Balanced",
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000048",
+      "source_name": "mDiffFit_ID0000048",
+      "start": 62.762029084375,
+      "task": 39
+    },
+    {
+      "avg_cpu": 99.4083,
+      "cpu_weight": 0.9940829999999999,
+      "duration": 0.16899999999999693,
+      "finish": 62.11841670562498,
+      "observed_runtime_in_seconds": 0.169,
+      "processor": "Balanced",
+      "program": "mImgtbl",
+      "source_id": "mImgtbl_ID0000017",
+      "source_name": "mImgtbl_ID0000017",
+      "start": 61.949416705624984,
+      "task": 40
+    },
+    {
+      "avg_cpu": 99.4118,
+      "cpu_weight": 0.994118,
+      "duration": 0.1700000000000017,
+      "finish": 61.949416705624984,
+      "observed_runtime_in_seconds": 0.17,
+      "processor": "Balanced",
+      "program": "mImgtbl",
+      "source_id": "mImgtbl_ID0000036",
+      "source_name": "mImgtbl_ID0000036",
+      "start": 61.77941670562498,
+      "task": 41
+    },
+    {
+      "avg_cpu": 99.3671,
+      "cpu_weight": 0.993671,
+      "duration": 0.09937498875000017,
+      "finish": 68.70657379687499,
+      "observed_runtime_in_seconds": 0.158,
+      "processor": "Compute-Fast",
+      "program": "mImgtbl",
+      "source_id": "mImgtbl_ID0000055",
+      "source_name": "mImgtbl_ID0000055",
+      "start": 68.60719880812499,
+      "task": 42
+    },
+    {
+      "avg_cpu": 97.6723,
+      "cpu_weight": 0.9767230000000001,
+      "duration": 10.688128264999996,
+      "finish": 46.93249293499999,
+      "observed_runtime_in_seconds": 16.712,
+      "processor": "Compute-Fast",
+      "program": "mProject",
+      "source_id": "mProject_ID0000001",
+      "source_name": "mProject_ID0000001",
+      "start": 36.244364669999996,
+      "task": 43
+    },
+    {
+      "avg_cpu": 96.9804,
+      "cpu_weight": 0.969804,
+      "duration": 11.535619709999999,
+      "finish": 24.664989449999997,
+      "observed_runtime_in_seconds": 17.916,
+      "processor": "Compute-Fast",
+      "program": "mProject",
+      "source_id": "mProject_ID0000002",
+      "source_name": "mProject_ID0000002",
+      "start": 13.129369739999998,
+      "task": 44
+    },
+    {
+      "avg_cpu": 98.9961,
+      "cpu_weight": 0.989961,
+      "duration": 20.813748334375,
+      "finish": 43.037501644375,
+      "observed_runtime_in_seconds": 16.735,
+      "processor": "IO-Fast",
+      "program": "mProject",
+      "source_id": "mProject_ID0000003",
+      "source_name": "mProject_ID0000003",
+      "start": 22.22375331,
+      "task": 45
+    },
+    {
+      "avg_cpu": 97.1299,
+      "cpu_weight": 0.971299,
+      "duration": 17.839000000000002,
+      "finish": 36.444,
+      "observed_runtime_in_seconds": 17.839,
+      "processor": "Balanced",
+      "program": "mProject",
+      "source_id": "mProject_ID0000004",
+      "source_name": "mProject_ID0000004",
+      "start": 18.605,
+      "task": 46
+    },
+    {
+      "avg_cpu": 98.486,
+      "cpu_weight": 0.9848600000000001,
+      "duration": 16.644999999999996,
+      "finish": 53.089,
+      "observed_runtime_in_seconds": 16.645,
+      "processor": "Balanced",
+      "program": "mProject",
+      "source_id": "mProject_ID0000020",
+      "source_name": "mProject_ID0000020",
+      "start": 36.444,
+      "task": 47
+    },
+    {
+      "avg_cpu": 89.8199,
+      "cpu_weight": 0.8981990000000001,
+      "duration": 18.605,
+      "finish": 18.605,
+      "observed_runtime_in_seconds": 18.605,
+      "processor": "Balanced",
+      "program": "mProject",
+      "source_id": "mProject_ID0000021",
+      "source_name": "mProject_ID0000021",
+      "start": 0.0,
+      "task": 48
+    },
+    {
+      "avg_cpu": 98.9039,
+      "cpu_weight": 0.9890389999999999,
+      "duration": 10.433749370625002,
+      "finish": 57.36624230562499,
+      "observed_runtime_in_seconds": 16.513,
+      "processor": "Compute-Fast",
+      "program": "mProject",
+      "source_id": "mProject_ID0000022",
+      "source_name": "mProject_ID0000022",
+      "start": 46.93249293499999,
+      "task": 49
+    },
+    {
+      "avg_cpu": 96.9348,
+      "cpu_weight": 0.969348,
+      "duration": 11.57937522,
+      "finish": 36.244364669999996,
+      "observed_runtime_in_seconds": 17.976,
+      "processor": "Compute-Fast",
+      "program": "mProject",
+      "source_id": "mProject_ID0000023",
+      "source_name": "mProject_ID0000023",
+      "start": 24.664989449999997,
+      "task": 50
+    },
+    {
+      "avg_cpu": 100.0,
+      "cpu_weight": 1.0,
+      "duration": 9.590000000000003,
+      "finish": 66.956242305625,
+      "observed_runtime_in_seconds": 15.344,
+      "processor": "Compute-Fast",
+      "program": "mProject",
+      "source_id": "mProject_ID0000039",
+      "source_name": "mProject_ID0000039",
+      "start": 57.36624230562499,
+      "task": 51
+    },
+    {
+      "avg_cpu": 89.7034,
+      "cpu_weight": 0.897034,
+      "duration": 22.22375331,
+      "finish": 22.22375331,
+      "observed_runtime_in_seconds": 18.744,
+      "processor": "IO-Fast",
+      "program": "mProject",
+      "source_id": "mProject_ID0000040",
+      "source_name": "mProject_ID0000040",
+      "start": 0.0,
+      "task": 52
+    },
+    {
+      "avg_cpu": 99.9936,
+      "cpu_weight": 0.999936,
+      "duration": 19.641871440000003,
+      "finish": 62.679373084375,
+      "observed_runtime_in_seconds": 15.714,
+      "processor": "IO-Fast",
+      "program": "mProject",
+      "source_id": "mProject_ID0000041",
+      "source_name": "mProject_ID0000041",
+      "start": 43.037501644375,
+      "task": 53
+    },
+    {
+      "avg_cpu": 88.4624,
+      "cpu_weight": 0.8846240000000001,
+      "duration": 13.129369739999998,
+      "finish": 13.129369739999998,
+      "observed_runtime_in_seconds": 18.834,
+      "processor": "Compute-Fast",
+      "program": "mProject",
+      "source_id": "mProject_ID0000042",
+      "source_name": "mProject_ID0000042",
+      "start": 0.0,
+      "task": 54
+    },
+    {
+      "avg_cpu": 100.0,
+      "cpu_weight": 1.0,
+      "duration": 0.0940000000000012,
+      "finish": 62.577416705624984,
+      "observed_runtime_in_seconds": 0.094,
+      "processor": "Balanced",
+      "program": "mViewer",
+      "source_id": "mViewer_ID0000019",
+      "source_name": "mViewer_ID0000019",
+      "start": 62.48341670562498,
+      "task": 55
+    },
+    {
+      "avg_cpu": 100.0,
+      "cpu_weight": 1.0,
+      "duration": 0.0940000000000012,
+      "finish": 62.671416705624985,
+      "observed_runtime_in_seconds": 0.094,
+      "processor": "Balanced",
+      "program": "mViewer",
+      "source_id": "mViewer_ID0000038",
+      "source_name": "mViewer_ID0000038",
+      "start": 62.577416705624984,
+      "task": 56
+    },
+    {
+      "avg_cpu": 98.9796,
+      "cpu_weight": 0.989796,
+      "duration": 0.09799999999999898,
+      "finish": 68.93406961187499,
+      "observed_runtime_in_seconds": 0.098,
+      "processor": "Balanced",
+      "program": "mViewer",
+      "source_id": "mViewer_ID0000057",
+      "source_name": "mViewer_ID0000057",
+      "start": 68.83606961187499,
+      "task": 57
+    },
+    {
+      "avg_cpu": 100.0,
+      "cpu_weight": 1.0,
+      "duration": 0.11937500000000512,
+      "finish": 68.95282381187499,
+      "observed_runtime_in_seconds": 0.191,
+      "processor": "Compute-Fast",
+      "program": "mViewer",
+      "source_id": "mViewer_ID0000058",
+      "source_name": "mViewer_ID0000058",
+      "start": 68.83344881187499,
+      "task": 58
+    }
+  ],
+  "source": {
+    "dataset": "WfCommons WfInstances",
+    "license": "LGPL-3.0",
+    "local_filename": "montage-chameleon-2mass-005d-001.json",
+    "runtime_system": "Pegasus",
+    "schema_version": "1.5",
+    "sha256": "5795e0ab9e13bb7d50d046796bcbc8ec0a884eba0512a95222bbd557bc6d0b65",
+    "upstream_git_blob": "a9e22f2add751962fc83e83ea1371667977a9975",
+    "upstream_url": "https://github.com/wfcommons/WfInstances/blob/main/pegasus/montage/montage-chameleon-2mass-005d-001.json",
+    "workflow": "montage"
+  },
+  "task_mapping": [
+    {
+      "avg_cpu": 100.0,
+      "cpu_weight": 1.0,
+      "internal_id": 1,
+      "modeled_computation_costs": {
+        "Balanced": 0.182,
+        "Compute-Fast": 0.11374999999999999,
+        "IO-Fast": 0.22749999999999998
+      },
+      "observed_runtime_in_seconds": 0.182,
+      "program": "mAdd",
+      "source_id": "mAdd_ID0000018",
+      "source_name": "mAdd_ID0000018"
+    },
+    {
+      "avg_cpu": 100.0,
+      "cpu_weight": 1.0,
+      "internal_id": 2,
+      "modeled_computation_costs": {
+        "Balanced": 0.183,
+        "Compute-Fast": 0.114375,
+        "IO-Fast": 0.22875
+      },
+      "observed_runtime_in_seconds": 0.183,
+      "program": "mAdd",
+      "source_id": "mAdd_ID0000037",
+      "source_name": "mAdd_ID0000037"
+    },
+    {
+      "avg_cpu": 89.6739,
+      "cpu_weight": 0.8967390000000001,
+      "internal_id": 3,
+      "modeled_computation_costs": {
+        "Balanced": 0.184,
+        "Compute-Fast": 0.12687501499999998,
+        "IO-Fast": 0.21812498499999997
+      },
+      "observed_runtime_in_seconds": 0.184,
+      "program": "mAdd",
+      "source_id": "mAdd_ID0000056",
+      "source_name": "mAdd_ID0000056"
+    },
+    {
+      "avg_cpu": 50.3106,
+      "cpu_weight": 0.503106,
+      "internal_id": 4,
+      "modeled_computation_costs": {
+        "Balanced": 0.644,
+        "Compute-Fast": 0.6024998349999999,
+        "IO-Fast": 0.605000165
+      },
+      "observed_runtime_in_seconds": 0.644,
+      "program": "mBackground",
+      "source_id": "mBackground_ID0000013",
+      "source_name": "mBackground_ID0000013"
+    },
+    {
+      "avg_cpu": 77.7188,
+      "cpu_weight": 0.777188,
+      "internal_id": 5,
+      "modeled_computation_costs": {
+        "Balanced": 0.377,
+        "Compute-Fast": 0.2881250775,
+        "IO-Fast": 0.4187499225
+      },
+      "observed_runtime_in_seconds": 0.377,
+      "program": "mBackground",
+      "source_id": "mBackground_ID0000014",
+      "source_name": "mBackground_ID0000014"
+    },
+    {
+      "avg_cpu": 91.3846,
+      "cpu_weight": 0.913846,
+      "internal_id": 6,
+      "modeled_computation_costs": {
+        "Balanced": 0.325,
+        "Compute-Fast": 0.22062503125,
+        "IO-Fast": 0.38874996875
+      },
+      "observed_runtime_in_seconds": 0.325,
+      "program": "mBackground",
+      "source_id": "mBackground_ID0000015",
+      "source_name": "mBackground_ID0000015"
+    },
+    {
+      "avg_cpu": 89.1496,
+      "cpu_weight": 0.8914960000000001,
+      "internal_id": 7,
+      "modeled_computation_costs": {
+        "Balanced": 0.341,
+        "Compute-Fast": 0.236249915,
+        "IO-Fast": 0.40312508500000005
+      },
+      "observed_runtime_in_seconds": 0.341,
+      "program": "mBackground",
+      "source_id": "mBackground_ID0000016",
+      "source_name": "mBackground_ID0000016"
+    },
+    {
+      "avg_cpu": 84.9162,
+      "cpu_weight": 0.8491620000000001,
+      "internal_id": 8,
+      "modeled_computation_costs": {
+        "Balanced": 0.358,
+        "Compute-Fast": 0.2575000025,
+        "IO-Fast": 0.4137499975
+      },
+      "observed_runtime_in_seconds": 0.358,
+      "program": "mBackground",
+      "source_id": "mBackground_ID0000032",
+      "source_name": "mBackground_ID0000032"
+    },
+    {
+      "avg_cpu": 100.0,
+      "cpu_weight": 1.0,
+      "internal_id": 9,
+      "modeled_computation_costs": {
+        "Balanced": 0.295,
+        "Compute-Fast": 0.18437499999999998,
+        "IO-Fast": 0.36874999999999997
+      },
+      "observed_runtime_in_seconds": 0.295,
+      "program": "mBackground",
+      "source_id": "mBackground_ID0000033",
+      "source_name": "mBackground_ID0000033"
+    },
+    {
+      "avg_cpu": 100.0,
+      "cpu_weight": 1.0,
+      "internal_id": 10,
+      "modeled_computation_costs": {
+        "Balanced": 0.288,
+        "Compute-Fast": 0.18,
+        "IO-Fast": 0.36
+      },
+      "observed_runtime_in_seconds": 0.288,
+      "program": "mBackground",
+      "source_id": "mBackground_ID0000034",
+      "source_name": "mBackground_ID0000034"
+    },
+    {
+      "avg_cpu": 100.0,
+      "cpu_weight": 1.0,
+      "internal_id": 11,
+      "modeled_computation_costs": {
+        "Balanced": 0.299,
+        "Compute-Fast": 0.18687499999999999,
+        "IO-Fast": 0.37374999999999997
+      },
+      "observed_runtime_in_seconds": 0.299,
+      "program": "mBackground",
+      "source_id": "mBackground_ID0000035",
+      "source_name": "mBackground_ID0000035"
+    },
+    {
+      "avg_cpu": 56.654,
+      "cpu_weight": 0.56654,
+      "internal_id": 12,
+      "modeled_computation_costs": {
+        "Balanced": 0.526,
+        "Compute-Fast": 0.471249975,
+        "IO-Fast": 0.515000025
+      },
+      "observed_runtime_in_seconds": 0.526,
+      "program": "mBackground",
+      "source_id": "mBackground_ID0000051",
+      "source_name": "mBackground_ID0000051"
+    },
+    {
+      "avg_cpu": 100.0,
+      "cpu_weight": 1.0,
+      "internal_id": 13,
+      "modeled_computation_costs": {
+        "Balanced": 0.257,
+        "Compute-Fast": 0.16062500000000002,
+        "IO-Fast": 0.32125000000000004
+      },
+      "observed_runtime_in_seconds": 0.257,
+      "program": "mBackground",
+      "source_id": "mBackground_ID0000052",
+      "source_name": "mBackground_ID0000052"
+    },
+    {
+      "avg_cpu": 57.7281,
+      "cpu_weight": 0.5772809999999999,
+      "internal_id": 14,
+      "modeled_computation_costs": {
+        "Balanced": 0.537,
+        "Compute-Fast": 0.47750006437500003,
+        "IO-Fast": 0.5293749356249999
+      },
+      "observed_runtime_in_seconds": 0.537,
+      "program": "mBackground",
+      "source_id": "mBackground_ID0000053",
+      "source_name": "mBackground_ID0000053"
+    },
+    {
+      "avg_cpu": 56.5891,
+      "cpu_weight": 0.565891,
+      "internal_id": 15,
+      "modeled_computation_costs": {
+        "Balanced": 0.516,
+        "Compute-Fast": 0.46250015249999993,
+        "IO-Fast": 0.5049998474999999
+      },
+      "observed_runtime_in_seconds": 0.516,
+      "program": "mBackground",
+      "source_id": "mBackground_ID0000054",
+      "source_name": "mBackground_ID0000054"
+    },
+    {
+      "avg_cpu": 100.0,
+      "cpu_weight": 1.0,
+      "internal_id": 16,
+      "modeled_computation_costs": {
+        "Balanced": 0.73,
+        "Compute-Fast": 0.45625,
+        "IO-Fast": 0.9125
+      },
+      "observed_runtime_in_seconds": 0.73,
+      "program": "mBgModel",
+      "source_id": "mBgModel_ID0000012",
+      "source_name": "mBgModel_ID0000012"
+    },
+    {
+      "avg_cpu": 99.8798,
+      "cpu_weight": 0.9987980000000001,
+      "internal_id": 17,
+      "modeled_computation_costs": {
+        "Balanced": 0.832,
+        "Compute-Fast": 0.52062504,
+        "IO-Fast": 1.03937496
+      },
+      "observed_runtime_in_seconds": 0.832,
+      "program": "mBgModel",
+      "source_id": "mBgModel_ID0000031",
+      "source_name": "mBgModel_ID0000031"
+    },
+    {
+      "avg_cpu": 99.875,
+      "cpu_weight": 0.99875,
+      "internal_id": 18,
+      "modeled_computation_costs": {
+        "Balanced": 0.8,
+        "Compute-Fast": 0.500625,
+        "IO-Fast": 0.9993749999999999
+      },
+      "observed_runtime_in_seconds": 0.8,
+      "program": "mBgModel",
+      "source_id": "mBgModel_ID0000050",
+      "source_name": "mBgModel_ID0000050"
+    },
+    {
+      "avg_cpu": 100.0,
+      "cpu_weight": 1.0,
+      "internal_id": 19,
+      "modeled_computation_costs": {
+        "Balanced": 0.195,
+        "Compute-Fast": 0.12187500000000001,
+        "IO-Fast": 0.24375000000000002
+      },
+      "observed_runtime_in_seconds": 0.195,
+      "program": "mConcatFit",
+      "source_id": "mConcatFit_ID0000011",
+      "source_name": "mConcatFit_ID0000011"
+    },
+    {
+      "avg_cpu": 100.0,
+      "cpu_weight": 1.0,
+      "internal_id": 20,
+      "modeled_computation_costs": {
+        "Balanced": 0.184,
+        "Compute-Fast": 0.11499999999999999,
+        "IO-Fast": 0.22999999999999998
+      },
+      "observed_runtime_in_seconds": 0.184,
+      "program": "mConcatFit",
+      "source_id": "mConcatFit_ID0000030",
+      "source_name": "mConcatFit_ID0000030"
+    },
+    {
+      "avg_cpu": 99.4819,
+      "cpu_weight": 0.994819,
+      "internal_id": 21,
+      "modeled_computation_costs": {
+        "Balanced": 0.193,
+        "Compute-Fast": 0.121249958125,
+        "IO-Fast": 0.240625041875
+      },
+      "observed_runtime_in_seconds": 0.193,
+      "program": "mConcatFit",
+      "source_id": "mConcatFit_ID0000049",
+      "source_name": "mConcatFit_ID0000049"
+    },
+    {
+      "avg_cpu": 6.5217,
+      "cpu_weight": 0.065217,
+      "internal_id": 22,
+      "modeled_computation_costs": {
+        "Balanced": 0.092,
+        "Compute-Fast": 0.1112500225,
+        "IO-Fast": 0.0612499775
+      },
+      "observed_runtime_in_seconds": 0.092,
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000005",
+      "source_name": "mDiffFit_ID0000005"
+    },
+    {
+      "avg_cpu": 3.5714,
+      "cpu_weight": 0.035714,
+      "internal_id": 23,
+      "modeled_computation_costs": {
+        "Balanced": 0.14,
+        "Compute-Fast": 0.17187502500000001,
+        "IO-Fast": 0.090624975
+      },
+      "observed_runtime_in_seconds": 0.14,
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000006",
+      "source_name": "mDiffFit_ID0000006"
+    },
+    {
+      "avg_cpu": 1.3055,
+      "cpu_weight": 0.013055,
+      "internal_id": 24,
+      "modeled_computation_costs": {
+        "Balanced": 0.383,
+        "Compute-Fast": 0.47562495937499993,
+        "IO-Fast": 0.242500040625
+      },
+      "observed_runtime_in_seconds": 0.383,
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000007",
+      "source_name": "mDiffFit_ID0000007"
+    },
+    {
+      "avg_cpu": 0.6112,
+      "cpu_weight": 0.006111999999999999,
+      "internal_id": 25,
+      "modeled_computation_costs": {
+        "Balanced": 0.818,
+        "Compute-Fast": 1.0193752399999998,
+        "IO-Fast": 0.5143747599999999
+      },
+      "observed_runtime_in_seconds": 0.818,
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000008",
+      "source_name": "mDiffFit_ID0000008"
+    },
+    {
+      "avg_cpu": 4.6296,
+      "cpu_weight": 0.046296,
+      "internal_id": 26,
+      "modeled_computation_costs": {
+        "Balanced": 0.108,
+        "Compute-Fast": 0.13187501999999998,
+        "IO-Fast": 0.07062497999999999
+      },
+      "observed_runtime_in_seconds": 0.108,
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000009",
+      "source_name": "mDiffFit_ID0000009"
+    },
+    {
+      "avg_cpu": 3.9683,
+      "cpu_weight": 0.039683,
+      "internal_id": 27,
+      "modeled_computation_costs": {
+        "Balanced": 0.126,
+        "Compute-Fast": 0.15437496374999998,
+        "IO-Fast": 0.08187503624999998
+      },
+      "observed_runtime_in_seconds": 0.126,
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000010",
+      "source_name": "mDiffFit_ID0000010"
+    },
+    {
+      "avg_cpu": 5.2083,
+      "cpu_weight": 0.052083000000000004,
+      "internal_id": 28,
+      "modeled_computation_costs": {
+        "Balanced": 0.096,
+        "Compute-Fast": 0.11687502,
+        "IO-Fast": 0.06312498
+      },
+      "observed_runtime_in_seconds": 0.096,
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000024",
+      "source_name": "mDiffFit_ID0000024"
+    },
+    {
+      "avg_cpu": 0.9058,
+      "cpu_weight": 0.009058,
+      "internal_id": 29,
+      "modeled_computation_costs": {
+        "Balanced": 0.552,
+        "Compute-Fast": 0.68687499,
+        "IO-Fast": 0.34812501
+      },
+      "observed_runtime_in_seconds": 0.552,
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000025",
+      "source_name": "mDiffFit_ID0000025"
+    },
+    {
+      "avg_cpu": 3.3113,
+      "cpu_weight": 0.033113000000000004,
+      "internal_id": 30,
+      "modeled_computation_costs": {
+        "Balanced": 0.151,
+        "Compute-Fast": 0.185624960625,
+        "IO-Fast": 0.097500039375
+      },
+      "observed_runtime_in_seconds": 0.151,
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000026",
+      "source_name": "mDiffFit_ID0000026"
+    },
+    {
+      "avg_cpu": 6.1224,
+      "cpu_weight": 0.061224,
+      "internal_id": 31,
+      "modeled_computation_costs": {
+        "Balanced": 0.098,
+        "Compute-Fast": 0.11875003,
+        "IO-Fast": 0.06499997
+      },
+      "observed_runtime_in_seconds": 0.098,
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000027",
+      "source_name": "mDiffFit_ID0000027"
+    },
+    {
+      "avg_cpu": 0.5834,
+      "cpu_weight": 0.005834000000000001,
+      "internal_id": 32,
+      "modeled_computation_costs": {
+        "Balanced": 0.857,
+        "Compute-Fast": 1.06812516375,
+        "IO-Fast": 0.53874983625
+      },
+      "observed_runtime_in_seconds": 0.857,
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000028",
+      "source_name": "mDiffFit_ID0000028"
+    },
+    {
+      "avg_cpu": 4.386,
+      "cpu_weight": 0.04386,
+      "internal_id": 33,
+      "modeled_computation_costs": {
+        "Balanced": 0.114,
+        "Compute-Fast": 0.13937497499999998,
+        "IO-Fast": 0.074375025
+      },
+      "observed_runtime_in_seconds": 0.114,
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000029",
+      "source_name": "mDiffFit_ID0000029"
+    },
+    {
+      "avg_cpu": 3.6765,
+      "cpu_weight": 0.036765,
+      "internal_id": 34,
+      "modeled_computation_costs": {
+        "Balanced": 0.136,
+        "Compute-Fast": 0.166874975,
+        "IO-Fast": 0.088125025
+      },
+      "observed_runtime_in_seconds": 0.136,
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000043",
+      "source_name": "mDiffFit_ID0000043"
+    },
+    {
+      "avg_cpu": 4.7619,
+      "cpu_weight": 0.047618999999999995,
+      "internal_id": 35,
+      "modeled_computation_costs": {
+        "Balanced": 0.105,
+        "Compute-Fast": 0.12812500312499997,
+        "IO-Fast": 0.068749996875
+      },
+      "observed_runtime_in_seconds": 0.105,
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000044",
+      "source_name": "mDiffFit_ID0000044"
+    },
+    {
+      "avg_cpu": 1.0246,
+      "cpu_weight": 0.010246,
+      "internal_id": 36,
+      "modeled_computation_costs": {
+        "Balanced": 0.488,
+        "Compute-Fast": 0.60687497,
+        "IO-Fast": 0.30812502999999997
+      },
+      "observed_runtime_in_seconds": 0.488,
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000045",
+      "source_name": "mDiffFit_ID0000045"
+    },
+    {
+      "avg_cpu": 1.0571,
+      "cpu_weight": 0.010570999999999999,
+      "internal_id": 37,
+      "modeled_computation_costs": {
+        "Balanced": 0.473,
+        "Compute-Fast": 0.5881249481249999,
+        "IO-Fast": 0.298750051875
+      },
+      "observed_runtime_in_seconds": 0.473,
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000046",
+      "source_name": "mDiffFit_ID0000046"
+    },
+    {
+      "avg_cpu": 4.8544,
+      "cpu_weight": 0.048544000000000004,
+      "internal_id": 38,
+      "modeled_computation_costs": {
+        "Balanced": 0.103,
+        "Compute-Fast": 0.12562498,
+        "IO-Fast": 0.06750002
+      },
+      "observed_runtime_in_seconds": 0.103,
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000047",
+      "source_name": "mDiffFit_ID0000047"
+    },
+    {
+      "avg_cpu": 5.618,
+      "cpu_weight": 0.05618,
+      "internal_id": 39,
+      "modeled_computation_costs": {
+        "Balanced": 0.089,
+        "Compute-Fast": 0.1081249875,
+        "IO-Fast": 0.0587500125
+      },
+      "observed_runtime_in_seconds": 0.089,
+      "program": "mDiffFit",
+      "source_id": "mDiffFit_ID0000048",
+      "source_name": "mDiffFit_ID0000048"
+    },
+    {
+      "avg_cpu": 99.4083,
+      "cpu_weight": 0.9940829999999999,
+      "internal_id": 40,
+      "modeled_computation_costs": {
+        "Balanced": 0.169,
+        "Compute-Fast": 0.106249983125,
+        "IO-Fast": 0.210625016875
+      },
+      "observed_runtime_in_seconds": 0.169,
+      "program": "mImgtbl",
+      "source_id": "mImgtbl_ID0000017",
+      "source_name": "mImgtbl_ID0000017"
+    },
+    {
+      "avg_cpu": 99.4118,
+      "cpu_weight": 0.994118,
+      "internal_id": 41,
+      "modeled_computation_costs": {
+        "Balanced": 0.17,
+        "Compute-Fast": 0.10687496250000002,
+        "IO-Fast": 0.2118750375
+      },
+      "observed_runtime_in_seconds": 0.17,
+      "program": "mImgtbl",
+      "source_id": "mImgtbl_ID0000036",
+      "source_name": "mImgtbl_ID0000036"
+    },
+    {
+      "avg_cpu": 99.3671,
+      "cpu_weight": 0.993671,
+      "internal_id": 42,
+      "modeled_computation_costs": {
+        "Balanced": 0.158,
+        "Compute-Fast": 0.09937498875,
+        "IO-Fast": 0.19687501124999998
+      },
+      "observed_runtime_in_seconds": 0.158,
+      "program": "mImgtbl",
+      "source_id": "mImgtbl_ID0000055",
+      "source_name": "mImgtbl_ID0000055"
+    },
+    {
+      "avg_cpu": 97.6723,
+      "cpu_weight": 0.9767230000000001,
+      "internal_id": 43,
+      "modeled_computation_costs": {
+        "Balanced": 16.712,
+        "Compute-Fast": 10.688128264999998,
+        "IO-Fast": 20.646871735
+      },
+      "observed_runtime_in_seconds": 16.712,
+      "program": "mProject",
+      "source_id": "mProject_ID0000001",
+      "source_name": "mProject_ID0000001"
+    },
+    {
+      "avg_cpu": 96.9804,
+      "cpu_weight": 0.969804,
+      "internal_id": 44,
+      "modeled_computation_costs": {
+        "Balanced": 17.916,
+        "Compute-Fast": 11.535619709999999,
+        "IO-Fast": 22.05688029
+      },
+      "observed_runtime_in_seconds": 17.916,
+      "program": "mProject",
+      "source_id": "mProject_ID0000002",
+      "source_name": "mProject_ID0000002"
+    },
+    {
+      "avg_cpu": 98.9961,
+      "cpu_weight": 0.989961,
+      "internal_id": 45,
+      "modeled_computation_costs": {
+        "Balanced": 16.735,
+        "Compute-Fast": 10.564376665624998,
+        "IO-Fast": 20.813748334375
+      },
+      "observed_runtime_in_seconds": 16.735,
+      "program": "mProject",
+      "source_id": "mProject_ID0000003",
+      "source_name": "mProject_ID0000003"
+    },
+    {
+      "avg_cpu": 97.1299,
+      "cpu_weight": 0.971299,
+      "internal_id": 46,
+      "modeled_computation_costs": {
+        "Balanced": 17.839,
+        "Compute-Fast": 11.469373211874998,
+        "IO-Fast": 21.978751788124995
+      },
+      "observed_runtime_in_seconds": 17.839,
+      "program": "mProject",
+      "source_id": "mProject_ID0000004",
+      "source_name": "mProject_ID0000004"
+    },
+    {
+      "avg_cpu": 98.486,
+      "cpu_weight": 0.9848600000000001,
+      "internal_id": 47,
+      "modeled_computation_costs": {
+        "Balanced": 16.645,
+        "Compute-Fast": 10.560628312499999,
+        "IO-Fast": 20.648746687499997
+      },
+      "observed_runtime_in_seconds": 16.645,
+      "program": "mProject",
+      "source_id": "mProject_ID0000020",
+      "source_name": "mProject_ID0000020"
+    },
+    {
+      "avg_cpu": 89.8199,
+      "cpu_weight": 0.8981990000000001,
+      "internal_id": 48,
+      "modeled_computation_costs": {
+        "Balanced": 18.605,
+        "Compute-Fast": 12.811879753124998,
+        "IO-Fast": 22.072495246875
+      },
+      "observed_runtime_in_seconds": 18.605,
+      "program": "mProject",
+      "source_id": "mProject_ID0000021",
+      "source_name": "mProject_ID0000021"
+    },
+    {
+      "avg_cpu": 98.9039,
+      "cpu_weight": 0.9890389999999999,
+      "internal_id": 49,
+      "modeled_computation_costs": {
+        "Balanced": 16.513,
+        "Compute-Fast": 10.433749370625002,
+        "IO-Fast": 20.528125629374998
+      },
+      "observed_runtime_in_seconds": 16.513,
+      "program": "mProject",
+      "source_id": "mProject_ID0000022",
+      "source_name": "mProject_ID0000022"
+    },
+    {
+      "avg_cpu": 96.9348,
+      "cpu_weight": 0.969348,
+      "internal_id": 50,
+      "modeled_computation_costs": {
+        "Balanced": 17.976,
+        "Compute-Fast": 11.579375219999998,
+        "IO-Fast": 22.125624779999995
+      },
+      "observed_runtime_in_seconds": 17.976,
+      "program": "mProject",
+      "source_id": "mProject_ID0000023",
+      "source_name": "mProject_ID0000023"
+    },
+    {
+      "avg_cpu": 100.0,
+      "cpu_weight": 1.0,
+      "internal_id": 51,
+      "modeled_computation_costs": {
+        "Balanced": 15.344,
+        "Compute-Fast": 9.59,
+        "IO-Fast": 19.18
+      },
+      "observed_runtime_in_seconds": 15.344,
+      "program": "mProject",
+      "source_id": "mProject_ID0000039",
+      "source_name": "mProject_ID0000039"
+    },
+    {
+      "avg_cpu": 89.7034,
+      "cpu_weight": 0.897034,
+      "internal_id": 52,
+      "modeled_computation_costs": {
+        "Balanced": 18.744,
+        "Compute-Fast": 12.92124669,
+        "IO-Fast": 22.22375331
+      },
+      "observed_runtime_in_seconds": 18.744,
+      "program": "mProject",
+      "source_id": "mProject_ID0000040",
+      "source_name": "mProject_ID0000040"
+    },
+    {
+      "avg_cpu": 99.9936,
+      "cpu_weight": 0.999936,
+      "internal_id": 53,
+      "modeled_computation_costs": {
+        "Balanced": 15.714,
+        "Compute-Fast": 9.821878559999998,
+        "IO-Fast": 19.64187144
+      },
+      "observed_runtime_in_seconds": 15.714,
+      "program": "mProject",
+      "source_id": "mProject_ID0000041",
+      "source_name": "mProject_ID0000041"
+    },
+    {
+      "avg_cpu": 88.4624,
+      "cpu_weight": 0.8846240000000001,
+      "internal_id": 54,
+      "modeled_computation_costs": {
+        "Balanced": 18.834,
+        "Compute-Fast": 13.129369739999998,
+        "IO-Fast": 22.184380259999998
+      },
+      "observed_runtime_in_seconds": 18.834,
+      "program": "mProject",
+      "source_id": "mProject_ID0000042",
+      "source_name": "mProject_ID0000042"
+    },
+    {
+      "avg_cpu": 100.0,
+      "cpu_weight": 1.0,
+      "internal_id": 55,
+      "modeled_computation_costs": {
+        "Balanced": 0.094,
+        "Compute-Fast": 0.05875,
+        "IO-Fast": 0.1175
+      },
+      "observed_runtime_in_seconds": 0.094,
+      "program": "mViewer",
+      "source_id": "mViewer_ID0000019",
+      "source_name": "mViewer_ID0000019"
+    },
+    {
+      "avg_cpu": 100.0,
+      "cpu_weight": 1.0,
+      "internal_id": 56,
+      "modeled_computation_costs": {
+        "Balanced": 0.094,
+        "Compute-Fast": 0.05875,
+        "IO-Fast": 0.1175
+      },
+      "observed_runtime_in_seconds": 0.094,
+      "program": "mViewer",
+      "source_id": "mViewer_ID0000038",
+      "source_name": "mViewer_ID0000038"
+    },
+    {
+      "avg_cpu": 98.9796,
+      "cpu_weight": 0.989796,
+      "internal_id": 57,
+      "modeled_computation_costs": {
+        "Balanced": 0.098,
+        "Compute-Fast": 0.061874994999999995,
+        "IO-Fast": 0.121875005
+      },
+      "observed_runtime_in_seconds": 0.098,
+      "program": "mViewer",
+      "source_id": "mViewer_ID0000057",
+      "source_name": "mViewer_ID0000057"
+    },
+    {
+      "avg_cpu": 100.0,
+      "cpu_weight": 1.0,
+      "internal_id": 58,
+      "modeled_computation_costs": {
+        "Balanced": 0.191,
+        "Compute-Fast": 0.11937500000000001,
+        "IO-Fast": 0.23875000000000002
+      },
+      "observed_runtime_in_seconds": 0.191,
+      "program": "mViewer",
+      "source_id": "mViewer_ID0000058",
+      "source_name": "mViewer_ID0000058"
+    }
+  ],
+  "trace_summary": {
+    "edge_count": 114,
+    "file_count": 111,
+    "leaf_count": 4,
+    "machine_count": 1,
+    "name": "montage",
+    "observed_makespan_in_seconds": 1060.0,
+    "root_count": 12,
+    "schema_version": "1.5",
+    "task_count": 58,
+    "total_observed_task_runtime_in_seconds": 221.726
+  },
+  "validation_errors": []
+}

@@ -1,0 +1,23 @@
+{
+  "model_name": "cpu-io-proxy-v1",
+  "cpu_weight_source": "avgCPU / 100",
+  "default_cpu_weight": 0.5,
+  "network_bandwidth_bytes_per_second": 100000000.0,
+  "workers": [
+    {
+      "id": "Compute-Fast",
+      "compute_speed": 1.6,
+      "io_speed": 0.8
+    },
+    {
+      "id": "Balanced",
+      "compute_speed": 1.0,
+      "io_speed": 1.0
+    },
+    {
+      "id": "IO-Fast",
+      "compute_speed": 0.8,
+      "io_speed": 1.6
+    }
+  ]
+}

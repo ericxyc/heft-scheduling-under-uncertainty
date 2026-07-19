@@ -1,0 +1,107 @@
+{
+  "algorithm": "HEFT",
+  "is_valid": true,
+  "makespan": 80.0,
+  "priority_order": [
+    1,
+    3,
+    4,
+    2,
+    5,
+    6,
+    9,
+    7,
+    8,
+    10
+  ],
+  "schedule": [
+    {
+      "duration": 9.0,
+      "finish": 9.0,
+      "processor": "P3",
+      "start": 0.0,
+      "task": 1
+    },
+    {
+      "duration": 13.0,
+      "finish": 40.0,
+      "processor": "P1",
+      "start": 27.0,
+      "task": 2
+    },
+    {
+      "duration": 19.0,
+      "finish": 28.0,
+      "processor": "P3",
+      "start": 9.0,
+      "task": 3
+    },
+    {
+      "duration": 8.0,
+      "finish": 26.0,
+      "processor": "P2",
+      "start": 18.0,
+      "task": 4
+    },
+    {
+      "duration": 10.0,
+      "finish": 38.0,
+      "processor": "P3",
+      "start": 28.0,
+      "task": 5
+    },
+    {
+      "duration": 16.0,
+      "finish": 42.0,
+      "processor": "P2",
+      "start": 26.0,
+      "task": 6
+    },
+    {
+      "duration": 11.0,
+      "finish": 49.0,
+      "processor": "P3",
+      "start": 38.0,
+      "task": 7
+    },
+    {
+      "duration": 5.0,
+      "finish": 62.0,
+      "processor": "P1",
+      "start": 57.0,
+      "task": 8
+    },
+    {
+      "duration": 12.0,
+      "finish": 68.0,
+      "processor": "P2",
+      "start": 56.0,
+      "task": 9
+    },
+    {
+      "duration": 7.0,
+      "finish": 80.0,
+      "processor": "P2",
+      "start": 73.0,
+      "task": 10
+    }
+  ],
+  "source": {
+    "doi": "10.1109/71.993206",
+    "fixture": "Figure 3 and Table 1",
+    "paper": "Performance-Effective and Low-Complexity Task Scheduling for Heterogeneous Computing"
+  },
+  "upward_ranks": {
+    "1": 108.0,
+    "10": 14.666666666666666,
+    "2": 77.0,
+    "3": 79.99999999999999,
+    "4": 80.0,
+    "5": 69.0,
+    "6": 63.33333333333333,
+    "7": 42.666666666666664,
+    "8": 35.666666666666664,
+    "9": 44.33333333333333
+  },
+  "validation_errors": []
+}

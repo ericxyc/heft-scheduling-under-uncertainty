@@ -1,0 +1,13 @@
+{
+  "environment_type": "hybrid",
+  "base_seed": 7000000,
+  "small_seed_count": 5,
+  "medium_seed_count": 1,
+  "workflow_count": 3,
+  "max_candidates": 128,
+  "reward_scale": 500.0,
+  "small_loads": [0.6, 1.0],
+  "small_cvs": [0.0, 0.3],
+  "medium_loads": [0.8],
+  "medium_cvs": [0.2]
+}

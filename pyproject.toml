@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "heft-paper-reproduction"
+version = "0.5.0"
+description = "Trace-driven HEFT scheduling experiments under explicit simulation assumptions"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Eric Yancheng Xiang" }]
+dependencies = []
+
+[project.optional-dependencies]
+visualization = ["matplotlib>=3.7"]
+pegasus = ["pegasus-wms.api==5.1.2"]
+rl = [
+    "gymnasium>=1.0,<2",
+    "numpy>=1.25",
+    "torch>=2.3",
+    "stable-baselines3>=2.7,<3",
+    "sb3-contrib>=2.7,<3",
+]
+
+[project.scripts]
+heft-reproduce = "heft_reproduction.cli:main"
+heft-wfcommons = "heft_reproduction.trace_cli:main"
+heft-uncertainty = "heft_reproduction.uncertainty_cli:main"
+heft-dynamic = "heft_reproduction.dynamic_cli:main"
+heft-benchmark = "heft_reproduction.benchmark_cli:main"
+heft-train-rl = "heft_reproduction.rl.training:main"
+heft-train-wfcommons-rl = "heft_reproduction.rl.wfcommons_training:main"
+heft-train-hybrid-rl = "heft_reproduction.rl.hybrid_training:main"
+heft-evaluate-rl = "heft_reproduction.rl.evaluation:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

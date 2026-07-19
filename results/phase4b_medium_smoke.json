@@ -1,0 +1,242 @@
+{
+  "benchmark": {
+    "aggregates": [
+      {
+        "offered_load": 0.8,
+        "policy": "online-greedy-eft",
+        "replicate_count": 1,
+        "runtime_cv": 0.1,
+        "size": "medium",
+        "statistics": {
+          "average_utilization": {
+            "ci95_half_width": 0.0,
+            "mean": 0.7583804725697653,
+            "sample_std": 0.0
+          },
+          "candidate_evaluations": {
+            "ci95_half_width": 0.0,
+            "mean": 85305.0,
+            "sample_std": 0.0
+          },
+          "cross_worker_communication_seconds": {
+            "ci95_half_width": 0.0,
+            "mean": 25.689185540000114,
+            "sample_std": 0.0
+          },
+          "mean_jct": {
+            "ci95_half_width": 0.0,
+            "mean": 903.5470612437979,
+            "sample_std": 0.0
+          },
+          "mean_response_time": {
+            "ci95_half_width": 0.0,
+            "mean": 0.22634655530684236,
+            "sample_std": 0.0
+          },
+          "mean_task_queue_wait": {
+            "ci95_half_width": 0.0,
+            "mean": 151.51797474477388,
+            "sample_std": 0.0
+          },
+          "p95_jct": {
+            "ci95_half_width": 0.0,
+            "mean": 2185.104360596682,
+            "sample_std": 0.0
+          },
+          "p95_task_queue_wait": {
+            "ci95_half_width": 0.0,
+            "mean": 1059.705829631161,
+            "sample_std": 0.0
+          },
+          "scheduler_wall_seconds": {
+            "ci95_half_width": 0.0,
+            "mean": 12.639584323624149,
+            "sample_std": 0.0
+          },
+          "simulation_horizon": {
+            "ci95_half_width": 0.0,
+            "mean": 3367.6475253616945,
+            "sample_std": 0.0
+          },
+          "throughput_workflows_per_second": {
+            "ci95_half_width": 0.0,
+            "mean": 0.0008908295709117574,
+            "sample_std": 0.0
+          }
+        }
+      }
+    ],
+    "aging_weight": 1.0,
+    "base_seed": 20260719,
+    "cvs": [
+      0.1
+    ],
+    "is_valid": true,
+    "loads": [
+      0.8
+    ],
+    "policies": [
+      "online-greedy-eft"
+    ],
+    "reference_work_by_size": {
+      "medium": 2891.317222222222
+    },
+    "replicate_count": 1,
+    "runs": [
+      {
+        "is_valid": true,
+        "mean_interarrival_time": 1204.715509259259,
+        "metrics": {
+          "average_utilization": 0.7583804725697653,
+          "candidate_evaluations": 85305,
+          "committed_decisions": 956,
+          "cross_worker_communication_seconds": 25.689185540000114,
+          "cross_worker_data_bytes": 2568918554,
+          "cross_worker_edge_count": 742,
+          "mean_jct": 903.5470612437979,
+          "mean_response_time": 0.22634655530684236,
+          "mean_task_queue_wait": 151.51797474477388,
+          "p95_jct": 2185.104360596682,
+          "p95_task_queue_wait": 1059.705829631161,
+          "processor_busy_time": {
+            "Balanced": 2502.210648297599,
+            "Compute-Fast": 2511.225034062143,
+            "IO-Fast": 2648.4386828368647
+          },
+          "processor_utilization": {
+            "Balanced": 0.7430144127179269,
+            "Compute-Fast": 0.7456911731854807,
+            "IO-Fast": 0.786435831805888
+          },
+          "scheduler_wall_seconds": 12.639584323624149,
+          "scheduling_rounds": 988,
+          "simulation_horizon": 3367.6475253616945,
+          "task_count": 956,
+          "throughput_workflows_per_second": 0.0008908295709117574,
+          "workflow_count": 3
+        },
+        "offered_load": 0.8,
+        "policy": "online-greedy-eft",
+        "replicate": 0,
+        "runtime_cv": 0.1,
+        "scenario_seed": 20260719,
+        "size": "medium",
+        "validation_errors": []
+      }
+    ],
+    "sizes": [
+      "medium"
+    ],
+    "workflow_count_per_scenario": 3
+  },
+  "corpus": {
+    "description": "Trace-driven Phase 4B corpus with small sweep inputs and medium held-out scale inputs.",
+    "entries": [
+      {
+        "edge_count": 114,
+        "family": "montage",
+        "file_count": 111,
+        "name": "montage-small",
+        "path": "data/raw/wfcommons/montage-chameleon-2mass-005d-001.json",
+        "sha256": "5795e0ab9e13bb7d50d046796bcbc8ec0a884eba0512a95222bbd557bc6d0b65",
+        "size": "small",
+        "source_url": "https://raw.githubusercontent.com/wfcommons/WfInstances/main/pegasus/montage/montage-chameleon-2mass-005d-001.json",
+        "split": "benchmark",
+        "task_count": 58
+      },
+      {
+        "edge_count": 798,
+        "family": "montage",
+        "file_count": 471,
+        "name": "montage-medium",
+        "path": "data/raw/wfcommons/montage/montage-chameleon-2mass-015d-001.json",
+        "sha256": "d48ebd2e26e34a2c086cb4284b2fccc28a8708c4fcb5e323cce6e2280a336889",
+        "size": "medium",
+        "source_url": "https://raw.githubusercontent.com/wfcommons/WfInstances/main/pegasus/montage/montage-chameleon-2mass-015d-001.json",
+        "split": "held-out",
+        "task_count": 310
+      },
+      {
+        "edge_count": 88,
+        "family": "epigenomics",
+        "file_count": 94,
+        "name": "epigenomics-small",
+        "path": "data/raw/wfcommons/epigenomics/epigenomics-chameleon-hep-1seq-50k-001.json",
+        "sha256": "8a64ae6acab57415972207de056d66d4cdea973b4a8f8fdf8200268cf269273e",
+        "size": "small",
+        "source_url": "https://raw.githubusercontent.com/wfcommons/WfInstances/main/pegasus/epigenomics/epigenomics-chameleon-hep-1seq-50k-001.json",
+        "split": "benchmark",
+        "task_count": 73
+      },
+      {
+        "edge_count": 550,
+        "family": "epigenomics",
+        "file_count": 558,
+        "name": "epigenomics-medium",
+        "path": "data/raw/wfcommons/epigenomics/epigenomics-chameleon-hep-3seq-50k-001.json",
+        "sha256": "e10731e3cc1e116327a5a127cd528981b5ca71e1a0d5681fa8e3a6bf545c0850",
+        "size": "medium",
+        "source_url": "https://raw.githubusercontent.com/wfcommons/WfInstances/main/pegasus/epigenomics/epigenomics-chameleon-hep-3seq-50k-001.json",
+        "split": "held-out",
+        "task_count": 445
+      },
+      {
+        "edge_count": 100,
+        "family": "seismology",
+        "file_count": 304,
+        "name": "seismology-small",
+        "path": "data/raw/wfcommons/seismology/seismology-chameleon-100p-001.json",
+        "sha256": "99c0426009e1e2a0316c53da45ce9247ffaeee7d2e0fad6b4de96e796b5aaad4",
+        "size": "small",
+        "source_url": "https://raw.githubusercontent.com/wfcommons/WfInstances/main/pegasus/seismology/seismology-chameleon-100p-001.json",
+        "split": "benchmark",
+        "task_count": 101
+      },
+      {
+        "edge_count": 200,
+        "family": "seismology",
+        "file_count": 604,
+        "name": "seismology-medium",
+        "path": "data/raw/wfcommons/seismology/seismology-chameleon-200p-001.json",
+        "sha256": "91ce08abe3d980184a1f000967ed264eeba0475b175a9052334e63038d2bd549",
+        "size": "medium",
+        "source_url": "https://raw.githubusercontent.com/wfcommons/WfInstances/main/pegasus/seismology/seismology-chameleon-200p-001.json",
+        "split": "held-out",
+        "task_count": 201
+      }
+    ],
+    "manifest": "configs/workflow_benchmark.json",
+    "name": "wfcommons-three-family-v1"
+  },
+  "interpretation": {
+    "fairness": "all policies in one sweep cell share arrivals and actual duration realizations",
+    "offered_load": "mean estimated work divided by worker capacity and mean inter-arrival time; realized utilization can differ",
+    "study_type": "multi-family trace-driven dynamic scheduling benchmark",
+    "timing_note": "scheduler wall seconds are machine-dependent; all other core simulated metrics are seeded"
+  },
+  "worker_model": {
+    "communication_formula": "shared_file_bytes / network_bandwidth_bytes_per_second",
+    "cpu_weight_source": "avgCPU / 100",
+    "default_cpu_weight": 0.5,
+    "model_name": "cpu-io-proxy-v1",
+    "network_bandwidth_bytes_per_second": 100000000.0,
+    "runtime_formula": "observed_runtime * (cpu_weight / compute_speed + (1 - cpu_weight) / io_speed)",
+    "workers": [
+      {
+        "compute_speed": 1.6,
+        "id": "Compute-Fast",
+        "io_speed": 0.8
+      },
+      {
+        "compute_speed": 1.0,
+        "id": "Balanced",
+        "io_speed": 1.0
+      },
+      {
+        "compute_speed": 0.8,
+        "id": "IO-Fast",
+        "io_speed": 1.6
+      }
+    ]
+  }
+}

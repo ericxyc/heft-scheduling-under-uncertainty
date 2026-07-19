@@ -1,0 +1,78 @@
+{
+  "benchmark_name": "wfcommons-three-family-v1",
+  "description": "Trace-driven Phase 4B corpus with small sweep inputs and medium held-out scale inputs.",
+  "entries": [
+    {
+      "name": "montage-small",
+      "family": "montage",
+      "size": "small",
+      "split": "benchmark",
+      "path": "data/raw/wfcommons/montage-chameleon-2mass-005d-001.json",
+      "source_url": "https://raw.githubusercontent.com/wfcommons/WfInstances/main/pegasus/montage/montage-chameleon-2mass-005d-001.json",
+      "sha256": "5795e0ab9e13bb7d50d046796bcbc8ec0a884eba0512a95222bbd557bc6d0b65",
+      "task_count": 58,
+      "edge_count": 114,
+      "file_count": 111
+    },
+    {
+      "name": "montage-medium",
+      "family": "montage",
+      "size": "medium",
+      "split": "held-out",
+      "path": "data/raw/wfcommons/montage/montage-chameleon-2mass-015d-001.json",
+      "source_url": "https://raw.githubusercontent.com/wfcommons/WfInstances/main/pegasus/montage/montage-chameleon-2mass-015d-001.json",
+      "sha256": "d48ebd2e26e34a2c086cb4284b2fccc28a8708c4fcb5e323cce6e2280a336889",
+      "task_count": 310,
+      "edge_count": 798,
+      "file_count": 471
+    },
+    {
+      "name": "epigenomics-small",
+      "family": "epigenomics",
+      "size": "small",
+      "split": "benchmark",
+      "path": "data/raw/wfcommons/epigenomics/epigenomics-chameleon-hep-1seq-50k-001.json",
+      "source_url": "https://raw.githubusercontent.com/wfcommons/WfInstances/main/pegasus/epigenomics/epigenomics-chameleon-hep-1seq-50k-001.json",
+      "sha256": "8a64ae6acab57415972207de056d66d4cdea973b4a8f8fdf8200268cf269273e",
+      "task_count": 73,
+      "edge_count": 88,
+      "file_count": 94
+    },
+    {
+      "name": "epigenomics-medium",
+      "family": "epigenomics",
+      "size": "medium",
+      "split": "held-out",
+      "path": "data/raw/wfcommons/epigenomics/epigenomics-chameleon-hep-3seq-50k-001.json",
+      "source_url": "https://raw.githubusercontent.com/wfcommons/WfInstances/main/pegasus/epigenomics/epigenomics-chameleon-hep-3seq-50k-001.json",
+      "sha256": "e10731e3cc1e116327a5a127cd528981b5ca71e1a0d5681fa8e3a6bf545c0850",
+      "task_count": 445,
+      "edge_count": 550,
+      "file_count": 558
+    },
+    {
+      "name": "seismology-small",
+      "family": "seismology",
+      "size": "small",
+      "split": "benchmark",
+      "path": "data/raw/wfcommons/seismology/seismology-chameleon-100p-001.json",
+      "source_url": "https://raw.githubusercontent.com/wfcommons/WfInstances/main/pegasus/seismology/seismology-chameleon-100p-001.json",
+      "sha256": "99c0426009e1e2a0316c53da45ce9247ffaeee7d2e0fad6b4de96e796b5aaad4",
+      "task_count": 101,
+      "edge_count": 100,
+      "file_count": 304
+    },
+    {
+      "name": "seismology-medium",
+      "family": "seismology",
+      "size": "medium",
+      "split": "held-out",
+      "path": "data/raw/wfcommons/seismology/seismology-chameleon-200p-001.json",
+      "source_url": "https://raw.githubusercontent.com/wfcommons/WfInstances/main/pegasus/seismology/seismology-chameleon-200p-001.json",
+      "sha256": "91ce08abe3d980184a1f000967ed264eeba0475b175a9052334e63038d2bd549",
+      "task_count": 201,
+      "edge_count": 200,
+      "file_count": 604
+    }
+  ]
+}

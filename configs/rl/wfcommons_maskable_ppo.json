@@ -1,0 +1,16 @@
+{
+  "seed": 20260719,
+  "total_timesteps": 40000,
+  "n_steps": 512,
+  "batch_size": 128,
+  "n_epochs": 5,
+  "learning_rate": 0.0003,
+  "gamma": 1.0,
+  "gae_lambda": 0.95,
+  "entropy_coefficient": 0.01,
+  "max_candidates": 128,
+  "reward_scale": 500.0,
+  "workflow_count": 3,
+  "training_loads": [0.6, 0.8, 1.0, 1.2],
+  "training_cvs": [0.0, 0.1, 0.3, 0.5]
+}
