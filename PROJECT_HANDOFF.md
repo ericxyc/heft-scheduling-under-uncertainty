@@ -25,6 +25,12 @@ Build a credible undergraduate research project on dynamic scientific-workflow s
 - Two RL formulations using Maskable PPO:
   - V1 selects a task-worker candidate directly.
   - V2 selects one recommended next action from the five heuristic policies.
+- Phase 6 DAG-aware experiments:
+  - V3 selects task-worker candidates with a pure-PyTorch message-passing GNN.
+  - V4 uses the same GNN state encoder while selecting among the five
+    heuristic proposals.
+  - Training supports CUDA, wall-clock budgets, periodic checkpoints, PPO
+    loss diagnostics, and policy-invariant progress-potential reward shaping.
 
 ## Key Results
 
@@ -48,6 +54,31 @@ The V1 direct policy did not generalize reliably to real WfCommons workflows. Th
 
 Correct conclusion: the current RL policy reaches a reasonable near-Greedy policy but does not yet show broad, statistically credible superiority over the strongest heuristic baseline.
 
+### Phase 6 GNN result
+
+CUDA was verified on an RTX 4060 Laptop GPU with PyTorch `2.11.0+cu128`.
+The direct GNN policy trained for 3,600 seconds (80,202 steps, 86 episodes)
+but still lagged the best heuristic by 62.7% on the legacy medium held-out
+cell. The graph-hybrid policy then trained for 1,800 seconds (39,331 steps,
+42 episodes). It matched Greedy exactly on the legacy medium cell
+(`889.080` versus V2's `894.300`) but regressed on three small cells.
+
+A stricter five-seed medium evaluation produced mean JCT `895.070`, sample
+standard deviation `20.209`, and 95% CI half-width `17.714`. The policy chose
+Greedy on all 4,780 decisions, so this is evidence of a robust Greedy fallback,
+not evidence that the GNN learned useful graph-conditioned switching or beat
+the strongest heuristic.
+
+A follow-up fair PPO baseline removed the Greedy logit prior and linearly
+decayed the entropy coefficient from `0.02` toward `0.003`. In the matched
+1,800-second run, all five heuristics were sampled during training and Greedy
+accounted for only 14.7% of 35,264 completed-episode actions. However, the
+deterministic held-out policy selected shortest remaining work on all 4,780
+medium decisions and obtained mean JCT `952.095`, 6.4% worse than Greedy.
+This separates two failure modes: the original initialization caused an
+exploration imbalance, while the remaining actor still learns a global
+heuristic preference instead of graph-conditioned switching.
+
 ## How To Run
 
 Create a fresh virtual environment on each machine; do not copy `.venv` between macOS, Linux, or Windows.
@@ -66,6 +97,7 @@ heft-reproduce --output results/paper_example_schedule.json --plot results/paper
 heft-train-rl --help
 heft-train-wfcommons-rl --help
 heft-train-hybrid-rl --help
+heft-train-gnn-rl --help
 heft-evaluate-rl --help
 ```
 
@@ -73,13 +105,17 @@ Training configurations are in `configs/rl/`. The generated model checkpoints un
 
 ## Recommended Next Phase
 
-Strengthen the direct RL approach before making any claim that RL is better than heuristics:
+Strengthen the graph policy before making any claim that RL is better than heuristics:
 
 1. Expand to roughly 60-100 DAG instances across at least 3-5 WfCommons workflow families.
 2. Randomize arrivals, runtime uncertainty, and worker profiles with 10-20 training seeds per instance.
 3. Split train/validation/test by DAG instance, not merely by random seed.
 4. Replace the flat candidate representation with a DAG-aware GNN state encoder.
 5. Evaluate on 20-30 fully held-out DAGs with 30 paired seeds per scenario.
+6. Keep the fair zero-prior PPO baseline, but add state-conditional or
+   counterfactual advantage supervision before further long runs. The entropy
+   ablation increased training diversity but deterministic evaluation merely
+   changed the collapsed action from Greedy to shortest remaining work.
 
 Start with a 10k-episode smoke test and validate the learning curve and held-out results before committing to a long training run.
 

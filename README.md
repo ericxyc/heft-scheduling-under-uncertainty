@@ -291,6 +291,60 @@ heft-evaluate-rl \
   --plot results/rl/wfcommons_hybrid_evaluation.png
 ```
 
+## Phase 6: DAG-Aware GNN + PPO
+
+Phase 6 adds a pure-PyTorch message-passing encoder over arrived workflow DAGs.
+The training reward retains the exact negative-total-JCT objective and adds a
+potential-based progress term derived only from estimated remaining work and
+critical-path rank. Training reports preserve raw JCT separately from the
+shaped reward.
+
+For an NVIDIA system, install a matching PyTorch CUDA wheel first. The local
+validated setup uses Python 3.14, PyTorch `2.11.0+cu128`, CUDA 12.8, and an RTX
+4060 Laptop GPU. Then run:
+
+```bash
+heft-train-gnn-rl \
+  --config configs/rl/wfcommons_gnn_ppo.json \
+  --model artifacts/rl/final_models/wfcommons_gnn_ppo.zip \
+  --output results/rl/wfcommons_gnn_training.json \
+  --plot results/rl/wfcommons_gnn_training.png
+
+heft-train-gnn-rl \
+  --config configs/rl/wfcommons_gnn_hybrid_ppo.json \
+  --model artifacts/rl/final_models/wfcommons_gnn_hybrid_ppo.zip \
+  --output results/rl/wfcommons_gnn_hybrid_training.json \
+  --plot results/rl/wfcommons_gnn_hybrid_training.png
+```
+
+The direct graph policy still generalized poorly. The graph-hybrid policy
+matched Greedy exactly on a five-seed medium held-out evaluation (mean JCT
+`895.070`, 95% CI half-width `17.714`) but selected Greedy on all 4,780
+decisions. This improves the previous V2 result on the legacy medium point but
+does not establish broad improvement or useful graph-conditioned switching.
+
+The fair graph-hybrid PPO baseline removes the Greedy logit prior and linearly
+decays the entropy coefficient from `0.02` to `0.003` over the first 70% of
+training. Its output records the coefficient history and per-heuristic
+training action counts:
+
+```bash
+heft-train-gnn-rl \
+  --config configs/rl/wfcommons_gnn_hybrid_ppo_fair.json \
+  --model artifacts/rl/final_models/wfcommons_gnn_hybrid_ppo_fair.zip \
+  --output results/rl/wfcommons_gnn_hybrid_fair_training.json \
+  --plot results/rl/wfcommons_gnn_hybrid_fair_training.png
+```
+
+The matched 1,800-second run completed 35,754 steps and sampled all five
+heuristics during training: 14.7% Greedy, 31.9% Aging-HEFT, 44.5% shortest
+remaining work, and 8.9% across the remaining two policies. This fixes the
+original exploration imbalance, but deterministic held-out evaluation still
+collapsed to one global action: shortest remaining work on all 4,780
+decisions. Its five-seed medium mean JCT was `952.095`, 6.4% worse than
+Greedy's `895.070`. Entropy scheduling is therefore a fairer baseline, not by
+itself a solution for learning graph-conditioned heuristic switching.
+
 The V2 deterministic policy selected Greedy-EFT for more than 99% of held-out
 decisions, with occasional Aging-HEFT choices. It slightly beat the best single
 heuristic in one small setting and remained within about 4.2% in the other

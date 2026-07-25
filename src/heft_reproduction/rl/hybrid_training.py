@@ -87,7 +87,7 @@ def train_hybrid_policy(
         gae_lambda=config.gae_lambda,
         ent_coef=config.entropy_coefficient,
         verbose=0,
-        device="cpu",
+        device=config.device,
     )
     model.learn(
         total_timesteps=config.total_timesteps,

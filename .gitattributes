@@ -1,0 +1,2 @@
+data/raw/wfcommons/*.json -text
+data/raw/wfcommons/**/*.json -text

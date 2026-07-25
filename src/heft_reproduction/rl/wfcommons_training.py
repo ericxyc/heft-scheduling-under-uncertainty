@@ -33,6 +33,7 @@ DEFAULT_PLOT = Path("results/rl/wfcommons_learning_curve.png")
 @dataclass(frozen=True)
 class WfCommonsTrainingConfig:
     seed: int
+    device: str
     total_timesteps: int
     n_steps: int
     batch_size: int
@@ -48,6 +49,8 @@ class WfCommonsTrainingConfig:
     training_cvs: tuple[float, ...]
 
     def validate(self) -> None:
+        if self.device not in {"auto", "cpu", "cuda"}:
+            raise ValueError("device must be one of: auto, cpu, cuda")
         counts = (
             self.total_timesteps,
             self.n_steps,
@@ -150,7 +153,7 @@ def train_wfcommons_policy(
         gae_lambda=config.gae_lambda,
         ent_coef=config.entropy_coefficient,
         verbose=0,
-        device="cpu",
+        device=config.device,
     )
     model.learn(
         total_timesteps=config.total_timesteps,

@@ -12,3 +12,6 @@ dist/
 artifacts/rl/checkpoints/
 artifacts/rl/final_models/
 artifacts/rl/tensorboard/
+artifacts/rl/smoke/
+results/rl/*_smoke.json
+results/rl/*_smoke.png

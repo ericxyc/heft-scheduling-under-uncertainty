@@ -48,27 +48,40 @@ class EvaluationConfig:
     medium_seed_count: int
     workflow_count: int
     max_candidates: int
+    max_nodes: int
+    max_edges: int
     reward_scale: float
+    potential_weight: float
     small_loads: tuple[float, ...]
     small_cvs: tuple[float, ...]
     medium_loads: tuple[float, ...]
     medium_cvs: tuple[float, ...]
 
     def validate(self) -> None:
-        if self.environment_type not in ("candidate", "hybrid"):
-            raise ValueError("environment type must be candidate or hybrid")
+        if self.environment_type not in (
+            "candidate", "hybrid", "graph", "graph-hybrid"
+        ):
+            raise ValueError(
+                "environment type must be candidate, hybrid, or graph"
+            )
+        if self.small_seed_count < 0 or self.medium_seed_count < 0:
+            raise ValueError("evaluation seed counts must be non-negative")
+        if self.small_seed_count + self.medium_seed_count == 0:
+            raise ValueError("at least one evaluation seed is required")
         if any(
             value <= 0
             for value in (
-                self.small_seed_count,
-                self.medium_seed_count,
                 self.workflow_count,
                 self.max_candidates,
+                self.max_nodes,
+                self.max_edges,
             )
         ):
             raise ValueError("evaluation counts must be positive")
         if not isfinite(self.reward_scale) or self.reward_scale <= 0:
             raise ValueError("reward scale must be positive and finite")
+        if not isfinite(self.potential_weight) or self.potential_weight < 0:
+            raise ValueError("potential weight must be non-negative and finite")
         for values, allow_zero, name in (
             (self.small_loads, False, "small loads"),
             (self.medium_loads, False, "medium loads"),
@@ -90,6 +103,9 @@ def load_evaluation_config(path: Path) -> EvaluationConfig:
     payload = json.loads(path.read_text(encoding="utf-8"))
     if not isinstance(payload, dict):
         raise ValueError("RL evaluation config must be a JSON object")
+    payload.setdefault("max_nodes", 2048)
+    payload.setdefault("max_edges", 4096)
+    payload.setdefault("potential_weight", 0.0)
     for key in (
         "small_loads",
         "small_cvs",
@@ -111,6 +127,28 @@ def _fixed_env(
     scenario: DynamicScenario,
     config: EvaluationConfig,
 ) -> DynamicSchedulingEnv:
+    if config.environment_type in {"graph", "graph-hybrid"}:
+        from .graph_environment import (
+            GraphHeuristicSelectionEnv,
+            GraphSchedulingEnv,
+        )
+
+        graph_class = (
+            GraphHeuristicSelectionEnv
+            if config.environment_type == "graph-hybrid"
+            else GraphSchedulingEnv
+        )
+
+        return graph_class(
+            scenario_factory=lambda seed: scenario,
+            processors=scenario.processors,
+            max_candidates=config.max_candidates,
+            max_nodes=config.max_nodes,
+            max_edges=config.max_edges,
+            reward_scale=config.reward_scale,
+            reward_mode="jct-progress-potential",
+            potential_weight=config.potential_weight,
+        )
     if config.environment_type == "hybrid":
         from .hybrid_environment import HeuristicSelectionEnv
 
@@ -463,7 +501,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         config = load_evaluation_config(args.config)
         worker_config = load_trace_model_config(args.worker_config)
         corpus = load_benchmark_corpus(args.manifest, worker_config)
-        model = MaskablePPO.load(args.model, device="cpu")
+        model = MaskablePPO.load(args.model, device="auto")
         evaluation = evaluate_wfcommons_model(model, corpus, config)
         payload = {
             "phase": "5D-held-out-evaluation",

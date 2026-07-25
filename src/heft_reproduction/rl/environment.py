@@ -10,7 +10,7 @@ import gymnasium as gym
 import numpy as np
 
 from ..dynamic_models import DynamicScenario, DynamicSimulationResult
-from ..dynamic_simulator import DynamicSchedulingCore
+from ..dynamic_simulator import COMPLETED, DynamicSchedulingCore
 from .observation import (
     GLOBAL_FEATURES,
     EncodedObservation,
@@ -34,6 +34,8 @@ class DynamicSchedulingEnv(gym.Env[dict[str, np.ndarray], int]):
         max_candidates: int = 128,
         reward_scale: float = 1.0,
         aging_weight: float = 1.0,
+        reward_mode: str = "jct",
+        potential_weight: float = 0.0,
     ) -> None:
         super().__init__()
         if not processors:
@@ -42,11 +44,17 @@ class DynamicSchedulingEnv(gym.Env[dict[str, np.ndarray], int]):
             raise ValueError("max candidates must be positive")
         if reward_scale <= 0:
             raise ValueError("reward scale must be positive")
+        if reward_mode not in {"jct", "jct-progress-potential"}:
+            raise ValueError("unsupported reward mode")
+        if potential_weight < 0:
+            raise ValueError("potential weight must be non-negative")
         self.scenario_factory = scenario_factory
         self.processors = processors
         self.max_candidates = max_candidates
         self.reward_scale = reward_scale
         self.aging_weight = aging_weight
+        self.reward_mode = reward_mode
+        self.potential_weight = potential_weight
         self.action_space = gym.spaces.Discrete(max_candidates)
         self.observation_space = gym.spaces.Dict(
             {
@@ -76,6 +84,9 @@ class DynamicSchedulingEnv(gym.Env[dict[str, np.ndarray], int]):
         self.core: DynamicSchedulingCore | None = None
         self._encoded: EncodedObservation | None = None
         self._raw_episode_return = 0.0
+        self._training_episode_return = 0.0
+        self._reward_potential = 0.0
+        self._initial_reward_potential = 0.0
         self._truncation_count = 0
         self._scenario_seed = 0
         self._terminated = False
@@ -88,19 +99,48 @@ class DynamicSchedulingEnv(gym.Env[dict[str, np.ndarray], int]):
 
     def _empty_observation(self) -> dict[str, np.ndarray]:
         return {
-            "candidates": np.zeros(
-                self.observation_space["candidates"].shape,
-                dtype=np.float32,
-            ),
-            "global": np.zeros(
-                self.observation_space["global"].shape,
-                dtype=np.float32,
-            ),
-            "action_mask": np.zeros(
-                self.max_candidates,
-                dtype=np.int8,
-            ),
+            key: np.zeros(space.shape, dtype=space.dtype)
+            for key, space in self.observation_space.spaces.items()
         }
+
+    def _encode_observation(self, core: DynamicSchedulingCore):
+        return encode_observation(core, self.max_candidates)
+
+    def _progress_potential(self) -> float:
+        """Estimated DAG progress potential using observable information only."""
+
+        if self.reward_mode == "jct":
+            return 0.0
+        core = self._require_core()
+        potential = 0.0
+        for instance in core.scenario.instances:
+            if instance.id not in core.arrived_ids:
+                continue
+            workflow = instance.template.workflow
+            unfinished = [
+                task
+                for task in workflow.tasks
+                if core.status[instance.ref(task)] != COMPLETED
+            ]
+            if not unfinished:
+                continue
+            total_work = sum(
+                workflow.mean_computation_cost(task)
+                for task in workflow.tasks
+            )
+            remaining_work = sum(
+                workflow.mean_computation_cost(task)
+                for task in unfinished
+            )
+            maximum_rank = max(core.ranks[instance.id].values())
+            remaining_critical = max(
+                core.ranks[instance.id][task] for task in unfinished
+            )
+            potential -= (
+                0.7 * remaining_work / max(total_work, 1e-9)
+                + 0.3 * remaining_critical / max(maximum_rank, 1e-9)
+            )
+        return potential
 
     def _advance_until_decision(self) -> float:
         core = self._require_core()
@@ -110,7 +150,7 @@ class DynamicSchedulingEnv(gym.Env[dict[str, np.ndarray], int]):
             if core.is_complete:
                 self._encoded = None
                 return raw_reward
-            encoded = encode_observation(core, self.max_candidates)
+            encoded = self._encode_observation(core)
             if encoded.slots:
                 self._encoded = encoded
                 self._truncation_count += encoded.truncated_count
@@ -142,11 +182,14 @@ class DynamicSchedulingEnv(gym.Env[dict[str, np.ndarray], int]):
         )
         self._encoded = None
         self._raw_episode_return = 0.0
+        self._training_episode_return = 0.0
         self._truncation_count = 0
         self._terminated = False
         initial_reward = self._advance_until_decision()
         if initial_reward != 0.0:
             raise AssertionError("pre-arrival time must not accrue JCT reward")
+        self._reward_potential = self._progress_potential()
+        self._initial_reward_potential = self._reward_potential
         observation = (
             self._encoded.values
             if self._encoded is not None
@@ -178,6 +221,8 @@ class DynamicSchedulingEnv(gym.Env[dict[str, np.ndarray], int]):
             ),
             "truncated_candidates": self._truncation_count,
             "raw_episode_return": self._raw_episode_return,
+            "training_episode_return": self._training_episode_return,
+            "reward_mode": self.reward_mode,
         }
 
     def step(
@@ -215,6 +260,15 @@ class DynamicSchedulingEnv(gym.Env[dict[str, np.ndarray], int]):
         core = self._require_core()
         self._raw_episode_return += raw_reward
         self._terminated = core.is_complete
+        next_potential = 0.0 if self._terminated else self._progress_potential()
+        shaped_reward = raw_reward
+        if self.reward_mode == "jct-progress-potential":
+            shaped_reward += self.potential_weight * (
+                next_potential - self._reward_potential
+            )
+        self._reward_potential = next_potential
+        scaled_reward = shaped_reward / self.reward_scale
+        self._training_episode_return += scaled_reward
         info = self._info()
         if self._terminated:
             result = core.result(self.result_policy)
@@ -225,6 +279,13 @@ class DynamicSchedulingEnv(gym.Env[dict[str, np.ndarray], int]):
                     "result": result,
                     "total_jct": total_jct,
                     "reward_identity_error": identity_error,
+                    "shaped_raw_return": (
+                        self._training_episode_return * self.reward_scale
+                    ),
+                    "potential_shaping_offset": (
+                        -self.potential_weight
+                        * self._initial_reward_potential
+                    ),
                 }
             )
             observation = self._empty_observation()
@@ -234,7 +295,7 @@ class DynamicSchedulingEnv(gym.Env[dict[str, np.ndarray], int]):
             observation = self._encoded.values
         return (
             observation,
-            raw_reward / self.reward_scale,
+            scaled_reward,
             self._terminated,
             False,
             info,
