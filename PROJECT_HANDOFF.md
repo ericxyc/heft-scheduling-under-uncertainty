@@ -103,11 +103,13 @@ heft-evaluate-rl --help
 
 Training configurations are in `configs/rl/`. The generated model checkpoints under `artifacts/rl/final_models/` are intentionally ignored by Git.
 
-## Recommended Next Phase
+## Phase 7 Protocol Requirements
 
-Strengthen the graph policy before making any claim that RL is better than heuristics:
+The implementation now covers the following requirements; they remain the
+guardrails for interpreting the long run:
 
-1. Expand to roughly 60-100 DAG instances across at least 3-5 WfCommons workflow families.
+1. Build the largest compatible size-bounded corpus available from five
+   WfCommons workflow families (currently 46 DAG instances).
 2. Randomize arrivals, runtime uncertainty, and worker profiles with 10-20 training seeds per instance.
 3. Split train/validation/test by DAG instance, not merely by random seed.
 4. Replace the flat candidate representation with a DAG-aware GNN state encoder.
@@ -117,7 +119,16 @@ Strengthen the graph policy before making any claim that RL is better than heuri
    ablation increased training diversity but deterministic evaluation merely
    changed the collapsed action from Greedy to shortest remaining work.
 
-Start with a 10k-episode smoke test and validate the learning curve and held-out results before committing to a long training run.
+Start with a 10k-timestep smoke test and validate the learning curve and
+held-out results before committing to the configured long training run.
+
+The code for this protocol is now available through `heft-build-corpus`,
+`configs/rl/wfcommons_gnn_hybrid_research_ppo.json`, and
+`configs/rl/wfcommons_gnn_hybrid_research_evaluation.json`. It uses
+instance-disjoint splits, a permutation-equivariant candidate actor,
+counterfactual warm-start labels, 30 paired held-out seeds, bootstrap effect
+intervals, and recorded runtime provenance. Long-running Phase 7 results have
+not been generated or claimed.
 
 ## Intel Laptop Workflow
 

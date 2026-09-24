@@ -4,6 +4,9 @@ from __future__ import annotations
 
 import torch
 from gymnasium import spaces
+from sb3_contrib.common.maskable.policies import (
+    MaskableMultiInputActorCriticPolicy,
+)
 from stable_baselines3.common.torch_layers import BaseFeaturesExtractor
 from torch import nn
 
@@ -24,6 +27,8 @@ class GraphCandidateExtractor(BaseFeaturesExtractor):
         global_dim = observation_space["global"].shape[0]
         self.max_candidates = candidate_shape[0]
         self.max_nodes = node_shape[0]
+        self.candidate_dim = candidate_dim
+        self.context_dim = hidden_dim + global_dim
         features_dim = (
             self.max_candidates * candidate_dim + hidden_dim + global_dim
         )
@@ -143,4 +148,70 @@ class GraphCandidateExtractor(BaseFeaturesExtractor):
                 observations["global"].float(),
             ),
             dim=-1,
+        )
+
+
+class CandidateSetActionNet(nn.Module):
+    """Score each candidate with shared weights and invariant pooled context."""
+
+    def __init__(
+        self,
+        max_candidates: int,
+        candidate_dim: int,
+        context_dim: int,
+        hidden_dim: int = 64,
+    ) -> None:
+        super().__init__()
+        self.max_candidates = max_candidates
+        self.candidate_dim = candidate_dim
+        self.context_dim = context_dim
+        self.scorer = nn.Sequential(
+            nn.Linear(candidate_dim * 2 + context_dim, hidden_dim),
+            nn.SiLU(),
+            nn.Linear(hidden_dim, 1),
+        )
+
+    def forward(self, latent: torch.Tensor) -> torch.Tensor:
+        candidate_width = self.max_candidates * self.candidate_dim
+        candidates = latent[:, :candidate_width].reshape(
+            -1, self.max_candidates, self.candidate_dim
+        )
+        context = latent[:, candidate_width : candidate_width + self.context_dim]
+        present = candidates.abs().sum(dim=-1, keepdim=True).gt(0).float()
+        pooled = (candidates * present).sum(dim=1) / present.sum(
+            dim=1
+        ).clamp_min(1.0)
+        expanded = torch.cat(
+            (
+                candidates,
+                pooled.unsqueeze(1).expand(-1, self.max_candidates, -1),
+                context.unsqueeze(1).expand(-1, self.max_candidates, -1),
+            ),
+            dim=-1,
+        )
+        return self.scorer(expanded).squeeze(-1)
+
+
+class PermutationInvariantGraphPolicy(MaskableMultiInputActorCriticPolicy):
+    """MaskablePPO policy with candidate-permutation-equivariant actor logits."""
+
+    def __init__(self, *args, **kwargs) -> None:
+        observation_space = args[0] if args else kwargs["observation_space"]
+        lr_schedule = args[2] if len(args) > 2 else kwargs["lr_schedule"]
+        extractor_kwargs = kwargs.get("features_extractor_kwargs") or {}
+        self._candidate_count = observation_space["candidates"].shape[0]
+        self._candidate_dim = int(extractor_kwargs.get("candidate_dim", 16))
+        hidden_dim = int(extractor_kwargs.get("hidden_dim", 64))
+        global_dim = observation_space["global"].shape[0]
+        super().__init__(*args, **kwargs)
+        self.action_net = CandidateSetActionNet(
+            max_candidates=self._candidate_count,
+            candidate_dim=self._candidate_dim,
+            context_dim=hidden_dim + global_dim,
+            hidden_dim=hidden_dim,
+        )
+        self.optimizer = self.optimizer_class(
+            self.parameters(),
+            lr=lr_schedule(1),
+            **self.optimizer_kwargs,
         )

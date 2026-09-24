@@ -12,12 +12,14 @@ from heft_reproduction.dynamic_benchmark import (
 )
 from heft_reproduction.dynamic_models import (
     AGING_ROLLING_HEFT,
+    POLICY_NAMES,
     SHORTEST_REMAINING_WORK,
 )
 from heft_reproduction.dynamic_policies import (
     SchedulingCandidate,
     choose_candidate,
 )
+from heft_reproduction.rl.observation import _diverse_shortlist
 from heft_reproduction.trace_model import load_trace_model_config
 
 
@@ -94,6 +96,30 @@ class Phase4BBenchmarkTests(unittest.TestCase):
 
         self.assertEqual(selected, small)
         self.assertEqual(evaluated, 2)
+
+    def test_candidate_shortlist_preserves_full_set_heuristic_winners(self) -> None:
+        candidates = tuple(
+            SchedulingCandidate(
+                ref=(f"W{index:04d}", 1),
+                processor="P1",
+                processor_index=0,
+                workflow_arrival=float(index),
+                estimated_finish=1.0 if index == 0 else 100.0 + index,
+                upward_rank=1000.0 if index == 1 else float(index),
+                normalized_upward_rank=1.0 if index == 1 else index / 20,
+                aging_score=1000.0 if index == 2 else float(index),
+                workflow_remaining_work=1.0 if index == 3 else 100.0 + index,
+                static_allowed=index == 4,
+                static_absolute_planned_start=float(index),
+            )
+            for index in range(10)
+        )
+        shortlist = _diverse_shortlist(candidates, len(POLICY_NAMES))
+
+        for policy in POLICY_NAMES:
+            with self.subTest(policy=policy):
+                winner, _ = choose_candidate(policy, candidates)
+                self.assertIn(winner, shortlist)
 
     def test_sweep_shares_scenario_seed_across_policies(self) -> None:
         benchmark = run_dynamic_benchmark(

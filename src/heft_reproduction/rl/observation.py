@@ -7,7 +7,8 @@ from typing import Iterable
 
 import numpy as np
 
-from ..dynamic_policies import SchedulingCandidate
+from ..dynamic_models import POLICY_NAMES
+from ..dynamic_policies import SchedulingCandidate, choose_candidate
 from ..dynamic_simulator import COMPLETED, DynamicSchedulingCore
 
 
@@ -45,13 +46,33 @@ def _diverse_shortlist(
     candidates: Iterable[SchedulingCandidate],
     limit: int,
 ) -> tuple[SchedulingCandidate, ...]:
-    """Interleave strong transparent rankings before deterministic fallback."""
+    """Keep every heuristic winner, then interleave transparent rankings.
+
+    Hybrid policies must choose among the same five proposals as the direct
+    simulator.  Computing proposals after truncation silently changes those
+    policies on busy scenarios, so the full-set winners are reserved first.
+    """
 
     values = tuple(candidates)
     if limit <= 0:
         raise ValueError("candidate limit must be positive")
     if len(values) <= limit:
         return tuple(sorted(values, key=_stable_key))
+
+    required: list[SchedulingCandidate] = []
+    required_keys: set[tuple[tuple[str, int], str]] = set()
+    for policy in POLICY_NAMES:
+        proposal, _ = choose_candidate(policy, values)
+        if proposal is None:
+            continue
+        key = (proposal.ref, proposal.processor)
+        if key not in required_keys:
+            required.append(proposal)
+            required_keys.add(key)
+    if len(required) > limit:
+        raise ValueError(
+            "candidate limit is too small to preserve all heuristic proposals"
+        )
 
     orderings = (
         sorted(
@@ -85,8 +106,8 @@ def _diverse_shortlist(
             ),
         ),
     )
-    chosen: list[SchedulingCandidate] = []
-    seen: set[tuple[tuple[str, int], str]] = set()
+    chosen = list(required)
+    seen = set(required_keys)
     index = 0
     while len(chosen) < limit:
         added = False

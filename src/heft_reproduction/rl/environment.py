@@ -9,7 +9,7 @@ from typing import Any
 import gymnasium as gym
 import numpy as np
 
-from ..dynamic_models import DynamicScenario, DynamicSimulationResult
+from ..dynamic_models import POLICY_NAMES, DynamicScenario, DynamicSimulationResult
 from ..dynamic_simulator import COMPLETED, DynamicSchedulingCore
 from .observation import (
     GLOBAL_FEATURES,
@@ -42,6 +42,10 @@ class DynamicSchedulingEnv(gym.Env[dict[str, np.ndarray], int]):
             raise ValueError("processors must be non-empty")
         if max_candidates <= 0:
             raise ValueError("max candidates must be positive")
+        if max_candidates < len(POLICY_NAMES):
+            raise ValueError(
+                "max candidates must preserve at least one slot per heuristic"
+            )
         if reward_scale <= 0:
             raise ValueError("reward scale must be positive")
         if reward_mode not in {"jct", "jct-progress-potential"}:

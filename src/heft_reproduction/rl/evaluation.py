@@ -7,6 +7,7 @@ from dataclasses import asdict, dataclass
 import json
 from math import isfinite, sqrt
 from pathlib import Path
+from random import Random
 from statistics import fmean, stdev
 from typing import Any, Sequence
 
@@ -18,6 +19,7 @@ from ..dynamic_models import POLICY_NAMES, DynamicScenario
 from ..dynamic_scenario import build_dynamic_scenario
 from ..dynamic_simulator import simulate_dynamic_scenario
 from ..trace_model import load_trace_model_config
+from ..provenance import runtime_provenance
 from .adapters import run_model_episode, run_random_episode
 from .environment import DynamicSchedulingEnv
 
@@ -56,6 +58,7 @@ class EvaluationConfig:
     small_cvs: tuple[float, ...]
     medium_loads: tuple[float, ...]
     medium_cvs: tuple[float, ...]
+    evaluation_splits: tuple[str, ...]
 
     def validate(self) -> None:
         if self.environment_type not in (
@@ -97,6 +100,8 @@ class EvaluationConfig:
                 for value in values
             ):
                 raise ValueError(f"{name} contain an invalid value")
+        if any(not value for value in self.evaluation_splits):
+            raise ValueError("evaluation splits must contain non-empty names")
 
 
 def load_evaluation_config(path: Path) -> EvaluationConfig:
@@ -106,6 +111,7 @@ def load_evaluation_config(path: Path) -> EvaluationConfig:
     payload.setdefault("max_nodes", 2048)
     payload.setdefault("max_edges", 4096)
     payload.setdefault("potential_weight", 0.0)
+    payload.setdefault("evaluation_splits", [])
     for key in (
         "small_loads",
         "small_cvs",
@@ -113,6 +119,7 @@ def load_evaluation_config(path: Path) -> EvaluationConfig:
         "medium_cvs",
     ):
         payload[key] = tuple(payload.get(key, ()))
+    payload["evaluation_splits"] = tuple(payload.get("evaluation_splits", ()))
     expected = set(EvaluationConfig.__dataclass_fields__)
     if set(payload) != expected:
         raise ValueError(
@@ -233,6 +240,7 @@ def _aggregate(rows: Sequence[dict[str, Any]]) -> list[dict[str, Any]]:
 
 def _comparisons(
     aggregates: Sequence[dict[str, Any]],
+    rows: Sequence[dict[str, Any]],
 ) -> list[dict[str, Any]]:
     cells = sorted(
         {
@@ -268,6 +276,35 @@ def _comparisons(
         )
         learned_jct = learned["statistics"]["mean_jct"]["mean"]
         best_jct = best["statistics"]["mean_jct"]["mean"]
+        cell_rows = [
+            row
+            for row in rows
+            if (row["size"], row["offered_load"], row["runtime_cv"])
+            == (size, load, cv)
+        ]
+        learned_by_seed = {
+            row["scenario_seed"]: float(row["metrics"]["mean_jct"])
+            for row in cell_rows
+            if row["policy"] == "maskable-ppo"
+        }
+        baseline_by_seed = {
+            row["scenario_seed"]: float(row["metrics"]["mean_jct"])
+            for row in cell_rows
+            if row["policy"] == best["policy"]
+        }
+        shared_seeds = sorted(set(learned_by_seed) & set(baseline_by_seed))
+        differences = [
+            baseline_by_seed[seed] - learned_by_seed[seed]
+            for seed in shared_seeds
+        ]
+        relative_improvements = [
+            1.0 - learned_by_seed[seed] / baseline_by_seed[seed]
+            for seed in shared_seeds
+        ]
+        bootstrap = _paired_bootstrap_interval(
+            differences,
+            seed=_stable_bootstrap_seed(size, load, cv),
+        )
         results.append(
             {
                 "size": size,
@@ -279,9 +316,67 @@ def _comparisons(
                 "learned_improvement_over_best_heuristic": (
                     1.0 - learned_jct / best_jct
                 ),
+                "paired_effect": {
+                    "replicate_count": len(differences),
+                    "mean_jct_reduction": fmean(differences),
+                    "sample_std": (
+                        stdev(differences) if len(differences) > 1 else 0.0
+                    ),
+                    "bootstrap_ci95": bootstrap,
+                    "mean_relative_improvement": fmean(relative_improvements),
+                    "wins": sum(value > 1e-12 for value in differences),
+                    "ties": sum(abs(value) <= 1e-12 for value in differences),
+                    "losses": sum(value < -1e-12 for value in differences),
+                },
             }
         )
     return results
+
+
+def _stable_bootstrap_seed(size: str, load: float, cv: float) -> int:
+    text = f"{size}|{load:.12g}|{cv:.12g}"
+    value = 0
+    for character in text:
+        value = (value * 131 + ord(character)) % (2**32)
+    return value
+
+
+def _percentile(values: Sequence[float], probability: float) -> float:
+    ordered = sorted(values)
+    if not ordered:
+        raise ValueError("percentile requires at least one value")
+    position = probability * (len(ordered) - 1)
+    lower = int(position)
+    upper = min(lower + 1, len(ordered) - 1)
+    fraction = position - lower
+    return ordered[lower] + fraction * (ordered[upper] - ordered[lower])
+
+
+def _paired_bootstrap_interval(
+    differences: Sequence[float],
+    seed: int,
+    sample_count: int = 5000,
+) -> dict[str, float]:
+    """Deterministic percentile bootstrap CI for paired JCT differences."""
+
+    if not differences:
+        raise ValueError("paired comparison requires shared replicates")
+    if sample_count <= 0:
+        raise ValueError("bootstrap sample count must be positive")
+    if len(differences) == 1:
+        value = float(differences[0])
+        return {"lower": value, "upper": value, "samples": sample_count}
+    generator = Random(seed)
+    count = len(differences)
+    means = [
+        fmean(differences[generator.randrange(count)] for _ in range(count))
+        for _ in range(sample_count)
+    ]
+    return {
+        "lower": _percentile(means, 0.025),
+        "upper": _percentile(means, 0.975),
+        "samples": sample_count,
+    }
 
 
 def evaluate_wfcommons_model(
@@ -300,7 +395,12 @@ def evaluate_wfcommons_model(
         ),
     )
     for size_index, (size, loads, cvs, seed_count) in enumerate(settings):
-        templates = corpus.templates_for_size(size)
+        if seed_count == 0:
+            continue
+        templates = corpus.templates_for_size(
+            size,
+            splits=config.evaluation_splits or None,
+        )
         for load_index, load in enumerate(loads):
             mean_interarrival = mean_interarrival_for_load(
                 templates,
@@ -386,7 +486,7 @@ def evaluate_wfcommons_model(
     return {
         "rows": rows,
         "aggregates": aggregates,
-        "comparisons": _comparisons(aggregates),
+        "comparisons": _comparisons(aggregates, rows),
         "all_valid": all(row["is_valid"] for row in rows),
     }
 
@@ -492,6 +592,11 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--model", type=Path, default=DEFAULT_MODEL)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     parser.add_argument("--plot", type=Path, default=DEFAULT_PLOT)
+    parser.add_argument(
+        "--no-plot",
+        action="store_true",
+        help="skip Matplotlib output when visualization dependencies are absent",
+    )
     return parser
 
 
@@ -512,16 +617,19 @@ def main(argv: Sequence[str] | None = None) -> int:
                 "small_cvs": list(config.small_cvs),
                 "medium_loads": list(config.medium_loads),
                 "medium_cvs": list(config.medium_cvs),
+                "evaluation_splits": list(config.evaluation_splits),
             },
             "corpus": corpus.to_dict(),
             "evaluation": evaluation,
+            "provenance": runtime_provenance(),
         }
         args.output.parent.mkdir(parents=True, exist_ok=True)
         args.output.write_text(
             json.dumps(payload, indent=2, sort_keys=True) + "\n",
             encoding="utf-8",
         )
-        save_evaluation_plot(evaluation, args.plot)
+        if not args.no_plot:
+            save_evaluation_plot(evaluation, args.plot)
     except (OSError, ValueError, RuntimeError) as exc:
         print(f"Error: {exc}")
         return 2
@@ -536,7 +644,8 @@ def main(argv: Sequence[str] | None = None) -> int:
         )
     print(f"All schedules valid: {evaluation['all_valid']}")
     print(f"JSON: {args.output}")
-    print(f"Plot: {args.plot}")
+    if not args.no_plot:
+        print(f"Plot: {args.plot}")
     return 0 if evaluation["all_valid"] else 1
 
 

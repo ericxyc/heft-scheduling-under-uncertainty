@@ -2,22 +2,37 @@
 
 from __future__ import annotations
 
+import importlib.util
 import unittest
 from pathlib import Path
 
 import numpy as np
-from sb3_contrib import MaskablePPO
-
-from heft_reproduction.rl.graph_environment import GraphSchedulingEnv
-from heft_reproduction.rl.graph_environment import GraphHeuristicSelectionEnv
-from heft_reproduction.rl.graph_policy import GraphCandidateExtractor
-from heft_reproduction.rl.graph_training import (
-    linear_entropy_coefficient,
-    load_gnn_training_config,
-)
+from heft_reproduction.dynamic_models import POLICY_NAMES
 from tests.test_rl_environment import _factory
 
 
+RL_AVAILABLE = all(
+    importlib.util.find_spec(module) is not None
+    for module in ("gymnasium", "torch", "stable_baselines3", "sb3_contrib")
+)
+if RL_AVAILABLE:
+    from sb3_contrib import MaskablePPO
+
+    from heft_reproduction.rl.graph_environment import GraphHeuristicSelectionEnv
+    from heft_reproduction.rl.graph_environment import GraphSchedulingEnv
+    from heft_reproduction.rl.graph_policy import (
+        GraphCandidateExtractor,
+        PermutationInvariantGraphPolicy,
+    )
+    from heft_reproduction.rl.evaluation import _paired_bootstrap_interval
+    from heft_reproduction.rl.counterfactual import heuristic_counterfactuals
+    from heft_reproduction.rl.graph_training import (
+        linear_entropy_coefficient,
+        load_gnn_training_config,
+    )
+
+
+@unittest.skipUnless(RL_AVAILABLE, "RL training dependencies are optional")
 class GraphSchedulingTests(unittest.TestCase):
     def _env(self) -> GraphSchedulingEnv:
         return GraphSchedulingEnv(
@@ -40,6 +55,17 @@ class GraphSchedulingTests(unittest.TestCase):
         self.assertGreater(env.action_masks().sum(), 0)
         valid_nodes = observation["candidate_nodes"][env.action_masks()]
         self.assertTrue(np.all(observation["graph_node_mask"][valid_nodes]))
+
+    def test_graph_edge_overflow_is_rejected_instead_of_truncated(self) -> None:
+        env = GraphSchedulingEnv(
+            scenario_factory=_factory,
+            processors=("P1", "P2"),
+            max_candidates=32,
+            max_nodes=32,
+            max_edges=1,
+        )
+        with self.assertRaisesRegex(ValueError, "arrived edges"):
+            env.reset(seed=11)
 
     def test_potential_shaping_preserves_jct_policy_ordering(self) -> None:
         env = self._env()
@@ -86,6 +112,45 @@ class GraphSchedulingTests(unittest.TestCase):
         )
         self.assertTrue(env.action_masks()[int(action)])
 
+    def test_candidate_policy_is_permutation_equivariant(self) -> None:
+        import torch
+
+        env = self._env()
+        observation, _ = env.reset(seed=19)
+        model = MaskablePPO(
+            PermutationInvariantGraphPolicy,
+            env,
+            n_steps=8,
+            batch_size=4,
+            n_epochs=1,
+            device="cpu",
+            policy_kwargs={
+                "features_extractor_class": GraphCandidateExtractor,
+                "features_extractor_kwargs": {
+                    "hidden_dim": 16,
+                    "candidate_dim": 4,
+                    "message_passing_steps": 2,
+                },
+                "net_arch": {"pi": [], "vf": [32]},
+            },
+        )
+        permutation = np.arange(env.max_candidates)[::-1].copy()
+        permuted = {key: value.copy() for key, value in observation.items()}
+        for key in ("candidates", "candidate_nodes", "action_mask"):
+            permuted[key] = permuted[key][permutation]
+
+        first_tensor, _ = model.policy.obs_to_tensor(observation)
+        second_tensor, _ = model.policy.obs_to_tensor(permuted)
+        first = model.policy.get_distribution(
+            first_tensor,
+            action_masks=observation["action_mask"].astype(bool),
+        ).distribution.logits
+        second = model.policy.get_distribution(
+            second_tensor,
+            action_masks=permuted["action_mask"].astype(bool),
+        ).distribution.logits
+        torch.testing.assert_close(second, first[:, permutation])
+
     def test_graph_heuristic_environment_is_valid(self) -> None:
         env = GraphHeuristicSelectionEnv(
             scenario_factory=_factory,
@@ -105,6 +170,19 @@ class GraphSchedulingTests(unittest.TestCase):
             _, _, terminated, _, info = env.step(action)
         self.assertTrue(info["result"].is_valid)
 
+    def test_counterfactual_teacher_scores_every_available_heuristic(self) -> None:
+        env = GraphHeuristicSelectionEnv(
+            scenario_factory=_factory,
+            processors=("P1", "P2"),
+            max_candidates=32,
+            max_nodes=32,
+            max_edges=64,
+        )
+        env.reset(seed=29)
+        outcomes = heuristic_counterfactuals(env.core)
+        self.assertEqual(set(outcomes), set(POLICY_NAMES))
+        self.assertTrue(all(value > 0 for value in outcomes.values()))
+
     def test_entropy_schedule_decays_to_configured_floor(self) -> None:
         self.assertAlmostEqual(
             linear_entropy_coefficient(0.02, 0.003, 0.0, 0.7),
@@ -123,6 +201,12 @@ class GraphSchedulingTests(unittest.TestCase):
             0.003,
         )
 
+    def test_paired_bootstrap_is_seeded_and_reports_direction(self) -> None:
+        first = _paired_bootstrap_interval([2.0, 3.0, 4.0], seed=17)
+        second = _paired_bootstrap_interval([2.0, 3.0, 4.0], seed=17)
+        self.assertEqual(first, second)
+        self.assertGreater(first["lower"], 0.0)
+
     def test_fair_baseline_removes_greedy_prior(self) -> None:
         config = load_gnn_training_config(
             Path("configs/rl/wfcommons_gnn_hybrid_ppo_fair.json")
@@ -137,11 +221,18 @@ class GraphSchedulingTests(unittest.TestCase):
         config = load_gnn_training_config(
             Path("configs/rl/wfcommons_gnn_hybrid_ppo.json")
         )
+        self.assertFalse(config.permutation_invariant_actor)
         self.assertEqual(
             config.entropy_coefficient,
             config.entropy_coefficient_final,
         )
         self.assertEqual(config.entropy_decay_fraction, 1.0)
+
+    def test_research_config_uses_permutation_invariant_actor(self) -> None:
+        config = load_gnn_training_config(
+            Path("configs/rl/wfcommons_gnn_hybrid_research_ppo.json")
+        )
+        self.assertTrue(config.permutation_invariant_actor)
 
 
 if __name__ == "__main__":

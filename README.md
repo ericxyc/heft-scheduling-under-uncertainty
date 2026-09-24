@@ -291,6 +291,15 @@ heft-evaluate-rl \
   --plot results/rl/wfcommons_hybrid_evaluation.png
 ```
 
+The V2 deterministic policy selected Greedy-EFT for more than 99% of held-out
+decisions, with occasional Aging-HEFT choices. It slightly beat the best single
+heuristic in one small setting and remained within about 4.2% in the other
+small settings. This is evidence that the hybrid action abstraction is much
+more learnable than V1, not evidence that RL generally outperforms the
+heuristics. The local evaluation uses five seeds per small cell and one medium
+scale seed; stronger conclusions require more traces and at least 30 held-out
+seeds.
+
 ## Phase 6: DAG-Aware GNN + PPO
 
 Phase 6 adds a pure-PyTorch message-passing encoder over arrived workflow DAGs.
@@ -345,14 +354,55 @@ decisions. Its five-seed medium mean JCT was `952.095`, 6.4% worse than
 Greedy's `895.070`. Entropy scheduling is therefore a fairer baseline, not by
 itself a solution for learning graph-conditioned heuristic switching.
 
-The V2 deterministic policy selected Greedy-EFT for more than 99% of held-out
-decisions, with occasional Aging-HEFT choices. It slightly beat the best single
-heuristic in one small setting and remained within about 4.2% in the other
-small settings. This is evidence that the hybrid action abstraction is much
-more learnable than V1, not evidence that RL generally outperforms the
-heuristics. The local evaluation uses five seeds per small cell and one medium
-scale seed; stronger conclusions require more traces and at least 30 held-out
-seeds.
+## Phase 7: Reproducible Instance-Disjoint Evaluation
+
+The larger protocol motivated by the Phase 6 negative result is now
+implemented. Build a checksum-pinned, size-bounded corpus with up to 20 usable
+instances from each of five official WfCommons Pegasus families:
+
+```bash
+heft-build-corpus \
+  --limit-per-family 20 \
+  --max-tasks-per-instance 300 \
+  --output configs/workflow_research_corpus.json
+```
+
+The builder accepts WfFormat 1.5 and 1.6, records source URLs and SHA-256
+values, and splits every family by DAG instance into 70% train, 15% validation,
+and 15% test partitions. Official instances that violate the simulator's
+strict positive-runtime assumptions are recorded and skipped. This preparation
+command also caps a DAG at 300 tasks so twelve concurrently arrived workflows
+fit the research graph budget. It needs network access once; later training and
+evaluation are offline and checksum-validated.
+
+The new graph actor scores every candidate with shared weights and invariant
+pooled context, so a candidate permutation only permutes its logits. The
+hybrid research configuration also performs optional counterfactual
+warm-starting: from the same scheduler state, it evaluates all five heuristic
+proposals with a shared Greedy continuation and supervises the lowest-JCT
+proposal.
+
+```bash
+heft-train-gnn-rl \
+  --manifest configs/workflow_research_corpus.json \
+  --config configs/rl/wfcommons_gnn_hybrid_research_ppo.json \
+  --model artifacts/rl/final_models/wfcommons_gnn_hybrid_research.zip \
+  --output results/rl/wfcommons_gnn_hybrid_research_training.json \
+  --no-plot
+
+heft-evaluate-rl \
+  --manifest configs/workflow_research_corpus.json \
+  --config configs/rl/wfcommons_gnn_hybrid_research_evaluation.json \
+  --model artifacts/rl/final_models/wfcommons_gnn_hybrid_research.zip \
+  --output results/rl/wfcommons_gnn_hybrid_research_evaluation.json \
+  --no-plot
+```
+
+The evaluation uses 30 paired seeds per cell and reports paired JCT reduction,
+deterministic percentile-bootstrap intervals, relative improvement, and
+win/tie/loss counts. Reports record Git, platform, Python, and dependency
+provenance. These commands define the completed protocol; no Phase 7
+performance claim is made until its long-running artifacts exist.
 
 ## Paper Data Provenance
 
@@ -374,11 +424,14 @@ a fixed plan under controlled runtime uncertainty. Phase 4 adds online
 multi-workflow contention and replanning baselines. Phase 4B evaluates those
 baselines across three workflow families, two scales, controlled loads, and
 repeated seeds. Phase 5 adds optional masked PPO policies and paired held-out
-evaluation. All trace-driven phases use real workflow structure and
-measurements, but worker heterogeneity, bandwidth, arrivals, and runtime
-uncertainty remain explicit simulation assumptions. Results do not represent
-measured GPU-cluster performance, establish statistical significance with only
-a few seeds, or prove that HEFT or RL is optimal.
+evaluation. Phase 6 adds graph policies, and Phase 7 adds instance-disjoint
+data preparation, permutation-equivariant candidate scoring, counterfactual
+warm-starting, and paired statistical reporting. All trace-driven phases use
+real workflow structure and measurements, but worker heterogeneity, bandwidth,
+arrivals, and runtime uncertainty remain explicit simulation assumptions.
+Results do not represent measured GPU-cluster performance, establish
+statistical significance with only a few seeds, or prove that HEFT or RL is
+optimal.
 
 ## Pegasus Boundary
 

@@ -90,7 +90,10 @@ def encode_graph_observation(
         for instance in arrived
         for parent, child in instance.template.workflow.communication_costs
     ]
-    edge_refs = edge_refs[:max_edges]
+    if len(edge_refs) > max_edges:
+        raise ValueError(
+            f"graph has {len(edge_refs)} arrived edges, exceeds {max_edges}"
+        )
 
     nodes = np.zeros((max_nodes, GRAPH_NODE_FEATURES), dtype=np.float32)
     node_mask = np.zeros(max_nodes, dtype=np.int8)

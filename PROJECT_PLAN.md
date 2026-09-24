@@ -194,7 +194,13 @@ credit assignment, not simply increase global action entropy.
 
 ## Current Scope
 
-Phases 1 through 5 are implemented. The next research milestone is broader
-data and statistical evaluation: more workflow instances and families, at
-least 30 paired test seeds, and a permutation-invariant candidate or graph
-policy if low-level task-worker learning is revisited.
+Phases 1 through 6 are implemented and the Phase 7 research pipeline is ready.
+It adds a size-bounded official-corpus builder (currently 46 compatible DAGs
+across five families), instance-disjoint train/validation/test partitions,
+permutation-equivariant candidate scoring, counterfactual heuristic
+warm-starting, paired bootstrap effect intervals, provenance capture, and
+Windows/Linux CI.
+
+The remaining work is experimental rather than missing implementation: run the
+long research configuration on suitable compute, archive the frozen model and
+report artifacts, and make claims only from the 30-seed held-out output.
