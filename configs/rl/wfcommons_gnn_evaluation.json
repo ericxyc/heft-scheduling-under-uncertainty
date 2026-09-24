@@ -1,0 +1,16 @@
+{
+  "environment_type": "graph",
+  "base_seed": 9000000,
+  "small_seed_count": 10,
+  "medium_seed_count": 10,
+  "workflow_count": 3,
+  "max_candidates": 128,
+  "max_nodes": 1024,
+  "max_edges": 1536,
+  "reward_scale": 500.0,
+  "potential_weight": 100.0,
+  "small_loads": [0.6, 1.0],
+  "small_cvs": [0.1, 0.3],
+  "medium_loads": [0.8, 1.1],
+  "medium_cvs": [0.2, 0.4]
+}

@@ -1,0 +1,16 @@
+{
+  "environment_type": "graph-hybrid",
+  "base_seed": 9100000,
+  "small_seed_count": 0,
+  "medium_seed_count": 5,
+  "workflow_count": 3,
+  "max_candidates": 128,
+  "max_nodes": 1024,
+  "max_edges": 1536,
+  "reward_scale": 500.0,
+  "potential_weight": 100.0,
+  "small_loads": [0.6],
+  "small_cvs": [0.1],
+  "medium_loads": [0.8],
+  "medium_cvs": [0.2]
+}

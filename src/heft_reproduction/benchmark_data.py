@@ -58,9 +58,16 @@ class BenchmarkCorpus:
     entries: tuple[BenchmarkEntry, ...]
     templates: tuple[WorkflowTemplate, ...]
 
-    def templates_for_size(self, size: str) -> tuple[WorkflowTemplate, ...]:
+    def templates_for_size(
+        self,
+        size: str,
+        splits: tuple[str, ...] | None = None,
+    ) -> tuple[WorkflowTemplate, ...]:
         selected_names = {
-            entry.name for entry in self.entries if entry.size == size
+            entry.name
+            for entry in self.entries
+            if entry.size == size
+            and (splits is None or entry.split in splits)
         }
         result = tuple(
             template
@@ -68,7 +75,10 @@ class BenchmarkCorpus:
             if template.name in selected_names
         )
         if not result:
-            raise ValueError(f"benchmark contains no templates for size {size}")
+            split_text = "" if splits is None else f" in splits {splits}"
+            raise ValueError(
+                f"benchmark contains no templates for size {size}{split_text}"
+            )
         return result
 
     @property
@@ -183,11 +193,8 @@ def load_benchmark_corpus(
 
     if len({entry.name for entry in entries}) != len(entries):
         raise ValueError("benchmark entry names must be unique")
-    families_by_size: dict[str, set[str]] = {}
-    for entry in entries:
-        families_by_size.setdefault(entry.size, set()).add(entry.family)
-    if any(len(families) < 2 for families in families_by_size.values()):
-        raise ValueError("each benchmark size must cover multiple families")
+    if len({entry.family for entry in entries}) < 2:
+        raise ValueError("benchmark corpus must cover multiple families")
 
     return BenchmarkCorpus(
         name=name,

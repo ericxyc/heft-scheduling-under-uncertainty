@@ -1,5 +1,6 @@
 {
   "seed": 20260720,
+  "device": "auto",
   "total_timesteps": 30000,
   "n_steps": 512,
   "batch_size": 128,

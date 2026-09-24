@@ -159,9 +159,48 @@ heuristics.
 - Record random seeds and configuration for every result.
 - Treat negative results as findings, not failures to hide.
 
+## Phase 6: DAG-Aware GNN + PPO
+
+### Status
+
+Implemented and evaluated on CUDA. The engineering milestone is complete,
+but the research gate of broad held-out improvement is not met.
+
+- Added fixed-shape arrived-DAG observations with node state, rank, runtime,
+  degree, communication, workflow age, and remaining-work features.
+- Added a pure-PyTorch bidirectional message-passing encoder for MaskablePPO.
+- Added JCT-aligned potential shaping based on observable remaining work and
+  critical-path progress. The shaping term telescopes to a scenario constant,
+  so it does not change policy ordering by total JCT.
+- Added CUDA device selection, one-hour wall-clock budgets, 5,000-step
+  checkpoints, and PPO loss/reward diagnostics.
+- Expanded each training episode from 3 to 12 workflows across Montage,
+  Epigenomics, and Seismology and sampled 5 load levels and 5 CV levels.
+- Kept medium DAG instances fully held out from training.
+
+The direct graph candidate policy remained substantially worse than strong
+heuristics. The graph-hybrid policy matched Greedy on a five-seed medium
+evaluation but selected Greedy for every decision. It improved the legacy
+medium point relative to V2 by 0.58%, while small legacy cells did not improve
+consistently. Phase 6 therefore demonstrates a working scalable graph training
+stack and a negative learning result, not a new state-of-the-art scheduler.
+
+A fair PPO ablation subsequently removed the Greedy logit prior and used a
+`0.02` to `0.003` entropy schedule. It maintained broad stochastic exploration
+during training, but its deterministic held-out policy selected shortest
+remaining work for every decision and was 6.4% worse than Greedy on the
+five-seed medium cell. The next learning change must target state-conditional
+credit assignment, not simply increase global action entropy.
+
 ## Current Scope
 
-Phases 1 through 5 are implemented. The next research milestone is broader
-data and statistical evaluation: more workflow instances and families, at
-least 30 paired test seeds, and a permutation-invariant candidate or graph
-policy if low-level task-worker learning is revisited.
+Phases 1 through 6 are implemented and the Phase 7 research pipeline is ready.
+It adds a size-bounded official-corpus builder (currently 46 compatible DAGs
+across five families), instance-disjoint train/validation/test partitions,
+permutation-equivariant candidate scoring, counterfactual heuristic
+warm-starting, paired bootstrap effect intervals, provenance capture, and
+Windows/Linux CI.
+
+The remaining work is experimental rather than missing implementation: run the
+long research configuration on suitable compute, archive the frozen model and
+report artifacts, and make claims only from the 30-seed held-out output.

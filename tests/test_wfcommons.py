@@ -98,6 +98,14 @@ class WfCommonsParserTests(unittest.TestCase):
         self.assertEqual(trace.leaves, ("B",))
         self.assertEqual(trace.shared_file_ids("A", "B"), ("shared.dat",))
         self.assertEqual(trace.shared_bytes("A", "B"), 100_000_000)
+
+    def test_accepts_wfformat_1_6_compatible_trace(self) -> None:
+        data = minimal_trace_data()
+        data["schemaVersion"] = "1.6"
+        with TemporaryDirectory() as directory:
+            trace = load_wfcommons_trace(write_trace(directory, data))
+
+        self.assertEqual(trace.schema_version, "1.6")
         self.assertEqual(trace.executions["A"].program, "compute")
 
     def test_rejects_unknown_parent(self) -> None:

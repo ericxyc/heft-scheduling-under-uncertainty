@@ -300,6 +300,110 @@ heuristics. The local evaluation uses five seeds per small cell and one medium
 scale seed; stronger conclusions require more traces and at least 30 held-out
 seeds.
 
+## Phase 6: DAG-Aware GNN + PPO
+
+Phase 6 adds a pure-PyTorch message-passing encoder over arrived workflow DAGs.
+The training reward retains the exact negative-total-JCT objective and adds a
+potential-based progress term derived only from estimated remaining work and
+critical-path rank. Training reports preserve raw JCT separately from the
+shaped reward.
+
+For an NVIDIA system, install a matching PyTorch CUDA wheel first. The local
+validated setup uses Python 3.14, PyTorch `2.11.0+cu128`, CUDA 12.8, and an RTX
+4060 Laptop GPU. Then run:
+
+```bash
+heft-train-gnn-rl \
+  --config configs/rl/wfcommons_gnn_ppo.json \
+  --model artifacts/rl/final_models/wfcommons_gnn_ppo.zip \
+  --output results/rl/wfcommons_gnn_training.json \
+  --plot results/rl/wfcommons_gnn_training.png
+
+heft-train-gnn-rl \
+  --config configs/rl/wfcommons_gnn_hybrid_ppo.json \
+  --model artifacts/rl/final_models/wfcommons_gnn_hybrid_ppo.zip \
+  --output results/rl/wfcommons_gnn_hybrid_training.json \
+  --plot results/rl/wfcommons_gnn_hybrid_training.png
+```
+
+The direct graph policy still generalized poorly. The graph-hybrid policy
+matched Greedy exactly on a five-seed medium held-out evaluation (mean JCT
+`895.070`, 95% CI half-width `17.714`) but selected Greedy on all 4,780
+decisions. This improves the previous V2 result on the legacy medium point but
+does not establish broad improvement or useful graph-conditioned switching.
+
+The fair graph-hybrid PPO baseline removes the Greedy logit prior and linearly
+decays the entropy coefficient from `0.02` to `0.003` over the first 70% of
+training. Its output records the coefficient history and per-heuristic
+training action counts:
+
+```bash
+heft-train-gnn-rl \
+  --config configs/rl/wfcommons_gnn_hybrid_ppo_fair.json \
+  --model artifacts/rl/final_models/wfcommons_gnn_hybrid_ppo_fair.zip \
+  --output results/rl/wfcommons_gnn_hybrid_fair_training.json \
+  --plot results/rl/wfcommons_gnn_hybrid_fair_training.png
+```
+
+The matched 1,800-second run completed 35,754 steps and sampled all five
+heuristics during training: 14.7% Greedy, 31.9% Aging-HEFT, 44.5% shortest
+remaining work, and 8.9% across the remaining two policies. This fixes the
+original exploration imbalance, but deterministic held-out evaluation still
+collapsed to one global action: shortest remaining work on all 4,780
+decisions. Its five-seed medium mean JCT was `952.095`, 6.4% worse than
+Greedy's `895.070`. Entropy scheduling is therefore a fairer baseline, not by
+itself a solution for learning graph-conditioned heuristic switching.
+
+## Phase 7: Reproducible Instance-Disjoint Evaluation
+
+The larger protocol motivated by the Phase 6 negative result is now
+implemented. Build a checksum-pinned, size-bounded corpus with up to 20 usable
+instances from each of five official WfCommons Pegasus families:
+
+```bash
+heft-build-corpus \
+  --limit-per-family 20 \
+  --max-tasks-per-instance 300 \
+  --output configs/workflow_research_corpus.json
+```
+
+The builder accepts WfFormat 1.5 and 1.6, records source URLs and SHA-256
+values, and splits every family by DAG instance into 70% train, 15% validation,
+and 15% test partitions. Official instances that violate the simulator's
+strict positive-runtime assumptions are recorded and skipped. This preparation
+command also caps a DAG at 300 tasks so twelve concurrently arrived workflows
+fit the research graph budget. It needs network access once; later training and
+evaluation are offline and checksum-validated.
+
+The new graph actor scores every candidate with shared weights and invariant
+pooled context, so a candidate permutation only permutes its logits. The
+hybrid research configuration also performs optional counterfactual
+warm-starting: from the same scheduler state, it evaluates all five heuristic
+proposals with a shared Greedy continuation and supervises the lowest-JCT
+proposal.
+
+```bash
+heft-train-gnn-rl \
+  --manifest configs/workflow_research_corpus.json \
+  --config configs/rl/wfcommons_gnn_hybrid_research_ppo.json \
+  --model artifacts/rl/final_models/wfcommons_gnn_hybrid_research.zip \
+  --output results/rl/wfcommons_gnn_hybrid_research_training.json \
+  --no-plot
+
+heft-evaluate-rl \
+  --manifest configs/workflow_research_corpus.json \
+  --config configs/rl/wfcommons_gnn_hybrid_research_evaluation.json \
+  --model artifacts/rl/final_models/wfcommons_gnn_hybrid_research.zip \
+  --output results/rl/wfcommons_gnn_hybrid_research_evaluation.json \
+  --no-plot
+```
+
+The evaluation uses 30 paired seeds per cell and reports paired JCT reduction,
+deterministic percentile-bootstrap intervals, relative improvement, and
+win/tie/loss counts. Reports record Git, platform, Python, and dependency
+provenance. These commands define the completed protocol; no Phase 7
+performance claim is made until its long-running artifacts exist.
+
 ## Paper Data Provenance
 
 `src/heft_reproduction/paper_example.py` manually transcribes:
@@ -320,11 +424,14 @@ a fixed plan under controlled runtime uncertainty. Phase 4 adds online
 multi-workflow contention and replanning baselines. Phase 4B evaluates those
 baselines across three workflow families, two scales, controlled loads, and
 repeated seeds. Phase 5 adds optional masked PPO policies and paired held-out
-evaluation. All trace-driven phases use real workflow structure and
-measurements, but worker heterogeneity, bandwidth, arrivals, and runtime
-uncertainty remain explicit simulation assumptions. Results do not represent
-measured GPU-cluster performance, establish statistical significance with only
-a few seeds, or prove that HEFT or RL is optimal.
+evaluation. Phase 6 adds graph policies, and Phase 7 adds instance-disjoint
+data preparation, permutation-equivariant candidate scoring, counterfactual
+warm-starting, and paired statistical reporting. All trace-driven phases use
+real workflow structure and measurements, but worker heterogeneity, bandwidth,
+arrivals, and runtime uncertainty remain explicit simulation assumptions.
+Results do not represent measured GPU-cluster performance, establish
+statistical significance with only a few seeds, or prove that HEFT or RL is
+optimal.
 
 ## Pegasus Boundary
 

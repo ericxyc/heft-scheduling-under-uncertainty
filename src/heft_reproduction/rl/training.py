@@ -35,6 +35,7 @@ DEFAULT_PLOT = Path("results/rl/toy_learning_curve.png")
 @dataclass(frozen=True)
 class ToyTrainingConfig:
     seed: int
+    device: str
     total_timesteps: int
     n_steps: int
     batch_size: int
@@ -53,6 +54,8 @@ class ToyTrainingConfig:
     minimum_random_improvement: float
 
     def validate(self) -> None:
+        if self.device not in {"auto", "cpu", "cuda"}:
+            raise ValueError("device must be one of: auto, cpu, cuda")
         integer_positive = (
             self.total_timesteps,
             self.n_steps,
@@ -122,6 +125,9 @@ class EpisodeHistoryCallback(BaseCallback):
     def __init__(self) -> None:
         super().__init__(verbose=0)
         self.raw_returns: list[float] = []
+        self.training_returns: list[float] = []
+        self.diagnostics: list[dict[str, float]] = []
+        self._last_diagnostic_step = -1
 
     def _on_step(self) -> bool:
         for done, info in zip(
@@ -130,7 +136,39 @@ class EpisodeHistoryCallback(BaseCallback):
         ):
             if done and "raw_episode_return" in info:
                 self.raw_returns.append(float(info["raw_episode_return"]))
+                self.training_returns.append(
+                    float(info.get("training_episode_return", 0.0))
+                )
         return True
+
+    def _capture_diagnostics(self) -> None:
+        if self.num_timesteps == self._last_diagnostic_step:
+            return
+        values = self.logger.name_to_value
+        keys = (
+            "train/loss",
+            "train/policy_gradient_loss",
+            "train/value_loss",
+            "train/entropy_loss",
+            "train/explained_variance",
+            "train/approx_kl",
+            "train/clip_fraction",
+        )
+        row = {
+            key.removeprefix("train/"): float(values[key])
+            for key in keys
+            if key in values
+        }
+        if row:
+            row["timesteps"] = float(self.num_timesteps)
+            self.diagnostics.append(row)
+            self._last_diagnostic_step = self.num_timesteps
+
+    def _on_rollout_start(self) -> None:
+        self._capture_diagnostics()
+
+    def _on_training_end(self) -> None:
+        self._capture_diagnostics()
 
 
 def _evaluation_row(
@@ -263,7 +301,7 @@ def train_toy_policy(
         gae_lambda=config.gae_lambda,
         ent_coef=config.entropy_coefficient,
         verbose=0,
-        device="cpu",
+        device=config.device,
     )
     model.learn(
         total_timesteps=config.total_timesteps,

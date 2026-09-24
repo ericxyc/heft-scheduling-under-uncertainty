@@ -1,0 +1,1887 @@
+{
+  "config": {
+    "base_seed": 9100000,
+    "environment_type": "graph-hybrid",
+    "max_candidates": 128,
+    "max_edges": 1536,
+    "max_nodes": 1024,
+    "medium_cvs": [
+      0.2
+    ],
+    "medium_loads": [
+      0.8
+    ],
+    "medium_seed_count": 5,
+    "potential_weight": 100.0,
+    "reward_scale": 500.0,
+    "small_cvs": [
+      0.1
+    ],
+    "small_loads": [
+      0.6
+    ],
+    "small_seed_count": 0,
+    "workflow_count": 3
+  },
+  "corpus": {
+    "description": "Trace-driven Phase 4B corpus with small sweep inputs and medium held-out scale inputs.",
+    "entries": [
+      {
+        "edge_count": 114,
+        "family": "montage",
+        "file_count": 111,
+        "name": "montage-small",
+        "path": "data\\raw\\wfcommons\\montage-chameleon-2mass-005d-001.json",
+        "sha256": "5795e0ab9e13bb7d50d046796bcbc8ec0a884eba0512a95222bbd557bc6d0b65",
+        "size": "small",
+        "source_url": "https://raw.githubusercontent.com/wfcommons/WfInstances/main/pegasus/montage/montage-chameleon-2mass-005d-001.json",
+        "split": "benchmark",
+        "task_count": 58
+      },
+      {
+        "edge_count": 798,
+        "family": "montage",
+        "file_count": 471,
+        "name": "montage-medium",
+        "path": "data\\raw\\wfcommons\\montage\\montage-chameleon-2mass-015d-001.json",
+        "sha256": "d48ebd2e26e34a2c086cb4284b2fccc28a8708c4fcb5e323cce6e2280a336889",
+        "size": "medium",
+        "source_url": "https://raw.githubusercontent.com/wfcommons/WfInstances/main/pegasus/montage/montage-chameleon-2mass-015d-001.json",
+        "split": "held-out",
+        "task_count": 310
+      },
+      {
+        "edge_count": 88,
+        "family": "epigenomics",
+        "file_count": 94,
+        "name": "epigenomics-small",
+        "path": "data\\raw\\wfcommons\\epigenomics\\epigenomics-chameleon-hep-1seq-50k-001.json",
+        "sha256": "8a64ae6acab57415972207de056d66d4cdea973b4a8f8fdf8200268cf269273e",
+        "size": "small",
+        "source_url": "https://raw.githubusercontent.com/wfcommons/WfInstances/main/pegasus/epigenomics/epigenomics-chameleon-hep-1seq-50k-001.json",
+        "split": "benchmark",
+        "task_count": 73
+      },
+      {
+        "edge_count": 550,
+        "family": "epigenomics",
+        "file_count": 558,
+        "name": "epigenomics-medium",
+        "path": "data\\raw\\wfcommons\\epigenomics\\epigenomics-chameleon-hep-3seq-50k-001.json",
+        "sha256": "e10731e3cc1e116327a5a127cd528981b5ca71e1a0d5681fa8e3a6bf545c0850",
+        "size": "medium",
+        "source_url": "https://raw.githubusercontent.com/wfcommons/WfInstances/main/pegasus/epigenomics/epigenomics-chameleon-hep-3seq-50k-001.json",
+        "split": "held-out",
+        "task_count": 445
+      },
+      {
+        "edge_count": 100,
+        "family": "seismology",
+        "file_count": 304,
+        "name": "seismology-small",
+        "path": "data\\raw\\wfcommons\\seismology\\seismology-chameleon-100p-001.json",
+        "sha256": "99c0426009e1e2a0316c53da45ce9247ffaeee7d2e0fad6b4de96e796b5aaad4",
+        "size": "small",
+        "source_url": "https://raw.githubusercontent.com/wfcommons/WfInstances/main/pegasus/seismology/seismology-chameleon-100p-001.json",
+        "split": "benchmark",
+        "task_count": 101
+      },
+      {
+        "edge_count": 200,
+        "family": "seismology",
+        "file_count": 604,
+        "name": "seismology-medium",
+        "path": "data\\raw\\wfcommons\\seismology\\seismology-chameleon-200p-001.json",
+        "sha256": "91ce08abe3d980184a1f000967ed264eeba0475b175a9052334e63038d2bd549",
+        "size": "medium",
+        "source_url": "https://raw.githubusercontent.com/wfcommons/WfInstances/main/pegasus/seismology/seismology-chameleon-200p-001.json",
+        "split": "held-out",
+        "task_count": 201
+      }
+    ],
+    "manifest": "configs\\workflow_benchmark.json",
+    "name": "wfcommons-three-family-v1"
+  },
+  "evaluation": {
+    "aggregates": [
+      {
+        "all_valid": true,
+        "mean_truncated_candidates": 0.0,
+        "offered_load": 0.8,
+        "policy": "aging-rolling-heft",
+        "replicate_count": 5,
+        "runtime_cv": 0.2,
+        "size": "medium",
+        "statistics": {
+          "average_utilization": {
+            "ci95_half_width": 0.1961548816843948,
+            "mean": 0.7737182173148521,
+            "sample_std": 0.22378349467588532
+          },
+          "mean_jct": {
+            "ci95_half_width": 9.476920114585235,
+            "mean": 949.2127396363627,
+            "sample_std": 10.811753874259022
+          },
+          "mean_task_queue_wait": {
+            "ci95_half_width": 1.2926715750415603,
+            "mean": 215.99096438776252,
+            "sample_std": 1.474745670599311
+          },
+          "p95_jct": {
+            "ci95_half_width": 36.07433096838262,
+            "mean": 2293.801094293735,
+            "sample_std": 41.15543688169865
+          },
+          "scheduler_wall_seconds": {
+            "ci95_half_width": 0.5127036313205126,
+            "mean": 3.5620026799973856,
+            "sample_std": 0.5849184550732941
+          }
+        }
+      },
+      {
+        "all_valid": true,
+        "mean_truncated_candidates": 13716.6,
+        "offered_load": 0.8,
+        "policy": "maskable-ppo",
+        "replicate_count": 5,
+        "runtime_cv": 0.2,
+        "size": "medium",
+        "statistics": {
+          "average_utilization": {
+            "ci95_half_width": 0.19977343582116003,
+            "mean": 0.7562958301256387,
+            "sample_std": 0.2279117258136762
+          },
+          "mean_jct": {
+            "ci95_half_width": 17.71375164167259,
+            "mean": 895.0701684295989,
+            "sample_std": 20.208751432310414
+          },
+          "mean_task_queue_wait": {
+            "ci95_half_width": 2.8544127099744263,
+            "mean": 148.8418362776034,
+            "sample_std": 3.256459620072556
+          },
+          "p95_jct": {
+            "ci95_half_width": 55.815822468831584,
+            "mean": 2136.3886693443746,
+            "sample_std": 63.67753737773855
+          },
+          "scheduler_wall_seconds": {
+            "ci95_half_width": 0.1506347418987784,
+            "mean": 7.44245943997812,
+            "sample_std": 0.17185179727490016
+          }
+        }
+      },
+      {
+        "all_valid": true,
+        "mean_truncated_candidates": 0.0,
+        "offered_load": 0.8,
+        "policy": "online-greedy-eft",
+        "replicate_count": 5,
+        "runtime_cv": 0.2,
+        "size": "medium",
+        "statistics": {
+          "average_utilization": {
+            "ci95_half_width": 0.19977343582116003,
+            "mean": 0.7562958301256387,
+            "sample_std": 0.2279117258136762
+          },
+          "mean_jct": {
+            "ci95_half_width": 17.71375164167259,
+            "mean": 895.0701684295989,
+            "sample_std": 20.208751432310414
+          },
+          "mean_task_queue_wait": {
+            "ci95_half_width": 2.8544127099744263,
+            "mean": 148.8418362776034,
+            "sample_std": 3.256459620072556
+          },
+          "p95_jct": {
+            "ci95_half_width": 55.815822468831584,
+            "mean": 2136.3886693443746,
+            "sample_std": 63.67753737773855
+          },
+          "scheduler_wall_seconds": {
+            "ci95_half_width": 0.28709098804576944,
+            "mean": 2.9492315200150188,
+            "sample_std": 0.3275280433662857
+          }
+        }
+      },
+      {
+        "all_valid": true,
+        "mean_truncated_candidates": 0.0,
+        "offered_load": 0.8,
+        "policy": "per-workflow-static-heft",
+        "replicate_count": 5,
+        "runtime_cv": 0.2,
+        "size": "medium",
+        "statistics": {
+          "average_utilization": {
+            "ci95_half_width": 0.19399590383773843,
+            "mean": 0.7493799345067169,
+            "sample_std": 0.22132042262127322
+          },
+          "mean_jct": {
+            "ci95_half_width": 18.336820513645765,
+            "mean": 955.5789995199948,
+            "sample_std": 20.919580183532933
+          },
+          "mean_task_queue_wait": {
+            "ci95_half_width": 10.100942029286296,
+            "mean": 217.11228644073202,
+            "sample_std": 11.523669905239199
+          },
+          "p95_jct": {
+            "ci95_half_width": 36.456901887468774,
+            "mean": 2218.9746747587005,
+            "sample_std": 41.591893300724784
+          },
+          "scheduler_wall_seconds": {
+            "ci95_half_width": 0.43051259259484537,
+            "mean": 4.530152460010868,
+            "sample_std": 0.4911507256182382
+          }
+        }
+      },
+      {
+        "all_valid": true,
+        "mean_truncated_candidates": 23818.4,
+        "offered_load": 0.8,
+        "policy": "random-masked",
+        "replicate_count": 5,
+        "runtime_cv": 0.2,
+        "size": "medium",
+        "statistics": {
+          "average_utilization": {
+            "ci95_half_width": 0.19421191433813254,
+            "mean": 0.7722937616794197,
+            "sample_std": 0.22156685841858698
+          },
+          "mean_jct": {
+            "ci95_half_width": 55.60263376658272,
+            "mean": 1085.115255944833,
+            "sample_std": 63.43432083168579
+          },
+          "mean_task_queue_wait": {
+            "ci95_half_width": 20.001529311030943,
+            "mean": 253.92281829590775,
+            "sample_std": 22.818764894601898
+          },
+          "p95_jct": {
+            "ci95_half_width": 34.7636811927288,
+            "mean": 2320.358973996229,
+            "sample_std": 39.66018076279212
+          },
+          "scheduler_wall_seconds": {
+            "ci95_half_width": 0.0,
+            "mean": 0.0,
+            "sample_std": 0.0
+          }
+        }
+      },
+      {
+        "all_valid": true,
+        "mean_truncated_candidates": 0.0,
+        "offered_load": 0.8,
+        "policy": "rolling-heft",
+        "replicate_count": 5,
+        "runtime_cv": 0.2,
+        "size": "medium",
+        "statistics": {
+          "average_utilization": {
+            "ci95_half_width": 0.1975264870186743,
+            "mean": 0.7827941806166531,
+            "sample_std": 0.22534829200534975
+          },
+          "mean_jct": {
+            "ci95_half_width": 366.3138393868821,
+            "mean": 1714.5185569406726,
+            "sample_std": 417.9095132489838
+          },
+          "mean_task_queue_wait": {
+            "ci95_half_width": 217.6558292695311,
+            "mean": 693.0842468711535,
+            "sample_std": 248.31287242130608
+          },
+          "p95_jct": {
+            "ci95_half_width": 129.7231140068646,
+            "mean": 2475.9908031428517,
+            "sample_std": 147.99474549607365
+          },
+          "scheduler_wall_seconds": {
+            "ci95_half_width": 1.0104995281223703,
+            "mean": 3.4718012400189764,
+            "sample_std": 1.1528294061801432
+          }
+        }
+      },
+      {
+        "all_valid": true,
+        "mean_truncated_candidates": 0.0,
+        "offered_load": 0.8,
+        "policy": "shortest-remaining-work",
+        "replicate_count": 5,
+        "runtime_cv": 0.2,
+        "size": "medium",
+        "statistics": {
+          "average_utilization": {
+            "ci95_half_width": 0.1947466004059862,
+            "mean": 0.7720734221005581,
+            "sample_std": 0.22217685555855782
+          },
+          "mean_jct": {
+            "ci95_half_width": 12.414576421578404,
+            "mean": 952.0948878194865,
+            "sample_std": 14.163182035977245
+          },
+          "mean_task_queue_wait": {
+            "ci95_half_width": 1.1157466474394646,
+            "mean": 215.96556914121462,
+            "sample_std": 1.2729006884398648
+          },
+          "p95_jct": {
+            "ci95_half_width": 45.16855685028368,
+            "mean": 2303.153514488451,
+            "sample_std": 51.530593654488825
+          },
+          "scheduler_wall_seconds": {
+            "ci95_half_width": 0.555206197381598,
+            "mean": 3.589064119957766,
+            "sample_std": 0.6334075504461321
+          }
+        }
+      }
+    ],
+    "all_valid": true,
+    "comparisons": [
+      {
+        "best_heuristic": "online-greedy-eft",
+        "best_heuristic_mean_jct": 895.0701684295989,
+        "learned_improvement_over_best_heuristic": 0.0,
+        "learned_mean_jct": 895.0701684295989,
+        "offered_load": 0.8,
+        "runtime_cv": 0.2,
+        "size": "medium"
+      }
+    ],
+    "rows": [
+      {
+        "is_valid": true,
+        "mean_interarrival_time": 1204.715509259259,
+        "metrics": {
+          "average_utilization": 0.5941722847491275,
+          "candidate_evaluations": 325754,
+          "committed_decisions": 956,
+          "cross_worker_communication_seconds": 42.664565269999926,
+          "cross_worker_data_bytes": 4266456527,
+          "cross_worker_edge_count": 990,
+          "mean_jct": 1067.3047571908646,
+          "mean_response_time": 6.6798097197623365,
+          "mean_task_queue_wait": 254.96667261719278,
+          "p95_jct": 2280.0670398003813,
+          "p95_task_queue_wait": 986.0525386497028,
+          "processor_busy_time": {
+            "Balanced": 2627.722341467895,
+            "Compute-Fast": 2627.5229046330296,
+            "IO-Fast": 2742.3998202596213
+          },
+          "processor_utilization": {
+            "Balanced": 0.5856673212031437,
+            "Compute-Fast": 0.585622870678451,
+            "IO-Fast": 0.611226662365788
+          },
+          "scheduler_wall_seconds": 0.0,
+          "scheduling_rounds": 956,
+          "simulation_horizon": 4486.71497680583,
+          "task_count": 956,
+          "throughput_workflows_per_second": 0.0006686406458864815,
+          "workflow_count": 3
+        },
+        "offered_load": 0.8,
+        "policy": "random-masked",
+        "policy_details": {},
+        "replicate": 0,
+        "runtime_cv": 0.2,
+        "scenario_seed": 10100000,
+        "size": "medium",
+        "truncated_candidates": 12438,
+        "validation_errors": []
+      },
+      {
+        "is_valid": true,
+        "mean_interarrival_time": 1204.715509259259,
+        "metrics": {
+          "average_utilization": 0.5759076478549127,
+          "candidate_evaluations": 70314,
+          "committed_decisions": 956,
+          "cross_worker_communication_seconds": 26.469233930000147,
+          "cross_worker_data_bytes": 2646923393,
+          "cross_worker_edge_count": 835,
+          "mean_jct": 859.7676271963661,
+          "mean_response_time": 2.2360063419781304,
+          "mean_task_queue_wait": 143.15294520510832,
+          "p95_jct": 2041.7870774724988,
+          "p95_task_queue_wait": 985.7997735599115,
+          "processor_busy_time": {
+            "Balanced": 2500.241520656143,
+            "Compute-Fast": 2388.341161498282,
+            "IO-Fast": 2443.5649475223317
+          },
+          "processor_utilization": {
+            "Balanced": 0.5891486175492141,
+            "Compute-Fast": 0.5627807881389524,
+            "IO-Fast": 0.5757935378765715
+          },
+          "scheduler_wall_seconds": 2.4635429000154545,
+          "scheduling_rounds": 989,
+          "simulation_horizon": 4243.821416499017,
+          "task_count": 956,
+          "throughput_workflows_per_second": 0.0007069100477076342,
+          "workflow_count": 3
+        },
+        "offered_load": 0.8,
+        "policy": "online-greedy-eft",
+        "policy_details": {},
+        "replicate": 0,
+        "runtime_cv": 0.2,
+        "scenario_seed": 10100000,
+        "size": "medium",
+        "truncated_candidates": 0,
+        "validation_errors": []
+      },
+      {
+        "is_valid": true,
+        "mean_interarrival_time": 1204.715509259259,
+        "metrics": {
+          "average_utilization": 0.5714481406235797,
+          "candidate_evaluations": 1084,
+          "committed_decisions": 956,
+          "cross_worker_communication_seconds": 39.608702079999986,
+          "cross_worker_data_bytes": 3960870208,
+          "cross_worker_edge_count": 938,
+          "mean_jct": 936.5957855674787,
+          "mean_response_time": 0.0,
+          "mean_task_queue_wait": 204.67550825161177,
+          "p95_jct": 2160.8629930249863,
+          "p95_task_queue_wait": 1073.419821852714,
+          "processor_busy_time": {
+            "Balanced": 2541.83708921011,
+            "Compute-Fast": 2378.4667243282756,
+            "IO-Fast": 2581.430995186767
+          },
+          "processor_utilization": {
+            "Balanced": 0.5808768699905613,
+            "Compute-Fast": 0.543542429241148,
+            "IO-Fast": 0.58992512263903
+          },
+          "scheduler_wall_seconds": 4.10206950007705,
+          "scheduling_rounds": 1197,
+          "simulation_horizon": 4375.862115582968,
+          "task_count": 956,
+          "throughput_workflows_per_second": 0.0006855791889138009,
+          "workflow_count": 3
+        },
+        "offered_load": 0.8,
+        "policy": "per-workflow-static-heft",
+        "policy_details": {},
+        "replicate": 0,
+        "runtime_cv": 0.2,
+        "scenario_seed": 10100000,
+        "size": "medium",
+        "truncated_candidates": 0,
+        "validation_errors": []
+      },
+      {
+        "is_valid": true,
+        "mean_interarrival_time": 1204.715509259259,
+        "metrics": {
+          "average_utilization": 0.6047376097384833,
+          "candidate_evaluations": 117605,
+          "committed_decisions": 956,
+          "cross_worker_communication_seconds": 42.31449427000001,
+          "cross_worker_data_bytes": 4231449427,
+          "cross_worker_edge_count": 946,
+          "mean_jct": 1213.1214156174628,
+          "mean_response_time": 300.6954412593768,
+          "mean_task_queue_wait": 395.7866863926268,
+          "p95_jct": 2264.6526288022383,
+          "p95_task_queue_wait": 1118.3529502381577,
+          "processor_busy_time": {
+            "Balanced": 2668.597804208441,
+            "Compute-Fast": 2668.4736574132157,
+            "IO-Fast": 2668.835472010907
+          },
+          "processor_utilization": {
+            "Balanced": 0.6047290347671349,
+            "Compute-Fast": 0.6047009019508942,
+            "IO-Fast": 0.6047828924974207
+          },
+          "scheduler_wall_seconds": 2.788111400041089,
+          "scheduling_rounds": 967,
+          "simulation_horizon": 4412.881887234085,
+          "task_count": 956,
+          "throughput_workflows_per_second": 0.000679827848707808,
+          "workflow_count": 3
+        },
+        "offered_load": 0.8,
+        "policy": "rolling-heft",
+        "policy_details": {},
+        "replicate": 0,
+        "runtime_cv": 0.2,
+        "scenario_seed": 10100000,
+        "size": "medium",
+        "truncated_candidates": 0,
+        "validation_errors": []
+      },
+      {
+        "is_valid": true,
+        "mean_interarrival_time": 1204.715509259259,
+        "metrics": {
+          "average_utilization": 0.5976569154398386,
+          "candidate_evaluations": 87189,
+          "committed_decisions": 956,
+          "cross_worker_communication_seconds": 42.13770123999988,
+          "cross_worker_data_bytes": 4213770124,
+          "cross_worker_edge_count": 985,
+          "mean_jct": 933.0799904430293,
+          "mean_response_time": 7.371970371130222,
+          "mean_task_queue_wait": 214.95894341499022,
+          "p95_jct": 2230.904609111012,
+          "p95_task_queue_wait": 1127.6542385827684,
+          "processor_busy_time": {
+            "Balanced": 2709.8655178041645,
+            "Compute-Fast": 2644.2232722118642,
+            "IO-Fast": 2632.07114400257
+          },
+          "processor_utilization": {
+            "Balanced": 0.6083912218169132,
+            "Compute-Fast": 0.5936538978662155,
+            "IO-Fast": 0.5909256266363873
+          },
+          "scheduler_wall_seconds": 3.047428999980184,
+          "scheduling_rounds": 971,
+          "simulation_horizon": 4454.14960082981,
+          "task_count": 956,
+          "throughput_workflows_per_second": 0.0006735292410118193,
+          "workflow_count": 3
+        },
+        "offered_load": 0.8,
+        "policy": "aging-rolling-heft",
+        "policy_details": {},
+        "replicate": 0,
+        "runtime_cv": 0.2,
+        "scenario_seed": 10100000,
+        "size": "medium",
+        "truncated_candidates": 0,
+        "validation_errors": []
+      },
+      {
+        "is_valid": true,
+        "mean_interarrival_time": 1204.715509259259,
+        "metrics": {
+          "average_utilization": 0.5976569154398386,
+          "candidate_evaluations": 87189,
+          "committed_decisions": 956,
+          "cross_worker_communication_seconds": 42.13770123999988,
+          "cross_worker_data_bytes": 4213770124,
+          "cross_worker_edge_count": 985,
+          "mean_jct": 933.0799904430293,
+          "mean_response_time": 7.371970371130222,
+          "mean_task_queue_wait": 214.95894341499022,
+          "p95_jct": 2230.904609111012,
+          "p95_task_queue_wait": 1127.6542385827684,
+          "processor_busy_time": {
+            "Balanced": 2709.8655178041645,
+            "Compute-Fast": 2644.2232722118642,
+            "IO-Fast": 2632.07114400257
+          },
+          "processor_utilization": {
+            "Balanced": 0.6083912218169132,
+            "Compute-Fast": 0.5936538978662155,
+            "IO-Fast": 0.5909256266363873
+          },
+          "scheduler_wall_seconds": 3.0522375998843927,
+          "scheduling_rounds": 971,
+          "simulation_horizon": 4454.14960082981,
+          "task_count": 956,
+          "throughput_workflows_per_second": 0.0006735292410118193,
+          "workflow_count": 3
+        },
+        "offered_load": 0.8,
+        "policy": "shortest-remaining-work",
+        "policy_details": {},
+        "replicate": 0,
+        "runtime_cv": 0.2,
+        "scenario_seed": 10100000,
+        "size": "medium",
+        "truncated_candidates": 0,
+        "validation_errors": []
+      },
+      {
+        "is_valid": true,
+        "mean_interarrival_time": 1204.715509259259,
+        "metrics": {
+          "average_utilization": 0.5759076478549127,
+          "candidate_evaluations": 259119,
+          "committed_decisions": 956,
+          "cross_worker_communication_seconds": 26.469233930000147,
+          "cross_worker_data_bytes": 2646923393,
+          "cross_worker_edge_count": 835,
+          "mean_jct": 859.7676271963661,
+          "mean_response_time": 2.2360063419781304,
+          "mean_task_queue_wait": 143.15294520510832,
+          "p95_jct": 2041.7870774724988,
+          "p95_task_queue_wait": 985.7997735599115,
+          "processor_busy_time": {
+            "Balanced": 2500.241520656143,
+            "Compute-Fast": 2388.341161498282,
+            "IO-Fast": 2443.5649475223317
+          },
+          "processor_utilization": {
+            "Balanced": 0.5891486175492141,
+            "Compute-Fast": 0.5627807881389524,
+            "IO-Fast": 0.5757935378765715
+          },
+          "scheduler_wall_seconds": 7.602828899933229,
+          "scheduling_rounds": 956,
+          "simulation_horizon": 4243.821416499017,
+          "task_count": 956,
+          "throughput_workflows_per_second": 0.0007069100477076342,
+          "workflow_count": 3
+        },
+        "offered_load": 0.8,
+        "policy": "maskable-ppo",
+        "policy_details": {
+          "heuristic_action_counts": {
+            "aging-rolling-heft": 0,
+            "online-greedy-eft": 956,
+            "per-workflow-static-heft": 0,
+            "rolling-heft": 0,
+            "shortest-remaining-work": 0
+          }
+        },
+        "replicate": 0,
+        "runtime_cv": 0.2,
+        "scenario_seed": 10100000,
+        "size": "medium",
+        "truncated_candidates": 5794,
+        "validation_errors": []
+      },
+      {
+        "is_valid": true,
+        "mean_interarrival_time": 1204.715509259259,
+        "metrics": {
+          "average_utilization": 0.9617519555366609,
+          "candidate_evaluations": 321442,
+          "committed_decisions": 956,
+          "cross_worker_communication_seconds": 42.63762326999994,
+          "cross_worker_data_bytes": 4263762327,
+          "cross_worker_edge_count": 1004,
+          "mean_jct": 1036.3314697822443,
+          "mean_response_time": 3.175594828029716,
+          "mean_task_queue_wait": 230.68243744132442,
+          "p95_jct": 2317.8831881994315,
+          "p95_task_queue_wait": 1127.0512441692172,
+          "processor_busy_time": {
+            "Balanced": 2803.7583143008874,
+            "Compute-Fast": 2734.8929726022297,
+            "IO-Fast": 2755.6158629726983
+          },
+          "processor_utilization": {
+            "Balanced": 0.9753194560431141,
+            "Compute-Fast": 0.9513638578507979,
+            "IO-Fast": 0.9585725527160706
+          },
+          "scheduler_wall_seconds": 0.0,
+          "scheduling_rounds": 956,
+          "simulation_horizon": 2874.7076631443174,
+          "task_count": 956,
+          "throughput_workflows_per_second": 0.001043584375017333,
+          "workflow_count": 3
+        },
+        "offered_load": 0.8,
+        "policy": "random-masked",
+        "policy_details": {},
+        "replicate": 1,
+        "runtime_cv": 0.2,
+        "scenario_seed": 10100001,
+        "size": "medium",
+        "truncated_candidates": 21860,
+        "validation_errors": []
+      },
+      {
+        "is_valid": true,
+        "mean_interarrival_time": 1204.715509259259,
+        "metrics": {
+          "average_utilization": 0.9532276517974119,
+          "candidate_evaluations": 83662,
+          "committed_decisions": 956,
+          "cross_worker_communication_seconds": 24.252093890000094,
+          "cross_worker_data_bytes": 2425209389,
+          "cross_worker_edge_count": 728,
+          "mean_jct": 901.0805732430631,
+          "mean_response_time": 0.9376541292685943,
+          "mean_task_queue_wait": 150.56713205745544,
+          "p95_jct": 2158.36695261835,
+          "p95_task_queue_wait": 1064.573002887048,
+          "processor_busy_time": {
+            "Balanced": 2528.935548091476,
+            "Compute-Fast": 2552.98855421841,
+            "IO-Fast": 2641.277685547315
+          },
+          "processor_utilization": {
+            "Balanced": 0.936393231824287,
+            "Compute-Fast": 0.9452993789814523,
+            "IO-Fast": 0.9779903445864965
+          },
+          "scheduler_wall_seconds": 2.8996939999815368,
+          "scheduling_rounds": 985,
+          "simulation_horizon": 2700.7195931612923,
+          "task_count": 956,
+          "throughput_workflows_per_second": 0.0011108150611402012,
+          "workflow_count": 3
+        },
+        "offered_load": 0.8,
+        "policy": "online-greedy-eft",
+        "policy_details": {},
+        "replicate": 1,
+        "runtime_cv": 0.2,
+        "scenario_seed": 10100001,
+        "size": "medium",
+        "truncated_candidates": 0,
+        "validation_errors": []
+      },
+      {
+        "is_valid": true,
+        "mean_interarrival_time": 1204.715509259259,
+        "metrics": {
+          "average_utilization": 0.9321824991874673,
+          "candidate_evaluations": 1167,
+          "committed_decisions": 956,
+          "cross_worker_communication_seconds": 39.608702079999986,
+          "cross_worker_data_bytes": 3960870208,
+          "cross_worker_edge_count": 938,
+          "mean_jct": 942.7111480896332,
+          "mean_response_time": 1.1591521194110708,
+          "mean_task_queue_wait": 210.69093024115617,
+          "p95_jct": 2238.0237715474314,
+          "p95_task_queue_wait": 1064.8862594907525,
+          "processor_busy_time": {
+            "Balanced": 2554.7038108429556,
+            "Compute-Fast": 2710.5286835499537,
+            "IO-Fast": 2535.783043602963
+          },
+          "processor_utilization": {
+            "Balanced": 0.9158231405165776,
+            "Compute-Fast": 0.971684028846341,
+            "IO-Fast": 0.9090403281994834
+          },
+          "scheduler_wall_seconds": 4.766645899995638,
+          "scheduling_rounds": 1213,
+          "simulation_horizon": 2789.516553820592,
+          "task_count": 956,
+          "throughput_workflows_per_second": 0.0010754551701409065,
+          "workflow_count": 3
+        },
+        "offered_load": 0.8,
+        "policy": "per-workflow-static-heft",
+        "policy_details": {},
+        "replicate": 1,
+        "runtime_cv": 0.2,
+        "scenario_seed": 10100001,
+        "size": "medium",
+        "truncated_candidates": 0,
+        "validation_errors": []
+      },
+      {
+        "is_valid": true,
+        "mean_interarrival_time": 1204.715509259259,
+        "metrics": {
+          "average_utilization": 0.9755344078107464,
+          "candidate_evaluations": 147570,
+          "committed_decisions": 956,
+          "cross_worker_communication_seconds": 42.997332049999955,
+          "cross_worker_data_bytes": 4299733205,
+          "cross_worker_edge_count": 1022,
+          "mean_jct": 1641.6432408294402,
+          "mean_response_time": 699.7644030943405,
+          "mean_task_queue_wait": 649.159661129745,
+          "p95_jct": 2464.146796190233,
+          "p95_task_queue_wait": 2161.0979075012738,
+          "processor_busy_time": {
+            "Balanced": 2776.398447358969,
+            "Compute-Fast": 2775.5566298997624,
+            "IO-Fast": 2775.488532058641
+          },
+          "processor_utilization": {
+            "Balanced": 0.9757396179160787,
+            "Compute-Fast": 0.9754437689370596,
+            "IO-Fast": 0.9754198365791014
+          },
+          "scheduler_wall_seconds": 2.95697390002897,
+          "scheduling_rounds": 966,
+          "simulation_horizon": 2845.4296580563373,
+          "task_count": 956,
+          "throughput_workflows_per_second": 0.0010543223205346243,
+          "workflow_count": 3
+        },
+        "offered_load": 0.8,
+        "policy": "rolling-heft",
+        "policy_details": {},
+        "replicate": 1,
+        "runtime_cv": 0.2,
+        "scenario_seed": 10100001,
+        "size": "medium",
+        "truncated_candidates": 0,
+        "validation_errors": []
+      },
+      {
+        "is_valid": true,
+        "mean_interarrival_time": 1204.715509259259,
+        "metrics": {
+          "average_utilization": 0.966065037691297,
+          "candidate_evaluations": 96514,
+          "committed_decisions": 956,
+          "cross_worker_communication_seconds": 42.81426342000006,
+          "cross_worker_data_bytes": 4281426342,
+          "cross_worker_edge_count": 970,
+          "mean_jct": 946.9507275098108,
+          "mean_response_time": 3.0719521774368936,
+          "mean_task_queue_wait": 215.31713079541663,
+          "p95_jct": 2279.276639237501,
+          "p95_task_queue_wait": 1172.982494244079,
+          "processor_busy_time": {
+            "Balanced": 2729.7587175537938,
+            "Compute-Fast": 2766.690116573721,
+            "IO-Fast": 2723.839396742222
+          },
+          "processor_utilization": {
+            "Balanced": 0.9624204350129223,
+            "Compute-Fast": 0.9754411950097053,
+            "IO-Fast": 0.9603334830512635
+          },
+          "scheduler_wall_seconds": 3.3763684000296053,
+          "scheduling_rounds": 970,
+          "simulation_horizon": 2836.3474197398373,
+          "task_count": 956,
+          "throughput_workflows_per_second": 0.001057698354976265,
+          "workflow_count": 3
+        },
+        "offered_load": 0.8,
+        "policy": "aging-rolling-heft",
+        "policy_details": {},
+        "replicate": 1,
+        "runtime_cv": 0.2,
+        "scenario_seed": 10100001,
+        "size": "medium",
+        "truncated_candidates": 0,
+        "validation_errors": []
+      },
+      {
+        "is_valid": true,
+        "mean_interarrival_time": 1204.715509259259,
+        "metrics": {
+          "average_utilization": 0.966065037691297,
+          "candidate_evaluations": 96514,
+          "committed_decisions": 956,
+          "cross_worker_communication_seconds": 42.81426342000006,
+          "cross_worker_data_bytes": 4281426342,
+          "cross_worker_edge_count": 970,
+          "mean_jct": 946.9507275098108,
+          "mean_response_time": 3.0719521774368936,
+          "mean_task_queue_wait": 215.31713079541663,
+          "p95_jct": 2279.276639237501,
+          "p95_task_queue_wait": 1172.982494244079,
+          "processor_busy_time": {
+            "Balanced": 2729.7587175537938,
+            "Compute-Fast": 2766.690116573721,
+            "IO-Fast": 2723.839396742222
+          },
+          "processor_utilization": {
+            "Balanced": 0.9624204350129223,
+            "Compute-Fast": 0.9754411950097053,
+            "IO-Fast": 0.9603334830512635
+          },
+          "scheduler_wall_seconds": 3.357412800007296,
+          "scheduling_rounds": 970,
+          "simulation_horizon": 2836.3474197398373,
+          "task_count": 956,
+          "throughput_workflows_per_second": 0.001057698354976265,
+          "workflow_count": 3
+        },
+        "offered_load": 0.8,
+        "policy": "shortest-remaining-work",
+        "policy_details": {},
+        "replicate": 1,
+        "runtime_cv": 0.2,
+        "scenario_seed": 10100001,
+        "size": "medium",
+        "truncated_candidates": 0,
+        "validation_errors": []
+      },
+      {
+        "is_valid": true,
+        "mean_interarrival_time": 1204.715509259259,
+        "metrics": {
+          "average_utilization": 0.9532276517974119,
+          "candidate_evaluations": 273204,
+          "committed_decisions": 956,
+          "cross_worker_communication_seconds": 24.252093890000094,
+          "cross_worker_data_bytes": 2425209389,
+          "cross_worker_edge_count": 728,
+          "mean_jct": 901.0805732430631,
+          "mean_response_time": 0.9376541292685943,
+          "mean_task_queue_wait": 150.56713205745544,
+          "p95_jct": 2158.36695261835,
+          "p95_task_queue_wait": 1064.573002887048,
+          "processor_busy_time": {
+            "Balanced": 2528.935548091476,
+            "Compute-Fast": 2552.98855421841,
+            "IO-Fast": 2641.277685547315
+          },
+          "processor_utilization": {
+            "Balanced": 0.936393231824287,
+            "Compute-Fast": 0.9452993789814523,
+            "IO-Fast": 0.9779903445864965
+          },
+          "scheduler_wall_seconds": 7.2048932000216155,
+          "scheduling_rounds": 956,
+          "simulation_horizon": 2700.7195931612923,
+          "task_count": 956,
+          "throughput_workflows_per_second": 0.0011108150611402012,
+          "workflow_count": 3
+        },
+        "offered_load": 0.8,
+        "policy": "maskable-ppo",
+        "policy_details": {
+          "heuristic_action_counts": {
+            "aging-rolling-heft": 0,
+            "online-greedy-eft": 956,
+            "per-workflow-static-heft": 0,
+            "rolling-heft": 0,
+            "shortest-remaining-work": 0
+          }
+        },
+        "replicate": 1,
+        "runtime_cv": 0.2,
+        "scenario_seed": 10100001,
+        "size": "medium",
+        "truncated_candidates": 15620,
+        "validation_errors": []
+      },
+      {
+        "is_valid": true,
+        "mean_interarrival_time": 1204.715509259259,
+        "metrics": {
+          "average_utilization": 0.49008290588365444,
+          "candidate_evaluations": 321868,
+          "committed_decisions": 956,
+          "cross_worker_communication_seconds": 43.10760642999989,
+          "cross_worker_data_bytes": 4310760643,
+          "cross_worker_edge_count": 1059,
+          "mean_jct": 1039.483343720641,
+          "mean_response_time": 2.370110525206807,
+          "mean_task_queue_wait": 244.2455725855129,
+          "p95_jct": 2329.7239641955885,
+          "p95_task_queue_wait": 1094.2721072480563,
+          "processor_busy_time": {
+            "Balanced": 2765.3051252775685,
+            "Compute-Fast": 2805.570136381701,
+            "IO-Fast": 2765.7807034342195
+          },
+          "processor_utilization": {
+            "Balanced": 0.48768790884216223,
+            "Compute-Fast": 0.49478902722703116,
+            "IO-Fast": 0.48777178158176987
+          },
+          "scheduler_wall_seconds": 0.0,
+          "scheduling_rounds": 956,
+          "simulation_horizon": 5670.235154779172,
+          "task_count": 956,
+          "throughput_workflows_per_second": 0.0005290785863565891,
+          "workflow_count": 3
+        },
+        "offered_load": 0.8,
+        "policy": "random-masked",
+        "policy_details": {},
+        "replicate": 2,
+        "runtime_cv": 0.2,
+        "scenario_seed": 10100002,
+        "size": "medium",
+        "truncated_candidates": 22302,
+        "validation_errors": []
+      },
+      {
+        "is_valid": true,
+        "mean_interarrival_time": 1204.715509259259,
+        "metrics": {
+          "average_utilization": 0.46509027140291115,
+          "candidate_evaluations": 85584,
+          "committed_decisions": 956,
+          "cross_worker_communication_seconds": 25.638077490000075,
+          "cross_worker_data_bytes": 2563807749,
+          "cross_worker_edge_count": 756,
+          "mean_jct": 899.3574228058959,
+          "mean_response_time": 0.2768862278238278,
+          "mean_task_queue_wait": 150.14372652363437,
+          "p95_jct": 2177.0030404826575,
+          "p95_task_queue_wait": 1049.2013954545737,
+          "processor_busy_time": {
+            "Balanced": 2533.9046152313213,
+            "Compute-Fast": 2511.7697151789002,
+            "IO-Fast": 2637.4923751482606
+          },
+          "processor_utilization": {
+            "Balanced": 0.46015963093229306,
+            "Compute-Fast": 0.456139910782758,
+            "IO-Fast": 0.4789712724936824
+          },
+          "scheduler_wall_seconds": 3.0259076000220375,
+          "scheduling_rounds": 986,
+          "simulation_horizon": 5506.577380761492,
+          "task_count": 956,
+          "throughput_workflows_per_second": 0.0005448030223785099,
+          "workflow_count": 3
+        },
+        "offered_load": 0.8,
+        "policy": "online-greedy-eft",
+        "policy_details": {},
+        "replicate": 2,
+        "runtime_cv": 0.2,
+        "scenario_seed": 10100002,
+        "size": "medium",
+        "truncated_candidates": 0,
+        "validation_errors": []
+      },
+      {
+        "is_valid": true,
+        "mean_interarrival_time": 1204.715509259259,
+        "metrics": {
+          "average_utilization": 0.4665942627156031,
+          "candidate_evaluations": 1171,
+          "committed_decisions": 956,
+          "cross_worker_communication_seconds": 39.608702079999986,
+          "cross_worker_data_bytes": 3960870208,
+          "cross_worker_edge_count": 938,
+          "mean_jct": 954.7620277335742,
+          "mean_response_time": 1.1319229553453927,
+          "mean_task_queue_wait": 215.95060947171316,
+          "p95_jct": 2256.6360357138274,
+          "p95_task_queue_wait": 1105.4417121968438,
+          "processor_busy_time": {
+            "Balanced": 2696.2760895355254,
+            "Compute-Fast": 2535.851338578496,
+            "IO-Fast": 2598.1857994143843
+          },
+          "processor_utilization": {
+            "Balanced": 0.48199870842394377,
+            "Compute-Fast": 0.45332044247758013,
+            "IO-Fast": 0.46446363724528544
+          },
+          "scheduler_wall_seconds": 4.947574400026497,
+          "scheduling_rounds": 1268,
+          "simulation_horizon": 5593.948785364806,
+          "task_count": 956,
+          "throughput_workflows_per_second": 0.000536293790863578,
+          "workflow_count": 3
+        },
+        "offered_load": 0.8,
+        "policy": "per-workflow-static-heft",
+        "policy_details": {},
+        "replicate": 2,
+        "runtime_cv": 0.2,
+        "scenario_seed": 10100002,
+        "size": "medium",
+        "truncated_candidates": 0,
+        "validation_errors": []
+      },
+      {
+        "is_valid": true,
+        "mean_interarrival_time": 1204.715509259259,
+        "metrics": {
+          "average_utilization": 0.49332299009568753,
+          "candidate_evaluations": 153414,
+          "committed_decisions": 956,
+          "cross_worker_communication_seconds": 43.71141215999999,
+          "cross_worker_data_bytes": 4371141216,
+          "cross_worker_edge_count": 989,
+          "mean_jct": 1690.3030503739592,
+          "mean_response_time": 737.8137112336677,
+          "mean_task_queue_wait": 678.1987863613854,
+          "p95_jct": 2503.6468342663006,
+          "p95_task_queue_wait": 2285.1194442895744,
+          "processor_busy_time": {
+            "Balanced": 2785.695731427059,
+            "Compute-Fast": 2784.9759483663347,
+            "IO-Fast": 2785.5685866027343
+          },
+          "processor_utilization": {
+            "Balanced": 0.49337298973467925,
+            "Compute-Fast": 0.49324550936536843,
+            "IO-Fast": 0.4933504711870149
+          },
+          "scheduler_wall_seconds": 3.063094599998294,
+          "scheduling_rounds": 967,
+          "simulation_horizon": 5646.226667019449,
+          "task_count": 956,
+          "throughput_workflows_per_second": 0.0005313282970950316,
+          "workflow_count": 3
+        },
+        "offered_load": 0.8,
+        "policy": "rolling-heft",
+        "policy_details": {},
+        "replicate": 2,
+        "runtime_cv": 0.2,
+        "scenario_seed": 10100002,
+        "size": "medium",
+        "truncated_candidates": 0,
+        "validation_errors": []
+      },
+      {
+        "is_valid": true,
+        "mean_interarrival_time": 1204.715509259259,
+        "metrics": {
+          "average_utilization": 0.48571271561832674,
+          "candidate_evaluations": 96602,
+          "committed_decisions": 956,
+          "cross_worker_communication_seconds": 43.68946537999992,
+          "cross_worker_data_bytes": 4368946538,
+          "cross_worker_edge_count": 1002,
+          "mean_jct": 948.0629209634808,
+          "mean_response_time": 1.6476527279185877,
+          "mean_task_queue_wait": 214.89989253200204,
+          "p95_jct": 2301.1730001080796,
+          "p95_task_queue_wait": 1147.232599441496,
+          "processor_busy_time": {
+            "Balanced": 2784.4023185262286,
+            "Compute-Fast": 2729.264836104813,
+            "IO-Fast": 2711.554793406995
+          },
+          "processor_utilization": {
+            "Balanced": 0.49327043818967065,
+            "Compute-Fast": 0.4835025645121762,
+            "IO-Fast": 0.48036514415313325
+          },
+          "scheduler_wall_seconds": 3.406413499975315,
+          "scheduling_rounds": 971,
+          "simulation_horizon": 5644.778407449546,
+          "task_count": 956,
+          "throughput_workflows_per_second": 0.0005314646179982601,
+          "workflow_count": 3
+        },
+        "offered_load": 0.8,
+        "policy": "aging-rolling-heft",
+        "policy_details": {},
+        "replicate": 2,
+        "runtime_cv": 0.2,
+        "scenario_seed": 10100002,
+        "size": "medium",
+        "truncated_candidates": 0,
+        "validation_errors": []
+      },
+      {
+        "is_valid": true,
+        "mean_interarrival_time": 1204.715509259259,
+        "metrics": {
+          "average_utilization": 0.48571271561832674,
+          "candidate_evaluations": 96602,
+          "committed_decisions": 956,
+          "cross_worker_communication_seconds": 43.68946537999992,
+          "cross_worker_data_bytes": 4368946538,
+          "cross_worker_edge_count": 1002,
+          "mean_jct": 948.0629209634808,
+          "mean_response_time": 1.6476527279185877,
+          "mean_task_queue_wait": 214.89989253200204,
+          "p95_jct": 2301.1730001080796,
+          "p95_task_queue_wait": 1147.232599441496,
+          "processor_busy_time": {
+            "Balanced": 2784.4023185262286,
+            "Compute-Fast": 2729.264836104813,
+            "IO-Fast": 2711.554793406995
+          },
+          "processor_utilization": {
+            "Balanced": 0.49327043818967065,
+            "Compute-Fast": 0.4835025645121762,
+            "IO-Fast": 0.48036514415313325
+          },
+          "scheduler_wall_seconds": 3.4283529999775055,
+          "scheduling_rounds": 971,
+          "simulation_horizon": 5644.778407449546,
+          "task_count": 956,
+          "throughput_workflows_per_second": 0.0005314646179982601,
+          "workflow_count": 3
+        },
+        "offered_load": 0.8,
+        "policy": "shortest-remaining-work",
+        "policy_details": {},
+        "replicate": 2,
+        "runtime_cv": 0.2,
+        "scenario_seed": 10100002,
+        "size": "medium",
+        "truncated_candidates": 0,
+        "validation_errors": []
+      },
+      {
+        "is_valid": true,
+        "mean_interarrival_time": 1204.715509259259,
+        "metrics": {
+          "average_utilization": 0.46509027140291115,
+          "candidate_evaluations": 277937,
+          "committed_decisions": 956,
+          "cross_worker_communication_seconds": 25.638077490000075,
+          "cross_worker_data_bytes": 2563807749,
+          "cross_worker_edge_count": 756,
+          "mean_jct": 899.3574228058959,
+          "mean_response_time": 0.2768862278238278,
+          "mean_task_queue_wait": 150.14372652363437,
+          "p95_jct": 2177.0030404826575,
+          "p95_task_queue_wait": 1049.2013954545737,
+          "processor_busy_time": {
+            "Balanced": 2533.9046152313213,
+            "Compute-Fast": 2511.7697151789002,
+            "IO-Fast": 2637.4923751482606
+          },
+          "processor_utilization": {
+            "Balanced": 0.46015963093229306,
+            "Compute-Fast": 0.456139910782758,
+            "IO-Fast": 0.4789712724936824
+          },
+          "scheduler_wall_seconds": 7.421116599907691,
+          "scheduling_rounds": 956,
+          "simulation_horizon": 5506.577380761492,
+          "task_count": 956,
+          "throughput_workflows_per_second": 0.0005448030223785099,
+          "workflow_count": 3
+        },
+        "offered_load": 0.8,
+        "policy": "maskable-ppo",
+        "policy_details": {
+          "heuristic_action_counts": {
+            "aging-rolling-heft": 0,
+            "online-greedy-eft": 956,
+            "per-workflow-static-heft": 0,
+            "rolling-heft": 0,
+            "shortest-remaining-work": 0
+          }
+        },
+        "replicate": 2,
+        "runtime_cv": 0.2,
+        "scenario_seed": 10100002,
+        "size": "medium",
+        "truncated_candidates": 16360,
+        "validation_errors": []
+      },
+      {
+        "is_valid": true,
+        "mean_interarrival_time": 1204.715509259259,
+        "metrics": {
+          "average_utilization": 0.9865231421330907,
+          "candidate_evaluations": 383352,
+          "committed_decisions": 956,
+          "cross_worker_communication_seconds": 41.49194244999987,
+          "cross_worker_data_bytes": 4149194245,
+          "cross_worker_edge_count": 1023,
+          "mean_jct": 1191.3230124325603,
+          "mean_response_time": 3.9073406915345004,
+          "mean_task_queue_wait": 291.53874300448075,
+          "p95_jct": 2292.246412175056,
+          "p95_task_queue_wait": 1161.7016893806986,
+          "processor_busy_time": {
+            "Balanced": 2703.688025385967,
+            "Compute-Fast": 2646.558556396628,
+            "IO-Fast": 2651.505836671532
+          },
+          "processor_utilization": {
+            "Balanced": 1.0,
+            "Compute-Fast": 0.9788697998981655,
+            "IO-Fast": 0.9806996265011064
+          },
+          "scheduler_wall_seconds": 0.0,
+          "scheduling_rounds": 956,
+          "simulation_horizon": 2703.688025385967,
+          "task_count": 956,
+          "throughput_workflows_per_second": 0.0011095954754512525,
+          "workflow_count": 3
+        },
+        "offered_load": 0.8,
+        "policy": "random-masked",
+        "policy_details": {},
+        "replicate": 3,
+        "runtime_cv": 0.2,
+        "scenario_seed": 10100003,
+        "size": "medium",
+        "truncated_candidates": 38793,
+        "validation_errors": []
+      },
+      {
+        "is_valid": true,
+        "mean_interarrival_time": 1204.715509259259,
+        "metrics": {
+          "average_utilization": 0.9770915067925976,
+          "candidate_evaluations": 92216,
+          "committed_decisions": 956,
+          "cross_worker_communication_seconds": 22.875707500000097,
+          "cross_worker_data_bytes": 2287570750,
+          "cross_worker_edge_count": 718,
+          "mean_jct": 904.3963269406968,
+          "mean_response_time": 3.2302752806755564,
+          "mean_task_queue_wait": 149.21333100121421,
+          "p95_jct": 2104.304699941905,
+          "p95_task_queue_wait": 1033.9641840139457,
+          "processor_busy_time": {
+            "Balanced": 2516.7359369982305,
+            "Compute-Fast": 2433.3792063254186,
+            "IO-Fast": 2427.128783318394
+          },
+          "processor_utilization": {
+            "Balanced": 1.0,
+            "Compute-Fast": 0.9668790319050184,
+            "IO-Fast": 0.9643954884727745
+          },
+          "scheduler_wall_seconds": 3.378178500057402,
+          "scheduling_rounds": 963,
+          "simulation_horizon": 2516.7359369982305,
+          "task_count": 956,
+          "throughput_workflows_per_second": 0.0011920201702122829,
+          "workflow_count": 3
+        },
+        "offered_load": 0.8,
+        "policy": "online-greedy-eft",
+        "policy_details": {},
+        "replicate": 3,
+        "runtime_cv": 0.2,
+        "scenario_seed": 10100003,
+        "size": "medium",
+        "truncated_candidates": 0,
+        "validation_errors": []
+      },
+      {
+        "is_valid": true,
+        "mean_interarrival_time": 1204.715509259259,
+        "metrics": {
+          "average_utilization": 0.9666583103083934,
+          "candidate_evaluations": 1446,
+          "committed_decisions": 956,
+          "cross_worker_communication_seconds": 39.608702079999986,
+          "cross_worker_data_bytes": 3960870208,
+          "cross_worker_edge_count": 938,
+          "mean_jct": 990.4912790387715,
+          "mean_response_time": 18.967161039619924,
+          "mean_task_queue_wait": 235.293076049522,
+          "p95_jct": 2190.0075695542782,
+          "p95_task_queue_wait": 1097.3846478847404,
+          "processor_busy_time": {
+            "Balanced": 2517.754920370747,
+            "Compute-Fast": 2473.2927805204677,
+            "IO-Fast": 2572.0140243650912
+          },
+          "processor_utilization": {
+            "Balanced": 0.9654061300208748,
+            "Compute-Fast": 0.9483575991976346,
+            "IO-Fast": 0.9862112017066711
+          },
+          "scheduler_wall_seconds": 4.930067000019335,
+          "scheduling_rounds": 1017,
+          "simulation_horizon": 2607.9748637149282,
+          "task_count": 956,
+          "throughput_workflows_per_second": 0.0011503178353976357,
+          "workflow_count": 3
+        },
+        "offered_load": 0.8,
+        "policy": "per-workflow-static-heft",
+        "policy_details": {},
+        "replicate": 3,
+        "runtime_cv": 0.2,
+        "scenario_seed": 10100003,
+        "size": "medium",
+        "truncated_candidates": 0,
+        "validation_errors": []
+      },
+      {
+        "is_valid": true,
+        "mean_interarrival_time": 1204.715509259259,
+        "metrics": {
+          "average_utilization": 0.9999588967179213,
+          "candidate_evaluations": 279826,
+          "committed_decisions": 956,
+          "cross_worker_communication_seconds": 42.39067879999995,
+          "cross_worker_data_bytes": 4239067880,
+          "cross_worker_edge_count": 1002,
+          "mean_jct": 2375.842107368692,
+          "mean_response_time": 638.0210463244587,
+          "mean_task_queue_wait": 1086.4216202332013,
+          "p95_jct": 2680.8182994559547,
+          "p95_task_queue_wait": 2523.7932895481945,
+          "processor_busy_time": {
+            "Balanced": 2707.4419362164517,
+            "Compute-Fast": 2707.2910200304154,
+            "IO-Fast": 2707.25899815364
+          },
+          "processor_utilization": {
+            "Balanced": 1.0,
+            "Compute-Fast": 0.999944258754355,
+            "IO-Fast": 0.9999324313994089
+          },
+          "scheduler_wall_seconds": 5.525404800057004,
+          "scheduling_rounds": 960,
+          "simulation_horizon": 2707.4419362164517,
+          "task_count": 956,
+          "throughput_workflows_per_second": 0.00110805700387148,
+          "workflow_count": 3
+        },
+        "offered_load": 0.8,
+        "policy": "rolling-heft",
+        "policy_details": {},
+        "replicate": 3,
+        "runtime_cv": 0.2,
+        "scenario_seed": 10100003,
+        "size": "medium",
+        "truncated_candidates": 0,
+        "validation_errors": []
+      },
+      {
+        "is_valid": true,
+        "mean_interarrival_time": 1204.715509259259,
+        "metrics": {
+          "average_utilization": 0.9885031257299562,
+          "candidate_evaluations": 98109,
+          "committed_decisions": 956,
+          "cross_worker_communication_seconds": 42.97865671999994,
+          "cross_worker_data_bytes": 4297865672,
+          "cross_worker_edge_count": 1028,
+          "mean_jct": 956.7628229111297,
+          "mean_response_time": 12.841369204058745,
+          "mean_task_queue_wait": 218.40887442787292,
+          "p95_jct": 2321.7413440976534,
+          "p95_task_queue_wait": 1185.7003249112188,
+          "processor_busy_time": {
+            "Balanced": 2769.7847196196913,
+            "Compute-Fast": 2722.3092362289426,
+            "IO-Fast": 2721.7286029807724
+          },
+          "processor_utilization": {
+            "Balanced": 1.0,
+            "Compute-Fast": 0.9828595041865682,
+            "IO-Fast": 0.9826498730033006
+          },
+          "scheduler_wall_seconds": 4.572511700007453,
+          "scheduling_rounds": 963,
+          "simulation_horizon": 2769.7847196196913,
+          "task_count": 956,
+          "throughput_workflows_per_second": 0.0010831166692304949,
+          "workflow_count": 3
+        },
+        "offered_load": 0.8,
+        "policy": "aging-rolling-heft",
+        "policy_details": {},
+        "replicate": 3,
+        "runtime_cv": 0.2,
+        "scenario_seed": 10100003,
+        "size": "medium",
+        "truncated_candidates": 0,
+        "validation_errors": []
+      },
+      {
+        "is_valid": true,
+        "mean_interarrival_time": 1204.715509259259,
+        "metrics": {
+          "average_utilization": 0.9822992350068904,
+          "candidate_evaluations": 97350,
+          "committed_decisions": 956,
+          "cross_worker_communication_seconds": 42.220964199999926,
+          "cross_worker_data_bytes": 4222096420,
+          "cross_worker_edge_count": 1020,
+          "mean_jct": 966.7947612873594,
+          "mean_response_time": 13.453064454500995,
+          "mean_task_queue_wait": 217.65032771130308,
+          "p95_jct": 2354.968349173232,
+          "p95_task_queue_wait": 1179.4942271749082,
+          "processor_busy_time": {
+            "Balanced": 2739.2826394242907,
+            "Compute-Fast": 2725.0342063518547,
+            "IO-Fast": 2806.6789701815005
+          },
+          "processor_utilization": {
+            "Balanced": 0.9759871608141734,
+            "Compute-Fast": 0.9709105442064982,
+            "IO-Fast": 1.0
+          },
+          "scheduler_wall_seconds": 4.68826529996295,
+          "scheduling_rounds": 964,
+          "simulation_horizon": 2806.6789701815005,
+          "task_count": 956,
+          "throughput_workflows_per_second": 0.0010688789248333584,
+          "workflow_count": 3
+        },
+        "offered_load": 0.8,
+        "policy": "shortest-remaining-work",
+        "policy_details": {},
+        "replicate": 3,
+        "runtime_cv": 0.2,
+        "scenario_seed": 10100003,
+        "size": "medium",
+        "truncated_candidates": 0,
+        "validation_errors": []
+      },
+      {
+        "is_valid": true,
+        "mean_interarrival_time": 1204.715509259259,
+        "metrics": {
+          "average_utilization": 0.9770915067925976,
+          "candidate_evaluations": 311434,
+          "committed_decisions": 956,
+          "cross_worker_communication_seconds": 22.875707500000097,
+          "cross_worker_data_bytes": 2287570750,
+          "cross_worker_edge_count": 718,
+          "mean_jct": 904.3963269406968,
+          "mean_response_time": 3.2302752806755564,
+          "mean_task_queue_wait": 149.21333100121421,
+          "p95_jct": 2104.304699941905,
+          "p95_task_queue_wait": 1033.9641840139457,
+          "processor_busy_time": {
+            "Balanced": 2516.7359369982305,
+            "Compute-Fast": 2433.3792063254186,
+            "IO-Fast": 2427.128783318394
+          },
+          "processor_utilization": {
+            "Balanced": 1.0,
+            "Compute-Fast": 0.9668790319050184,
+            "IO-Fast": 0.9643954884727745
+          },
+          "scheduler_wall_seconds": 7.615554800020618,
+          "scheduling_rounds": 956,
+          "simulation_horizon": 2516.7359369982305,
+          "task_count": 956,
+          "throughput_workflows_per_second": 0.0011920201702122829,
+          "workflow_count": 3
+        },
+        "offered_load": 0.8,
+        "policy": "maskable-ppo",
+        "policy_details": {
+          "heuristic_action_counts": {
+            "aging-rolling-heft": 0,
+            "online-greedy-eft": 956,
+            "per-workflow-static-heft": 0,
+            "rolling-heft": 0,
+            "shortest-remaining-work": 0
+          }
+        },
+        "replicate": 3,
+        "runtime_cv": 0.2,
+        "scenario_seed": 10100003,
+        "size": "medium",
+        "truncated_candidates": 14655,
+        "validation_errors": []
+      },
+      {
+        "is_valid": true,
+        "mean_interarrival_time": 1204.715509259259,
+        "metrics": {
+          "average_utilization": 0.8289385200945646,
+          "candidate_evaluations": 322128,
+          "committed_decisions": 956,
+          "cross_worker_communication_seconds": 42.046476629999916,
+          "cross_worker_data_bytes": 4204647663,
+          "cross_worker_edge_count": 999,
+          "mean_jct": 1091.133696597855,
+          "mean_response_time": 1.6869114099355709,
+          "mean_task_queue_wait": 248.18066583102782,
+          "p95_jct": 2381.8742656106874,
+          "p95_task_queue_wait": 1058.3045843193177,
+          "processor_busy_time": {
+            "Balanced": 2787.494108097568,
+            "Compute-Fast": 2757.2295949817994,
+            "IO-Fast": 2863.616377729579
+          },
+          "processor_utilization": {
+            "Balanced": 0.8244176205524313,
+            "Compute-Fast": 0.8154667144975631,
+            "IO-Fast": 0.8469312252336996
+          },
+          "scheduler_wall_seconds": 0.0,
+          "scheduling_rounds": 956,
+          "simulation_horizon": 3381.167552228815,
+          "task_count": 956,
+          "throughput_workflows_per_second": 0.0008872674760002487,
+          "workflow_count": 3
+        },
+        "offered_load": 0.8,
+        "policy": "random-masked",
+        "policy_details": {},
+        "replicate": 4,
+        "runtime_cv": 0.2,
+        "scenario_seed": 10100004,
+        "size": "medium",
+        "truncated_candidates": 23699,
+        "validation_errors": []
+      },
+      {
+        "is_valid": true,
+        "mean_interarrival_time": 1204.715509259259,
+        "metrics": {
+          "average_utilization": 0.8101620727803602,
+          "candidate_evaluations": 84737,
+          "committed_decisions": 956,
+          "cross_worker_communication_seconds": 27.044696840000114,
+          "cross_worker_data_bytes": 2704469684,
+          "cross_worker_edge_count": 796,
+          "mean_jct": 910.7488919619728,
+          "mean_response_time": 1.9694943218501824,
+          "mean_task_queue_wait": 151.1320466006047,
+          "p95_jct": 2200.4815762064627,
+          "p95_task_queue_wait": 1048.2648352985666,
+          "processor_busy_time": {
+            "Balanced": 2554.3858012707797,
+            "Compute-Fast": 2544.92978961434,
+            "IO-Fast": 2668.6874562863745
+          },
+          "processor_utilization": {
+            "Balanced": 0.7992272207688419,
+            "Compute-Fast": 0.7962685831535002,
+            "IO-Fast": 0.8349904144187383
+          },
+          "scheduler_wall_seconds": 2.978834599998663,
+          "scheduling_rounds": 984,
+          "simulation_horizon": 3196.0695718215247,
+          "task_count": 956,
+          "throughput_workflows_per_second": 0.0009386529087006766,
+          "workflow_count": 3
+        },
+        "offered_load": 0.8,
+        "policy": "online-greedy-eft",
+        "policy_details": {},
+        "replicate": 4,
+        "runtime_cv": 0.2,
+        "scenario_seed": 10100004,
+        "size": "medium",
+        "truncated_candidates": 0,
+        "validation_errors": []
+      },
+      {
+        "is_valid": true,
+        "mean_interarrival_time": 1204.715509259259,
+        "metrics": {
+          "average_utilization": 0.8100164596985407,
+          "candidate_evaluations": 1175,
+          "committed_decisions": 956,
+          "cross_worker_communication_seconds": 39.608702079999986,
+          "cross_worker_data_bytes": 3960870208,
+          "cross_worker_edge_count": 938,
+          "mean_jct": 953.3347571705161,
+          "mean_response_time": 1.1165916723774292,
+          "mean_task_queue_wait": 218.95130818965714,
+          "p95_jct": 2249.3430039529803,
+          "p95_task_queue_wait": 1150.0157100608408,
+          "processor_busy_time": {
+            "Balanced": 2590.590967837331,
+            "Compute-Fast": 2665.310361416651,
+            "IO-Fast": 2641.9907244325027
+          },
+          "processor_utilization": {
+            "Balanced": 0.7970815415165626,
+            "Compute-Fast": 0.8200714500566618,
+            "IO-Fast": 0.8128963875223981
+          },
+          "scheduler_wall_seconds": 3.9044054999358195,
+          "scheduling_rounds": 1121,
+          "simulation_horizon": 3250.0952950288597,
+          "task_count": 956,
+          "throughput_workflows_per_second": 0.0009230498578268183,
+          "workflow_count": 3
+        },
+        "offered_load": 0.8,
+        "policy": "per-workflow-static-heft",
+        "policy_details": {},
+        "replicate": 4,
+        "runtime_cv": 0.2,
+        "scenario_seed": 10100004,
+        "size": "medium",
+        "truncated_candidates": 0,
+        "validation_errors": []
+      },
+      {
+        "is_valid": true,
+        "mean_interarrival_time": 1204.715509259259,
+        "metrics": {
+          "average_utilization": 0.8404169987204267,
+          "candidate_evaluations": 151318,
+          "committed_decisions": 956,
+          "cross_worker_communication_seconds": 42.45568481000002,
+          "cross_worker_data_bytes": 4245568481,
+          "cross_worker_edge_count": 960,
+          "mean_jct": 1651.6829705138086,
+          "mean_response_time": 706.4473142768703,
+          "mean_task_queue_wait": 655.8544802388087,
+          "p95_jct": 2466.6894569995325,
+          "p95_task_queue_wait": 2194.5331093017885,
+          "processor_busy_time": {
+            "Balanced": 2751.6007167243733,
+            "Compute-Fast": 2752.166596293019,
+            "IO-Fast": 2757.8927154765897
+          },
+          "processor_utilization": {
+            "Balanced": 0.8397193813534412,
+            "Compute-Fast": 0.8398920735752508,
+            "IO-Fast": 0.8416395412325887
+          },
+          "scheduler_wall_seconds": 3.025421499969525,
+          "scheduling_rounds": 967,
+          "simulation_horizon": 3276.8098222163267,
+          "task_count": 956,
+          "throughput_workflows_per_second": 0.0009155245994626867,
+          "workflow_count": 3
+        },
+        "offered_load": 0.8,
+        "policy": "rolling-heft",
+        "policy_details": {},
+        "replicate": 4,
+        "runtime_cv": 0.2,
+        "scenario_seed": 10100004,
+        "size": "medium",
+        "truncated_candidates": 0,
+        "validation_errors": []
+      },
+      {
+        "is_valid": true,
+        "mean_interarrival_time": 1204.715509259259,
+        "metrics": {
+          "average_utilization": 0.8306532920948418,
+          "candidate_evaluations": 96504,
+          "committed_decisions": 956,
+          "cross_worker_communication_seconds": 42.40584259999986,
+          "cross_worker_data_bytes": 4240584260,
+          "cross_worker_edge_count": 1011,
+          "mean_jct": 961.2072363543633,
+          "mean_response_time": 0.36317534075396907,
+          "mean_task_queue_wait": 216.36998076853084,
+          "p95_jct": 2335.9098789144286,
+          "p95_task_queue_wait": 1187.3141369700616,
+          "processor_busy_time": {
+            "Balanced": 2826.4740066161144,
+            "Compute-Fast": 2760.3549797405653,
+            "IO-Fast": 2752.7621903557174
+          },
+          "processor_utilization": {
+            "Balanced": 0.8445809472671495,
+            "Compute-Fast": 0.8248238682279585,
+            "IO-Fast": 0.8225550607894171
+          },
+          "scheduler_wall_seconds": 3.407290799994371,
+          "scheduling_rounds": 971,
+          "simulation_horizon": 3346.5992996430596,
+          "task_count": 956,
+          "throughput_workflows_per_second": 0.0008964323874447631,
+          "workflow_count": 3
+        },
+        "offered_load": 0.8,
+        "policy": "aging-rolling-heft",
+        "policy_details": {},
+        "replicate": 4,
+        "runtime_cv": 0.2,
+        "scenario_seed": 10100004,
+        "size": "medium",
+        "truncated_candidates": 0,
+        "validation_errors": []
+      },
+      {
+        "is_valid": true,
+        "mean_interarrival_time": 1204.715509259259,
+        "metrics": {
+          "average_utilization": 0.8286332067464378,
+          "candidate_evaluations": 96317,
+          "committed_decisions": 956,
+          "cross_worker_communication_seconds": 42.487913019999915,
+          "cross_worker_data_bytes": 4248791302,
+          "cross_worker_edge_count": 1026,
+          "mean_jct": 965.5860388937525,
+          "mean_response_time": 0.36317534075396907,
+          "mean_task_queue_wait": 217.00155125236103,
+          "p95_jct": 2349.4449748124307,
+          "p95_task_queue_wait": 1189.3847361719393,
+          "processor_busy_time": {
+            "Balanced": 2764.373800204501,
+            "Compute-Fast": 2749.600372584392,
+            "IO-Fast": 2842.721188345549
+          },
+          "processor_utilization": {
+            "Balanced": 0.8223293399072755,
+            "Compute-Fast": 0.8179346292563088,
+            "IO-Fast": 0.8456356510757292
+          },
+          "scheduler_wall_seconds": 3.419051899956685,
+          "scheduling_rounds": 971,
+          "simulation_horizon": 3361.6382950852844,
+          "task_count": 956,
+          "throughput_workflows_per_second": 0.0008924220087526966,
+          "workflow_count": 3
+        },
+        "offered_load": 0.8,
+        "policy": "shortest-remaining-work",
+        "policy_details": {},
+        "replicate": 4,
+        "runtime_cv": 0.2,
+        "scenario_seed": 10100004,
+        "size": "medium",
+        "truncated_candidates": 0,
+        "validation_errors": []
+      },
+      {
+        "is_valid": true,
+        "mean_interarrival_time": 1204.715509259259,
+        "metrics": {
+          "average_utilization": 0.8101620727803602,
+          "candidate_evaluations": 275360,
+          "committed_decisions": 956,
+          "cross_worker_communication_seconds": 27.044696840000114,
+          "cross_worker_data_bytes": 2704469684,
+          "cross_worker_edge_count": 796,
+          "mean_jct": 910.7488919619728,
+          "mean_response_time": 1.9694943218501824,
+          "mean_task_queue_wait": 151.1320466006047,
+          "p95_jct": 2200.4815762064627,
+          "p95_task_queue_wait": 1048.2648352985666,
+          "processor_busy_time": {
+            "Balanced": 2554.3858012707797,
+            "Compute-Fast": 2544.92978961434,
+            "IO-Fast": 2668.6874562863745
+          },
+          "processor_utilization": {
+            "Balanced": 0.7992272207688419,
+            "Compute-Fast": 0.7962685831535002,
+            "IO-Fast": 0.8349904144187383
+          },
+          "scheduler_wall_seconds": 7.367903700007446,
+          "scheduling_rounds": 956,
+          "simulation_horizon": 3196.0695718215247,
+          "task_count": 956,
+          "throughput_workflows_per_second": 0.0009386529087006766,
+          "workflow_count": 3
+        },
+        "offered_load": 0.8,
+        "policy": "maskable-ppo",
+        "policy_details": {
+          "heuristic_action_counts": {
+            "aging-rolling-heft": 0,
+            "online-greedy-eft": 956,
+            "per-workflow-static-heft": 0,
+            "rolling-heft": 0,
+            "shortest-remaining-work": 0
+          }
+        },
+        "replicate": 4,
+        "runtime_cv": 0.2,
+        "scenario_seed": 10100004,
+        "size": "medium",
+        "truncated_candidates": 16154,
+        "validation_errors": []
+      }
+    ]
+  },
+  "model_path": "artifacts\\rl\\final_models\\wfcommons_gnn_hybrid_ppo.zip",
+  "phase": "5D-held-out-evaluation"
+}

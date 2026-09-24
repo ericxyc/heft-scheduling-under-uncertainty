@@ -1,4 +1,4 @@
-"""Typed parsing and semantic validation for the WfFormat 1.5 subset."""
+"""Typed parsing and semantic validation for compatible WfFormat traces."""
 
 from __future__ import annotations
 
@@ -326,7 +326,7 @@ def _validate_semantics(
 
 
 def load_wfcommons_trace(path: str | Path) -> WfTrace:
-    """Load and validate a WfFormat 1.5 workflow execution instance."""
+    """Load and validate a WfFormat 1.5/1.6 workflow execution instance."""
 
     source_path = Path(path)
     try:
@@ -338,9 +338,9 @@ def load_wfcommons_trace(path: str | Path) -> WfTrace:
 
     root = _mapping(raw, "root")
     schema_version = str(root.get("schemaVersion"))
-    if schema_version != "1.5":
+    if schema_version not in {"1.5", "1.6"}:
         raise ValueError(
-            f"unsupported WfFormat schema {schema_version}; expected 1.5"
+            f"unsupported WfFormat schema {schema_version}; expected 1.5 or 1.6"
         )
 
     workflow = _mapping(root.get("workflow"), "workflow")

@@ -32,7 +32,9 @@ heft-benchmark = "heft_reproduction.benchmark_cli:main"
 heft-train-rl = "heft_reproduction.rl.training:main"
 heft-train-wfcommons-rl = "heft_reproduction.rl.wfcommons_training:main"
 heft-train-hybrid-rl = "heft_reproduction.rl.hybrid_training:main"
+heft-train-gnn-rl = "heft_reproduction.rl.graph_training:main"
 heft-evaluate-rl = "heft_reproduction.rl.evaluation:main"
+heft-build-corpus = "heft_reproduction.corpus_cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

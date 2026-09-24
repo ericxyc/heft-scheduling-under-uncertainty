@@ -36,3 +36,16 @@ from executions on Chameleon. They do not contain counterfactual measurements
 for this project's `Compute-Fast`, `Balanced`, and `IO-Fast` workers. Worker
 heterogeneity, network bandwidth, workflow arrivals, and runtime noise remain
 documented simulation assumptions.
+
+## Expanded Research Corpus
+
+Run `heft-build-corpus --limit-per-family 20 --max-tasks-per-instance 300` to
+materialize a bounded official WfCommons corpus under
+`data/raw/wfcommons-expanded/` and write
+`configs/workflow_research_corpus.json`. With the current upstream inventory,
+this yields 46 compatible instances across five families; the exact count is
+reported rather than assumed. The generated corpus is not committed by default
+because it is substantially larger than the six-file smoke corpus. Every entry
+records its upstream raw URL, SHA-256, object counts, and a DAG-instance-level
+`train`, `validation`, or `test` split; rejected upstream instances and reasons
+are retained in the manifest.
